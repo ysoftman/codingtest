@@ -56,6 +56,10 @@ func main() {
 		right--
 		x = right - 1
 		y = bottom - 1
+
+		if m == 1 {
+			left = n
+		}
 		// 왼쪽 방향으로 고고
 		for x >= left {
 			matrix[y][x] = cnt
@@ -65,6 +69,10 @@ func main() {
 		bottom--
 		y = bottom - 1
 		x = left
+
+		if n == 1 {
+			top = m
+		}
 		// 위쪽 방향으로 고고
 		for y >= top {
 			matrix[y][x] = cnt
