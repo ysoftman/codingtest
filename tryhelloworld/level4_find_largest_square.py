@@ -23,6 +23,9 @@ X	X	X	X	X
 '''
 
 
+# 아래 슬라이딩 윈도우를 하나씩 대입하는것 이외도
+# board 전체를 x=0, O=1 로 설정한다음 (x-1,y-1),(x,y-1),(x-1,y) 가 > 0 이면
+# (x,y) = (x-1,y-1) + 1 를 설정하는것으로도 최대 정사각형 크기를 구할 수 있다.
 def findLargestSquare(board):
     height = len(board)
     width = len(board[0])
