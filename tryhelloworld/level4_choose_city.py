@@ -17,32 +17,19 @@
 '''
 
 
-# def chooseCity(n, city):
-#     answer = [0, 0]
-#     city = sorted(city, key=lambda x: abs(x[0] * x[1]))
-#     median = int(n / 2)
-#     return city[median][0]
-
 def chooseCity(n, city):
-    answer = [0, 0]
-    mean = 0
+    city = sorted(city, key=lambda x: x[0])
+    total = 0
     for i in range(n):
-        mean += abs(city[i][0] * city[i][1])
-    answer[1] = 2 ** 32
-    mean /= n
+        total += city[i][1]
 
+    temp = 0
     for i in range(n):
-        temp = abs(mean - abs(city[i][0] * city[i][1]))
-        print i, mean, temp, answer[1]
-        if answer[1] > temp:
-            answer[0] = city[i][0]
-            answer[1] = temp
-        elif answer[1] == temp and answer[0] > i:
-            answer[0] = city[i][0]
-            answer[1] = temp
-
-    return answer[0]
+        temp += city[i][1]
+        if temp > total / 2:
+            return city[i][0]
 
 
 # 아래 코드는 출력을 위한 테스트 코드입니다.
 print(chooseCity(3, [[1, 5], [2, 2], [3, 3]]))
+print(chooseCity(4, [[1, 5], [2, 2], [3, 3], [4, 3]]))
