@@ -23,33 +23,38 @@ N개의 원판은 총 2N -1 번의 과정을 거쳐 이동할 수 있습니다.
 hanoi(그림)
 
 리턴값은 [ [1,2], [1,3], [2,3] ]입니다.
-'''
 
+'''
 
 def hanoi_recursive(n, a, b, c):
     if n == 1:
+        # move a -> c
         print [a, c]
     else:
         hanoi_recursive(n - 1, a, c, b)
+        # move a -> c
         print [a, c]
         hanoi_recursive(n - 1, b, a, c)
-print(hanoi_recursive(3, 1, 2, 3))
+
+# hanoi_recursive(2, 1, 2, 3)
+hanoi_recursive(3, 1, 2, 3)
 
 
 def hanoi(n):
     answer = []
-    # n = (2 ** n) - 1
-    # a, b, c = 1, 2, 3
-    # while n > 0:
-    #     if n % 2 == 0:
-    #         answer.append([a, b])
-    #         a, b = b, a
-    #     else:
-    #         answer.append([a, c])
-    #         a, c = c, a
-    #     n -= 1
+    n = (2 ** n) - 1
+    a, b, c = 1, 2, 3
+    while n > 0:
+        if n % 2 == 1:
+            answer.append([a, b])
+            b, c = c, b
+        else:
+            answer.append([a, b])
+            a, c = c, a
+        n -= 1
     return answer  # 2차원 배열을 반환해 주어야 합니다.
 
 
 # 아래는 테스트로 출력해 보기 위한 코드입니다.
-print(hanoi(2))
+# print(hanoi(2))
+print(hanoi(3))
