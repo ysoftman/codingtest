@@ -30,7 +30,6 @@ strs	t	result
 
 입출력 예 #3
 주어진 단어로는 "banana"를 만들 수 없으므로 -1을 return 합니다.
-
 '''
 
 '''
@@ -45,12 +44,14 @@ BIGNUM = 99999
 
 def matchWord(strs, t, dp, pos):
     size = len(t)
-    if size == 0 or pos >= size:
+    if pos >= size:
         return 0
     if dp[pos] != BIGNUM:
         return dp[pos]
 
     for j in range(pos, pos + 5):
+        if j >= size:
+            break
         if t[pos:j + 1] in strs:
             nextmatch = matchWord(strs, t, dp, j + 1)
             if dp[pos] > nextmatch + 1:
@@ -60,6 +61,7 @@ def matchWord(strs, t, dp, pos):
 
 
 def solution(strs, t):
+    strs = list(set(strs))
     size = len(t)
     dp = [BIGNUM for i in range(size)]
     matchWord(strs, t, dp, 0)
