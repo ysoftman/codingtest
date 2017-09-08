@@ -38,12 +38,19 @@ strs	t	result
 dp[i] = min(curmin , dp[i+1]+1)
 '''
 
-
+'''
+t 길이가 크면 재귀함수 실행시 스택오버플로 발생!!!
+'''
 BIGNUM = 99999
 
+size = 0
+dp = []
+strs = []
+t = ""
 
-def matchWord(strs, t, dp, pos):
-    size = len(t)
+
+def matchWord(pos):
+    global strs, size, dp, t
     if pos >= size:
         return 0
     if dp[pos] != BIGNUM:
@@ -53,24 +60,39 @@ def matchWord(strs, t, dp, pos):
         if j >= size:
             break
         if t[pos:j + 1] in strs:
-            nextmatch = matchWord(strs, t, dp, j + 1)
+            nextmatch = matchWord(j + 1)
             if dp[pos] > nextmatch + 1:
                 dp[pos] = nextmatch + 1
 
     return dp[pos]
 
 
-def solution(strs, t):
-    strs = list(set(strs))
+def solution(strs_arg, t_arg):
+    global strs
+    strs = list(set(strs_arg))
+
+    global t
+    t = t_arg
+
+    global size
     size = len(t)
+
+    global dp
     dp = [BIGNUM for i in range(size)]
-    matchWord(strs, t, dp, 0)
+
+    matchWord(0)
     # print dp
     if dp[0] == BIGNUM:
         return -1
     return dp[0]
 
-print(solution(["bc", "abde", "ab", "a", "de"], "abcde"))  # 3
-print(solution(["ba", "na", "n", "a"], "banana"))  # 3
-print(solution(["app", "ap", "p", "l", "e", "ple", "pp"], "apple"))  # 2
-print(solution(["ba", "an", "nan", "ban", "n"], "banana"))  # -1
+
+test = ""
+for i in range(990):
+    test += "a"
+
+print(solution(["aa", "bb", "a"], test))
+# print(solution(["bc", "abde", "ab", "a", "de"], "abcde"))  # 3
+# print(solution(["ba", "na", "n", "a"], "banana"))  # 3
+# print(solution(["app", "ap", "p", "l", "e", "ple", "pp"], "apple"))  # 2
+# print(solution(["ba", "an", "nan", "ban", "n"], "banana"))  # -1
