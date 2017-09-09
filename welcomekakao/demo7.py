@@ -38,9 +38,6 @@ strs	t	result
 dp[i] = min(curmin , dp[i+1]+1)
 '''
 
-'''
-t 길이가 크면 재귀함수 실행시 스택오버플로 발생!!!
-'''
 BIGNUM = 99999
 
 size = 0
@@ -49,6 +46,8 @@ strs = []
 t = ""
 
 
+# DynamicProgramming - Top-Down 방식, 재귀 함수 호출
+# t 길이가 크면 재귀함수 실행시 스택오버플로 발생!!!
 def matchWord(pos):
     global strs, size, dp, t
     if pos >= size:
@@ -67,19 +66,15 @@ def matchWord(pos):
     return dp[pos]
 
 
-def solution(strs_arg, t_arg):
+def solution2(strs_arg, t_arg):
     global strs
     strs = list(set(strs_arg))
-
     global t
     t = t_arg
-
     global size
     size = len(t)
-
     global dp
     dp = [BIGNUM for i in range(size)]
-
     matchWord(0)
     # print dp
     if dp[0] == BIGNUM:
@@ -87,12 +82,33 @@ def solution(strs_arg, t_arg):
     return dp[0]
 
 
-test = ""
-for i in range(990):
-    test += "a"
+# DynamicProgramming - Bottom-Up 방식, 반복문 사용
+def solution(strs, t):
+    size = len(t)
+    dp = [99999 for i in range(size)]
+    for i in range(size):
+        for j in range(i, i + 5, 1):
+            if j >= size:
+                break
+            if t[i:j + 1] in strs:
+                # print i, t[i:j+1]
+                pre = 0
+                if i != 0:
+                    pre = dp[i - 1]
+                if dp[j] > pre + 1:
+                    dp[j] = pre + 1
+    # print dp
+    if dp[size - 1] >= 99999:
+        return -1
+    return dp[size - 1]
 
+
+test = ""
+for i in range(1000):
+    test += "a"
+# print(solution2(["aa", "bb", "a"], test)) # solution2 사용시 스택오버플로우 발생!
 print(solution(["aa", "bb", "a"], test))
-# print(solution(["bc", "abde", "ab", "a", "de"], "abcde"))  # 3
-# print(solution(["ba", "na", "n", "a"], "banana"))  # 3
-# print(solution(["app", "ap", "p", "l", "e", "ple", "pp"], "apple"))  # 2
-# print(solution(["ba", "an", "nan", "ban", "n"], "banana"))  # -1
+print(solution(["bc", "abde", "ab", "a", "de"], "abcde"))  # 3
+print(solution(["ba", "na", "n", "a"], "banana"))  # 3
+print(solution(["app", "ap", "p", "l", "e", "ple", "pp"], "apple"))  # 2
+print(solution(["ba", "an", "nan", "ban", "n"], "banana"))  # -1
