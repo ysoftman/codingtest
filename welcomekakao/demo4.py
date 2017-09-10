@@ -47,6 +47,8 @@ def solution(n):
     for y in range(len(n)):
         for x in range(len(n[y])):
             if y - 1 < 0 or x - 1 < 0:
+                if n[y][x] > answer:
+                    answer = n[y][x]
                 continue
             if n[y][x] > 0:
                 if n[y - 1][x - 1] > 0 and n[y - 1][x] > 0 and n[y][x - 1] > 0 and n[y][x] > 0:
