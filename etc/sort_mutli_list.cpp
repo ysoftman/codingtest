@@ -13,6 +13,7 @@ using namespace std;
 vector<int> sort_sortedlist(vector<list<int>> &lists)
 {
     vector<int> out;
+
     map<int, int> tempMap;
     for (auto i : lists)
     {
@@ -26,14 +27,28 @@ vector<int> sort_sortedlist(vector<list<int>> &lists)
     {
         for (int j = 0; j < i.second; ++j)
         {
-            cout << i.first << endl;
+            // cout << i.first << endl;
+            out.push_back(i.first);
+        }
+    }
+    // for debugging...
+    vector<int>::iterator outIter;
+    for (outIter = out.begin(); outIter != out.end(); ++outIter)
+    {
+        cout << *outIter;
+        if (outIter != out.end() - 1)
+        {
+            cout << ", ";
+        }
+        else
+        {
+            cout << endl;
         }
     }
     return out;
 }
 int main()
 {
-    cout << "ysoftman" << endl;
     // vector< list<int > > vec;
     list<int> tempList;
     list<int>::iterator iter;
@@ -46,13 +61,6 @@ int main()
     vec.push_back(tempList);
     tempList = {1, 2, 3, 4};
     vec.push_back(tempList);
-    // for (auto i : vec)
-    // {
-    //     for (iter = i.begin(); iter != i.end(); ++iter)
-    //     {
-    //         cout << *iter << endl;
-    //     }
-    // }
     sort_sortedlist(vec);
     return 0;
 }
