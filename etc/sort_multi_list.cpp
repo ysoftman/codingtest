@@ -1,5 +1,5 @@
 // ysoftman
-// g++ -std=c++11 sort_mutli_list.cpp && ./a.out
+// g++ -std=c++11 sort_multi_list.cpp && ./a.out
 //
 // ex) [1, 3, 6, 10, 12], [2, 8, 11], [4, 7, 9], [1, 2, 3, 4]
 // => [1, 1, 2, 2, 3, 3, 4, 4, 5, 6, 7, 8, 9, 10, 11, 12]
