@@ -117,8 +117,7 @@ vector<int> contacts(vector<vector<string>> queries)
     // auto 사용을 위해선 g++ -std=c++11
     vector<int> result;
     vector<string>::iterator iter;
-    // Node root 로 로컬 스택 메모리를 사용하면 안된다.
-    Node *root = new Node();
+    Node root;
     for (auto i : queries)
     {
         for (iter = i.begin(); iter != i.end(); ++iter)
@@ -127,12 +126,12 @@ vector<int> contacts(vector<vector<string>> queries)
             if (*iter == "add")
             {
                 ++iter;
-                add(root, *iter);
+                add(&root, *iter);
             }
             else if (*iter == "find")
             {
                 ++iter;
-                int cnt = find(root, *iter);
+                int cnt = find(&root, *iter);
                 // cout << "cnt: " << cnt << endl;
                 result.push_back(cnt);
             }
