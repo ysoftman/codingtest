@@ -37,29 +37,39 @@ Sample Output
 
 using namespace std;
 
-class Node {
+class Node
+{
 public:
   int data;
   Node *left;
   Node *right;
-  Node(int d) {
+  Node(int d)
+  {
     data = d;
     left = NULL;
     right = NULL;
   }
 };
 
-class Solution {
+class Solution
+{
 public:
-  Node *insert(Node *root, int data) {
-    if (root == NULL) {
+  Node *insert(Node *root, int data)
+  {
+    if (root == NULL)
+    {
       return new Node(data);
-    } else {
+    }
+    else
+    {
       Node *cur;
-      if (data <= root->data) {
+      if (data <= root->data)
+      {
         cur = insert(root->left, data);
         root->left = cur;
-      } else {
+      }
+      else
+      {
         cur = insert(root->right, data);
         root->right = cur;
       }
@@ -70,24 +80,37 @@ public:
 
   /* you only have to complete the function given below.
   Node is defined as
-
-  class Node {
-      public:
-          int data;
-          Node *left;
-          Node *right;
-          Node(int d) {
-              data = d;
-              left = NULL;
-              right = NULL;
-          }
-  };
-
   */
 
-  // inorder traversal : 왼쪽 자식노드 substree -> 부모 -> 오른쪽 자식노드
-  // subtree 순으로
-  void inOrder(Node *root) {
+  // preorder traversal : 부모 -> 왼쪽 자식 -> 오른쪽 자식 우선순위로
+  void preOrder(Node *root)
+  {
+    if (root == NULL)
+      return;
+    cout << root->data << " ";
+    if (root->left != NULL)
+      preOrder(root->left);
+    if (root->right != NULL)
+      preOrder(root->right);
+  }
+
+  // postorder traversal : 왼쪽 자식 -> 오른쪽 자식 ->  우선순위로
+  void postOrder(Node *root)
+  {
+    if (root == NULL)
+      return;
+    if (root->left != NULL)
+      postOrder(root->left);
+    if (root->right != NULL)
+      postOrder(root->right);
+    cout << root->data << " ";
+  }
+
+  // inorder traversal : 왼쪽 자식 -> 부모 -> 오른쪽 자식 우선순위로
+  void inOrder(Node *root)
+  {
+    if (root == NULL)
+      return;
     if (root->left != NULL)
       inOrder(root->left);
     cout << root->data << " ";
@@ -97,7 +120,8 @@ public:
 
 }; // End of Solution
 
-int main() {
+int main()
+{
 
   Solution myTree;
   Node *root = NULL;
@@ -107,11 +131,14 @@ int main() {
 
   std::cin >> t;
 
-  while (t-- > 0) {
+  while (t-- > 0)
+  {
     std::cin >> data;
     root = myTree.insert(root, data);
   }
 
+  // myTree.preOrder(root);
+  // myTree.postOrder(root);
   myTree.inOrder(root);
   return 0;
 }
