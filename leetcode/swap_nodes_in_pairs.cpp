@@ -38,6 +38,16 @@ ListNode *swapPairs(ListNode *head)
     return head;
 }
 
+void printlist(ListNode *node)
+{
+    while (node != NULL)
+    {
+        cout << node->val << " ";
+        node = node->next;
+    }
+    cout << endl;
+}
+
 int main()
 {
     ListNode *node = new ListNode(1);
@@ -48,12 +58,8 @@ int main()
         node->next = nn;
         node = node->next;
     }
-    node = swapPairs(head);
-    while (node != NULL)
-    {
-        cout << node->val << " ";
-        node = node->next;
-    }
-    cout << endl;
+    printlist(head);
+    head = swapPairs(head);
+    printlist(head);
     return 0;
 }
