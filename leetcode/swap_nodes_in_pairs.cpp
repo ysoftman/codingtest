@@ -19,6 +19,7 @@ struct ListNode
     ListNode(int x) : val(x), next(NULL) {}
 };
 
+// 재귀함수로 처리
 ListNode *swapPairs(ListNode *head)
 {
     if (head == NULL)
@@ -36,6 +37,36 @@ ListNode *swapPairs(ListNode *head)
     head = temp;
 
     return head;
+}
+
+// 반복문으로 처리
+ListNode *swapPairs2(ListNode *head)
+{
+    ListNode *temp = NULL;
+    ListNode *pre = NULL;
+    ListNode *newhead = NULL;
+    ListNode *cur = head;
+    while (cur != NULL)
+    {
+        if (cur->next == NULL)
+        {
+            break;
+        }
+        temp = cur->next;
+        cur->next = temp->next;
+        temp->next = cur;
+        if (newhead == NULL)
+        {
+            newhead = temp;
+        }
+        else
+        {
+            pre->next = temp;
+        }
+        pre = cur;
+        cur = cur->next;
+    }
+    return newhead;
 }
 
 void printlist(ListNode *node)
@@ -60,6 +91,7 @@ int main()
     }
     printlist(head);
     head = swapPairs(head);
+    // head = swapPairs2(head);
     printlist(head);
     return 0;
 }
