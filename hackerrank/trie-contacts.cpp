@@ -143,7 +143,7 @@ vector<int> contacts(vector<vector<string>> queries)
 
 int main()
 {
-    // 로컬에서 컴파일에서는 사용하지 않음.
+    // 로컬 컴파일시 사용하지 않음.
     // ofstream fout(getenv("OUTPUT_PATH"));
 
     int queries_rows;
