@@ -15,27 +15,56 @@ change 함수를 통해 경우의 수를 반환해주는 함수를 만들어 보
 
 '''
 dynamic programming 이용
-1 2 3 4 5 
+1 2 3 4 5
 1 1 1 1 1  -> 동전 1 이하로 만들 수 있는 경우의 수
-  1 1 1 2  -> 동전 2 이하로 만들 수 있는 경우의 수
-        1  -> 동전 5 이하로 만들 수 있는 경우의 수
-5 의 경우의 수 = 1 + 2 + 1
+  2 2 3 3  -> 동전 2 이하로 만들 수 있는 경우의 수
+        4  -> 동전 5 이하로 만들 수 있는 경우의 수
+5 의 경우의 수 = 4
+
+
+풀이)
+아래 print 출력을 켰을떄, 1차원 배열 acc[] 를 갱신해나가는 방식
+0 1 2 3 4 5
+------------
+1 1 1 1 1 1
+1 1 2 2 3 3 -> acc[0]:1 += acc[0-(coin[1]:2)], acc[0] = 1+acc[-2]:0 = 1
+            -> acc[1]:1 += acc[1-(coin[1]:2)], acc[1] = 1+acc[-1]:0 = 1
+            -> acc[2]:1 += acc[2-(coin[1]:2)], acc[2] = 1+acc[0]:1 = 2
+            -> acc[3]:1 += acc[3-(coin[1]:2)], acc[3] = 1+acc[1]:1 = 2
+            -> acc[4]:1 += acc[4-(coin[1]:2)], acc[4] = 1+acc[2]:2 = 3
+            -> acc[5]:1 += acc[5-(coin[1]:2)], acc[5] = 1+acc[3]:2 = 3
+1 1 2 2 3 4 -> acc[0]:1 += acc[0-(coin[2]:5)], acc[0] = 1+acc[-5]:0 = 1
+            -> acc[1]:1 += acc[1-(coin[2]:5)], acc[1] = 1+acc[-4]:0 = 1
+            -> acc[2]:2 += acc[2-(coin[2]:5)], acc[2] = 2+acc[-3]:0 = 2
+            -> acc[3]:2 += acc[3-(coin[2]:5)], acc[3] = 2+acc[-2]:0 = 2
+            -> acc[4]:3 += acc[4-(coin[2]:5)], acc[4] = 3+acc[-1]:0 = 3
+            -> acc[5]:3 += acc[5-(coin[2]:5)], acc[5] = 3+acc[0]:1 = 4
 '''
 
 
 def change(total, coin):
     coin.sort()
     acc = {}
+    # for i in range(total + 1):
+    #     print("%2d" % i, end="")
+    # print()
+    # print("------------")
+
+    # 첫번재(가장 작은값)동전으로 만들 수 있는 경우의 수 설정
     for i in range(total + 1):
         acc[i] = 0
         if i % coin[0] == 0:
             acc[i] = 1
+    #     print("%2d" % acc[i], end="")
+    # print()
 
     for i in range(1, len(coin)):
         for j in range(coin[i], total + 1):
-            # print acc
+            # 위 풀이 참고
             acc[j] += acc[j - coin[i]]
-    # print acc
+        #     print("%2d" % acc[j], end="")
+        # print()
+
     return acc[total]
 
 
