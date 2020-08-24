@@ -65,6 +65,32 @@ int *rotateMatrix(int matrix[], int m, int n)
     return newMatrix;
 }
 
+int *rotateMatrix2(int matrix[], int m, int n)
+{
+    /*
+0,0 -> 3,0 -> 3,3 -> 0,3 -> 0,0
+0,1 -> 2,0 -> 3,2 -> 1,3 -> 0,1
+0,2 -> 1,0 -> 3,1 -> 2,3 -> 0,2
+0,3 -> 0,0 -> 3,0 -> 3,3 -> 0,3
+1,0 -> 3,1 -> 2,3 -> 0,2 -> 1,0
+1,1 -> 2,1 -> 2,2 -> 1,3 -> 1,1
+1,2 -> 1,1 -> 2,1 -> 2,2 -> 1,3
+1,3 -> 0,1 -> 2,0 -> 3,2 -> 1,3
+*/
+    for (int x = 0; x < n / 2; x++)
+    {
+        for (int y = x; y < n - x - 1; y++)
+        {
+            int temp = matrix[(x)*m + (y)];
+            matrix[x * m + y] = matrix[y * m + (n - 1 - x)];
+            matrix[y * m + (n - 1 - x)] = matrix[(n - 1 - x) * m + (m - 1 - y)];
+            matrix[(n - 1 - x) * m + (m - 1 - y)] = matrix[(n - 1 - y) * m + (x)];
+            matrix[(n - 1 - y) * m + (x)] = temp;
+        }
+    }
+    return matrix;
+}
+
 int main()
 {
     int m1[][3] = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
@@ -72,11 +98,15 @@ int main()
 
     int *nM1 = rotateMatrix(&m1[0][0], 3, 3);
     printMatrix(nM1, 3, 3);
+    int *nM1_1 = rotateMatrix(&m1[0][0], 3, 3);
+    printMatrix(nM1_1, 3, 3);
 
     int m2[][4] = {{1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 11, 12}, {13, 14, 15, 16}};
     printMatrix(&m2[0][0], 4, 4);
 
     int *nM2 = rotateMatrix(&m2[0][0], 4, 4);
     printMatrix(nM2, 4, 4);
+    int *nM2_1 = rotateMatrix2(&m2[0][0], 4, 4);
+    printMatrix(nM2_1, 4, 4);
     return 0;
 }
