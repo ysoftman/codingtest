@@ -12,3 +12,4 @@
 - geeksforgeeks <https://www.geeksforgeeks.org>
 - leetcode <https://leetcode.com>
 - hackerrank <https://hackerrank.com>
+- educative <https://www.educative.io>
