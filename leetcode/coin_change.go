@@ -60,6 +60,13 @@ Output: 0
 1,1,5
 2,5
 
+
+amount=-1 이하
+==> invaild
+
+amount=0 인경우
+0
+
 amount=1 인경우
 1-1원 => 0원 만드는 최소개수(0) + 1(1원)
 중 최소 => 1
@@ -87,28 +94,27 @@ amount=7 인경우
 7-5원 => 2원 만드는 최소개수(1) + 1(5원)
 중 최소 => 2
 
+
 dp[7] = min(dp[7-1], dp[7-2], dp[7-5]) + 1
+
+bottom-up 방식으로 채워나가자
+0 1 2 3 4 5 6 7 => amount
+0 1 1 2 2 1 2 2 => min
+
 */
 package main
 
 import "fmt"
 
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}
 func coinChange(coins []int, amount int) int {
 	if len(coins) == 0 {
 		return 0
 	}
 	dp := make([]int, amount+1)
-
 	for i := 1; i <= amount; i++ {
 		min := 1<<31 - 1
 		for _, coin := range coins {
-			if i >= coin && min >= dp[i-coin] {
+			if i-coin >= 0 && min >= dp[i-coin] {
 				min = dp[i-coin]
 			}
 		}
