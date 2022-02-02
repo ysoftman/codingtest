@@ -36,7 +36,7 @@ func lengthOfLIS(nums []int) int {
 	for i := 0; i < len(nums); i++ {
 		maxlis := 0
 		for j := 0; j < i; j++ {
-			// j들중 i 보다 작은 경우 중 가증 큰 lis 길이를 찾아
+			// j들중 i 보다 작은 경우 중 가장 큰 lis 길이를 찾아
 			if nums[j] < nums[i] && maxlis < dp[j] {
 				maxlis = dp[j]
 			}
