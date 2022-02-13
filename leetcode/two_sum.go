@@ -22,7 +22,10 @@ Output: [0,1]
 */
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"sort"
+)
 
 func twoSum(nums []int, target int) []int {
 
@@ -35,6 +38,24 @@ func twoSum(nums []int, target int) []int {
 			return result
 		}
 		m[nums[i]] = i
+	}
+	return nil
+}
+
+// 배열 정렬후, 시작,끝 인덱스를 두고 찾을때
+// if sorted array, using two index pointer : log(n)
+func sortedTwoSum(nums []int, target int) []int {
+	sort.Ints(nums)
+	i := 0
+	j := len(nums) - 1
+	for i < j {
+		if nums[i]+nums[j] == target {
+			return []int{i, j}
+		} else if nums[i]+nums[j] < target {
+			i++
+		} else if nums[i]+nums[j] > target {
+			j--
+		}
 	}
 	return nil
 }
