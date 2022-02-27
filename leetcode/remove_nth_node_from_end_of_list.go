@@ -28,7 +28,7 @@ type ListNode struct {
 	Next *ListNode
 }
 
-func removeNthFromEnd(head *ListNode, n int) *ListNode {
+func removeNthFromEnd2(head *ListNode, n int) *ListNode {
 	node := head
 	arr := []*ListNode{}
 	for node != nil {
@@ -53,6 +53,44 @@ func removeNthFromEnd(head *ListNode, n int) *ListNode {
 	}
 	arr[targetIdx-1].Next = arr[targetIdx+1]
 	return head
+}
+
+func removeNthFromEnd(head *ListNode, n int) *ListNode {
+	root := head
+	length := 0
+	// find length of LinkedList
+	for head != nil {
+		length++
+		head = head.Next
+	}
+	head = root
+
+	if length <= 1 {
+		return nil
+	}
+
+	// calculate n, from-end -> from-start
+	n = length - (n - 1)
+
+	cnt := 1
+	var previous *ListNode = nil
+	var next *ListNode = nil
+	for head != nil {
+		if cnt == n-1 {
+			previous = head
+		} else if cnt == n+1 {
+			next = head
+		}
+		head = head.Next
+		cnt++
+	}
+	if previous == nil {
+		root = next
+	} else {
+		previous.Next = next
+	}
+
+	return root
 }
 
 func printNodeList(head *ListNode) {
