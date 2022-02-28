@@ -1,5 +1,6 @@
 /*
 https://leetcode.com/problems/maximum-subarray/
+
 53. Maximum Subarray
 Given an integer array nums, find the contiguous subarray (containing at least one number) which has the largest sum and return its sum.
 
@@ -59,7 +60,7 @@ func maxSubArray2(nums []int) int {
 	return max
 }
 
-func max1(i, j int) int {
+func max(i, j int) int {
 	if i > j {
 		return i
 	}
@@ -73,17 +74,17 @@ func maxSubArray(nums []int) int {
 	}
 	dp := make([]int, len(nums))
 	dp[0] = nums[0]
-	// max := 1<<31*-1
-	max := dp[0]
+	// maxVal := 1<<31*-1
+	maxVal := dp[0]
 	// O(N)
 	for i := 1; i < len(nums); i++ {
-		// 현재까 합과 현재값 중 큰 값을 선택하는 dynamic programming
-		dp[i] = max1(nums[i], dp[i-1]+nums[i])
-		if max < dp[i] {
-			max = dp[i]
+		dp[i] = max(nums[i], dp[i-1]+nums[i])
+		if maxVal < dp[i] {
+			maxVal = dp[i]
 		}
 	}
-	return max
+	// fmt.Println(dp)
+	return maxVal
 }
 
 func main() {
