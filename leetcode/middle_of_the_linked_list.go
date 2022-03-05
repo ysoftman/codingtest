@@ -55,10 +55,15 @@ func makeLinkedList(nums []int) (root *ListNode) {
 	}
 	return root
 }
-func printLinkedList(root *ListNode) {
-	for root != nil {
-		fmt.Printf("%v ", root.Val)
-		root = root.Next
+func printLinkedList(head *ListNode) {
+	fmt.Printf("[")
+	for head != nil {
+		fmt.Print(head.Val)
+		if head.Next != nil {
+			fmt.Printf(",")
+		}
+		head = head.Next
 	}
+	fmt.Printf("]")
 	fmt.Println()
 }

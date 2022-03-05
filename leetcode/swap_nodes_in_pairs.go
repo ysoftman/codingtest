@@ -47,10 +47,13 @@ func swapPairs(head *ListNode) *ListNode {
 
 }
 
-func printNode(node *ListNode) {
-	for node != nil {
-		fmt.Printf("%v ", node.Val)
-		node = node.Next
+func printNodeList(head *ListNode) {
+	for head != nil {
+		fmt.Printf("%v", head.Val)
+		if head.Next != nil {
+			fmt.Print("->")
+		}
+		head = head.Next
 	}
 	fmt.Println()
 }
@@ -64,8 +67,8 @@ func main() {
 	node = node.Next
 	node.Next = &ListNode{Val: 4}
 	node = node.Next
-	printNode(start)
-	printNode(swapPairs(start))
+	printNodeList(start)
+	printNodeList(swapPairs(start))
 
 	node = &ListNode{Val: 1}
 	start = node
@@ -73,6 +76,6 @@ func main() {
 	node = node.Next
 	node.Next = &ListNode{Val: 3}
 	node = node.Next
-	printNode(start)
-	printNode(swapPairs(start))
+	printNodeList(start)
+	printNodeList(swapPairs(start))
 }
