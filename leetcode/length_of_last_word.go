@@ -1,0 +1,51 @@
+/*
+https://leetcode.com/problems/length-of-last-word/
+58. Length of Last Word
+Easy
+Given a string s consisting of some words separated by some number of spaces, return the length of the last word in the string.
+A word is a maximal substring consisting of non-space characters only.
+
+Example 1:
+Input: s = "Hello World"
+Output: 5
+Explanation: The last word is "World" with length 5.
+
+Example 2:
+Input: s = "   fly me   to   the moon  "
+Output: 4
+Explanation: The last word is "moon" with length 4.
+
+Example 3:
+Input: s = "luffy is still joyboy"
+Output: 6
+Explanation: The last word is "joyboy" with length 6.
+*/
+
+package main
+
+import (
+	"fmt"
+	"strings"
+)
+
+func lengthOfLastWord(s string) int {
+	temp := strings.Split(s, " ")
+
+	temp2 := []string{}
+	for _, v := range temp {
+		if len(v) > 0 {
+			temp2 = append(temp2, v)
+		}
+	}
+	fmt.Println("temp2:", temp2)
+	return len(temp2[len(temp2)-1])
+}
+
+func main() {
+	s := "Hello World"
+	fmt.Println(lengthOfLastWord(s))
+	s = "   fly me   to   the moon  "
+	fmt.Println(lengthOfLastWord(s))
+	s = "luffy is still joyboy"
+	fmt.Println(lengthOfLastWord(s))
+}
