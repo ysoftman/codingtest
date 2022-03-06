@@ -1,5 +1,7 @@
-// https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/#
 /*
+https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/
+105. Construct Binary Tree from Preorder and Inorder Traversal
+Medium
 Construct Binary Tree from Preorder and Inorder Traversal
 
 Given preorder and inorder traversal of a tree, construct the binary tree.
@@ -28,8 +30,6 @@ Return the following binary tree:
 
 # 결과
 [3,9,20,null,null,15,7]
-
-
 */
 #include <iostream>
 #include <sstream>
@@ -66,7 +66,7 @@ TreeNode *makeTree(vector<int> preorder, vector<int> inorder, int left, int righ
     }
 
     // preorder 의 원소값을 inorder 에서 찾아 그 index 를 기준으로
-    // 왼쪽부분에서는 left 오른쪽분에서 right 노드를 재귀로 찾아간다.
+    // 왼쪽부분에서는 left 오른쪽부분에서 right 노드를 재귀로 찾아간다.
     struct TreeNode *node = new TreeNode(preorder[preorder_index++]);
     if (left == right)
     {
