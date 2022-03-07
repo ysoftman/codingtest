@@ -25,7 +25,8 @@ import (
 	"sort"
 )
 
-func singleNumber(nums []int) int {
+// using sort
+func singleNumber2(nums []int) int {
 	sort.Ints(nums)
 	for i := 0; i < len(nums)-1; i++ {
 		if nums[i] == nums[i+1] {
@@ -37,23 +38,13 @@ func singleNumber(nums []int) int {
 	return nums[len(nums)-1]
 }
 
-// using temporary space
-// func singleNumber(nums []int) int {
-//     temps := make(map[int]string, 0)
-//     for i := 0; i < len(nums); i++ {
-//         if temps[nums[i]] == "" {
-//             temps[nums[i]] = "a"
-//         } else {
-//             temps[nums[i]] = "b"
-//         }
-//     }
-//     for k, v := range temps {
-//         if v == "a" {
-//             return k
-//         }
-//     }
-//     return 0
-// }
+// using xor
+func singleNumber(nums []int) int {
+	for i := 1; i < len(nums); i++ {
+		nums[i] ^= nums[i-1]
+	}
+	return nums[len(nums)-1]
+}
 
 func main() {
 	fmt.Println(singleNumber([]int{2, 2, 1}))
