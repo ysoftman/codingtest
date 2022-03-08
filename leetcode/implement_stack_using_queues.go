@@ -37,38 +37,103 @@ package main
 
 import "fmt"
 
+/*
 type MyStack struct {
-	data []int
+    data []int
+}
+func Constructor() MyStack {
+    return MyStack {
+        data : make([]int, 0),
+    }
+}
+func (this *MyStack) Push(x int)  {
+    this.data = append(this.data, x)
+}
+func (this *MyStack) Pop() int {
+    ret := this.data[len(this.data)-1]
+
+    // this.data = append(this.data[:len(this.data)-1])
+    this.data = this.data[:len(this.data)-1]
+
+    return ret
+}
+func (this *MyStack) Top() int {
+    if len(this.data) <= 0 {
+        return 0
+    }
+    return this.data[len(this.data)-1]
+}
+func (this *MyStack) Empty() bool {
+    if len(this.data) <= 0 {
+        return true
+    }
+    return false
+}
+*/
+
+/*
+push 1
+queue1:
+queue2:1
+queue1:1
+queue2:
+
+push 2
+queue1:
+queue2:1
+queue1:2,1
+queue2:
+
+push 3
+queue1:
+queue2:2,1
+queue1:3,2,1
+queue2:
+*/
+type MyStack struct {
+	queue1 []int
+	queue2 []int
 }
 
 func Constructor() MyStack {
 	return MyStack{
-		data: make([]int, 0),
+		queue1: make([]int, 0),
+		queue2: make([]int, 0),
 	}
 }
-
 func (this *MyStack) Push(x int) {
-	this.data = append(this.data, x)
+	for len(this.queue1) > 0 {
+		this.queue2 = append(this.queue2, this.Pop())
+	}
+	this.queue1 = append(this.queue1, x)
+	for len(this.queue2) > 0 {
+		this.queue1 = append(this.queue1, this.PopQueue2())
+	}
 }
-
-func (this *MyStack) Pop() int {
-	ret := this.data[len(this.data)-1]
-
-	// this.data = append(this.data[:len(this.data)-1])
-	this.data = this.data[:len(this.data)-1]
-
-	return ret
-}
-
-func (this *MyStack) Top() int {
-	if len(this.data) <= 0 {
+func (this *MyStack) PopQueue2() int {
+	if len(this.queue2) == 0 {
 		return 0
 	}
-	return this.data[len(this.data)-1]
+	ret := this.queue2[0]
+	this.queue2 = this.queue2[1:]
+	return ret
 }
-
+func (this *MyStack) Pop() int {
+	if this.Empty() {
+		return 0
+	}
+	ret := this.queue1[0]
+	this.queue1 = this.queue1[1:]
+	return ret
+}
+func (this *MyStack) Top() int {
+	if len(this.queue1) == 0 {
+		return 0
+	}
+	return this.queue1[0]
+}
 func (this *MyStack) Empty() bool {
-	if len(this.data) <= 0 {
+	if len(this.queue1) <= 0 {
 		return true
 	}
 	return false

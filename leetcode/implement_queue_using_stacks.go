@@ -75,7 +75,7 @@ func (this *MyQueue) Push(x int) {
 	}
 }
 func (this *MyQueue) PopStack2() int {
-	if this.Empty() {
+	if len(this.stack2) == 0 {
 		return 0
 	}
 	pop := this.stack2[len(this.stack2)-1]
@@ -115,11 +115,11 @@ func (this *MyQueue) Empty() bool {
 func main() {
 	myQueue := MyQueue{}
 	myQueue.Push(1) // queue is: [1]
-	fmt.Println("Push(1), stack1=", myQueue.stack1)
+	fmt.Printf("Push(1), myQueue=%v\n", myQueue)
 	myQueue.Push(2) // queue is: [1, 2] (leftmost is front of the queue)
-	fmt.Println("Push(2), stack1=", myQueue.stack1)
-	fmt.Println("Peek(), stack1=", myQueue.Peek()) // return 1
-	myQueue.Pop()                                  // return 1, queue is [2]
-	fmt.Println("Pop(), stack1=", myQueue.stack1)
-	fmt.Println("Empty(), stack1=", myQueue.Empty()) // return false
+	fmt.Printf("Push(2), myQueue=%v\n", myQueue)
+	fmt.Printf("Peek(): %v, myQueue=%v\n", myQueue.Peek(), myQueue) // return 1
+	myQueue.Pop()                                                   // return 1, queue is [2]
+	fmt.Printf("Pop(), myQueue=%v\n", myQueue)
+	fmt.Printf("Empty(): %v, myQueue=%v\n", myQueue.Empty(), myQueue) // return false
 }
