@@ -18,19 +18,20 @@ Example 3:
 Input: root = [2,1], p = 2, q = 1
 Output: 2
 */
+
+// go run ./lowest_common_ancestor_of_a_binary_search_tree.go ./ysoftman_common.go
 package main
 
 import (
 	"fmt"
-	"strconv"
 )
 
 // Definition for a binary tree node.
-type TreeNode struct {
-	Val   int
-	Left  *TreeNode
-	Right *TreeNode
-}
+// type TreeNode struct {
+// 	Val   int
+// 	Left  *TreeNode
+// 	Right *TreeNode
+// }
 
 // LCA : 두 노드(자신 포함)의 첫번째  공통 부모
 func lowestCommonAncestor(root, p, q *TreeNode) *TreeNode {
@@ -52,63 +53,6 @@ func lowestCommonAncestor(root, p, q *TreeNode) *TreeNode {
 	return nil
 }
 
-func makeArrayToBinaryTree(arr []string) *TreeNode {
-	if len(arr) == 0 {
-		return nil
-	}
-	temp, _ := strconv.Atoi(arr[0])
-	root := &TreeNode{
-		Val: temp,
-	}
-	node := root
-
-	queue := make([]*TreeNode, 0)
-	queue = append(queue, node)
-	for i := 1; i < len(arr); i++ {
-		if len(queue) == 0 {
-			continue
-		}
-		front := queue[0]
-		queue = queue[1:]
-
-		if arr[i] != "null" {
-			left, _ := strconv.Atoi(arr[i])
-			front.Left = &TreeNode{
-				Val: left,
-			}
-			queue = append(queue, front.Left)
-		}
-		if i+1 >= len(arr) {
-			continue
-		}
-		i++
-		if arr[i] != "null" {
-			right, _ := strconv.Atoi(arr[i])
-			front.Right = &TreeNode{
-				Val: right,
-			}
-			queue = append(queue, front.Right)
-		}
-	}
-	return root
-}
-func printTreeByBFS(root *TreeNode) {
-	q := []*TreeNode{}
-	q = append(q, root)
-	for len(q) > 0 {
-		top := q[0]
-		q = q[1:]
-		if top == nil {
-			fmt.Printf("nil ")
-			continue
-		}
-		fmt.Printf("%v ", top.Val)
-		q = append(q, top.Left)
-		q = append(q, top.Right)
-	}
-	fmt.Println()
-}
-
 func findNode(root *TreeNode, val int) *TreeNode {
 	if root == nil {
 		return nil
@@ -128,21 +72,21 @@ func findNode(root *TreeNode, val int) *TreeNode {
 
 }
 func main() {
-	root := makeArrayToBinaryTree([]string{"6", "2", "8", "0", "4", "7", "9", "null", "null", "3", "5"})
+	root := makeArrayToBinaryTreeNode([]string{"6", "2", "8", "0", "4", "7", "9", "null", "null", "3", "5"})
 	p := findNode(root, 2)
 	q := findNode(root, 8)
-	printTreeByBFS(root)
+	printTreeNodeByBFS(root)
 	fmt.Println(lowestCommonAncestor(root, p, q).Val)
 
-	root = makeArrayToBinaryTree([]string{"6", "2", "8", "0", "4", "7", "9", "null", "null", "3", "5"})
+	root = makeArrayToBinaryTreeNode([]string{"6", "2", "8", "0", "4", "7", "9", "null", "null", "3", "5"})
 	p = findNode(root, 2)
 	q = findNode(root, 4)
-	printTreeByBFS(root)
+	printTreeNodeByBFS(root)
 	fmt.Println(lowestCommonAncestor(root, p, q).Val)
 
-	root = makeArrayToBinaryTree([]string{"2", "1"})
+	root = makeArrayToBinaryTreeNode([]string{"2", "1"})
 	p = findNode(root, 2)
 	q = findNode(root, 1)
-	printTreeByBFS(root)
+	printTreeNodeByBFS(root)
 	fmt.Println(lowestCommonAncestor(root, p, q).Val)
 }

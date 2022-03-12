@@ -23,19 +23,20 @@ Input: root = [], targetSum = 0
 Output: false
 Explanation: Since the tree is empty, there are no root-to-leaf paths.
 */
+
+// go run ./path_sum.go ./ysoftman_common.go
 package main
 
 import (
 	"fmt"
-	"strconv"
 )
 
 //* Definition for a binary tree node.
-type TreeNode struct {
-	Val   int
-	Left  *TreeNode
-	Right *TreeNode
-}
+// type TreeNode struct {
+// 	Val   int
+// 	Left  *TreeNode
+// 	Right *TreeNode
+// }
 
 // preorder dfs
 func dfsSum(root *TreeNode, parentSum, targetSum int) bool {
@@ -59,76 +60,20 @@ func hasPathSum(root *TreeNode, targetSum int) bool {
 	return dfsSum(root, parentSum, targetSum)
 }
 
-func makeArrayToBinaryTree(arr []string) *TreeNode {
-	if len(arr) == 0 {
-		return nil
-	}
-	temp, _ := strconv.Atoi(arr[0])
-	root := &TreeNode{
-		Val: temp,
-	}
-	node := root
-
-	queue := make([]*TreeNode, 0)
-	queue = append(queue, node)
-	for i := 1; i < len(arr); i++ {
-		if len(queue) == 0 {
-			continue
-		}
-		front := queue[0]
-		queue = queue[1:]
-
-		if arr[i] != "null" {
-			left, _ := strconv.Atoi(arr[i])
-			front.Left = &TreeNode{
-				Val: left,
-			}
-			queue = append(queue, front.Left)
-		}
-		if i+1 >= len(arr) {
-			continue
-		}
-		i++
-		if arr[i] != "null" {
-			right, _ := strconv.Atoi(arr[i])
-			front.Right = &TreeNode{
-				Val: right,
-			}
-			queue = append(queue, front.Right)
-		}
-	}
-	return root
-}
-func printTreeByBFS(root *TreeNode) {
-	q := []*TreeNode{}
-	q = append(q, root)
-	for len(q) > 0 {
-		top := q[0]
-		q = q[1:]
-		if top == nil {
-			fmt.Printf("nil ")
-			continue
-		}
-		fmt.Printf("%v ", top.Val)
-		q = append(q, top.Left)
-		q = append(q, top.Right)
-	}
-	fmt.Println()
-}
 func main() {
-	root := makeArrayToBinaryTree([]string{"5", "4", "8", "11", "null", "13", "4", "7", "2", "null", "null", "null", "1"})
-	printTreeByBFS(root)
+	root := makeArrayToBinaryTreeNode([]string{"5", "4", "8", "11", "null", "13", "4", "7", "2", "null", "null", "null", "1"})
+	printTreeNodeByBFS(root)
 	fmt.Println(hasPathSum(root, 22))
-	root = makeArrayToBinaryTree([]string{"1", "2", "3"})
-	printTreeByBFS(root)
+	root = makeArrayToBinaryTreeNode([]string{"1", "2", "3"})
+	printTreeNodeByBFS(root)
 	fmt.Println(hasPathSum(root, 5))
-	root = makeArrayToBinaryTree([]string{})
-	printTreeByBFS(root)
+	root = makeArrayToBinaryTreeNode([]string{})
+	printTreeNodeByBFS(root)
 	fmt.Println(hasPathSum(root, 0))
-	root = makeArrayToBinaryTree([]string{"1", "2"})
-	printTreeByBFS(root)
+	root = makeArrayToBinaryTreeNode([]string{"1", "2"})
+	printTreeNodeByBFS(root)
 	fmt.Println(hasPathSum(root, 1))
-	root = makeArrayToBinaryTree([]string{"1", "2"})
-	printTreeByBFS(root)
+	root = makeArrayToBinaryTreeNode([]string{"1", "2"})
+	printTreeNodeByBFS(root)
 	fmt.Println(hasPathSum(root, 3))
 }

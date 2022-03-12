@@ -15,7 +15,7 @@ type TreeNode struct {
 	Right *TreeNode
 }
 
-func makeArrayToBinaryTree(arr []string) *TreeNode {
+func makeArrayToBinaryTreeNode(arr []string) *TreeNode {
 	if len(arr) == 0 {
 		return nil
 	}
@@ -55,7 +55,7 @@ func makeArrayToBinaryTree(arr []string) *TreeNode {
 	}
 	return root
 }
-func printTreeByBFS(root *TreeNode) {
+func printTreeNodeByBFS(root *TreeNode) {
 	q := []*TreeNode{}
 	q = append(q, root)
 	for len(q) > 0 {
@@ -70,4 +70,13 @@ func printTreeByBFS(root *TreeNode) {
 		q = append(q, top.Right)
 	}
 	fmt.Println()
+}
+func printTreeNodeByDFS(root *TreeNode) {
+	if root == nil {
+		fmt.Printf("nil ")
+		return
+	}
+	fmt.Printf("%v ", root.Val)
+	printTreeNodeByDFS(root.Left)
+	printTreeNodeByDFS(root.Right)
 }

@@ -12,16 +12,18 @@ Example 2:
 Input: preorder = [-1], inorder = [-1]
 Output: [-1]
 */
+
+//  go run ./construct_binary_tree_from_preorder_and_traversal.go ./ysoftman_common.go
 package main
 
 import "fmt"
 
 // Definition for a binary tree node.
-type TreeNode struct {
-	Val   int
-	Left  *TreeNode
-	Right *TreeNode
-}
+// type TreeNode struct {
+// 	Val   int
+// 	Left  *TreeNode
+// 	Right *TreeNode
+// }
 
 var preorder_index int = 0
 
@@ -59,19 +61,9 @@ func buildTree(preorder []int, inorder []int) *TreeNode {
 	return makeTree(preorder, inorder, 0, len(inorder)-1)
 }
 
-func printTreeByDFS(root *TreeNode) {
-	if root == nil {
-		fmt.Printf("nil ")
-		return
-	}
-	fmt.Printf("%v ", root.Val)
-	printTreeByDFS(root.Left)
-	printTreeByDFS(root.Right)
-}
-
 func main() {
-	printTreeByDFS(buildTree([]int{3, 9, 20, 15, 7}, []int{9, 3, 15, 20, 7}))
+	printTreeNodeByDFS(buildTree([]int{3, 9, 20, 15, 7}, []int{9, 3, 15, 20, 7}))
 	fmt.Println()
-	printTreeByDFS(buildTree([]int{-1}, []int{-1}))
+	printTreeNodeByDFS(buildTree([]int{-1}, []int{-1}))
 	fmt.Println()
 }

@@ -16,16 +16,18 @@ Example 2:
 Input: root1 = [1], root2 = [1,2]
 Output: [2,2]
 */
+
+// go run ./merge_two_binary_trees.go ./ysoftman_common.go
 package main
 
 import "fmt"
 
 // Definition for a binary tree node.
-type TreeNode struct {
-	Val   int
-	Left  *TreeNode
-	Right *TreeNode
-}
+// type TreeNode struct {
+// 	Val   int
+// 	Left  *TreeNode
+// 	Right *TreeNode
+// }
 
 func recursiveMergeTrees(root1 *TreeNode, root2 *TreeNode) *TreeNode {
 	if root1 == nil && root2 == nil {
@@ -55,32 +57,6 @@ func mergeTrees(root1 *TreeNode, root2 *TreeNode) *TreeNode {
 	return recursiveMergeTrees(root1, root2)
 }
 
-func printTreeByDFS(root *TreeNode) {
-	if root == nil {
-		fmt.Printf("nil ")
-		return
-	}
-	fmt.Printf("%v ", root.Val)
-	printTreeByDFS(root.Left)
-	printTreeByDFS(root.Right)
-}
-
-func printTreeByBFS(root *TreeNode) {
-	q := []*TreeNode{}
-	q = append(q, root)
-	for len(q) > 0 {
-		top := q[0]
-		q = q[1:]
-		if top == nil {
-			fmt.Printf("nil ")
-			continue
-		}
-		fmt.Printf("%v ", top.Val)
-		q = append(q, top.Left)
-		q = append(q, top.Right)
-	}
-	fmt.Println()
-}
 func main() {
 	root1 := &TreeNode{
 		Val: 1,
@@ -121,7 +97,7 @@ func main() {
 		},
 	}
 	result := mergeTrees(root1, root2)
-	printTreeByDFS(result)
+	printTreeNodeByDFS(result)
 	fmt.Println()
-	printTreeByBFS(result)
+	printTreeNodeByBFS(result)
 }

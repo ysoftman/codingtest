@@ -44,7 +44,7 @@ func searchBST(root *TreeNode, val int) *TreeNode {
 }
 
 func main() {
-	root := makeArrayToBinaryTree([]string{"4", "2", "7", "1", "3"})
-	printTreeByBFS(searchBST(root, 2))
-	printTreeByBFS(searchBST(root, 5))
+	root := makeArrayToBinaryTreeNode([]string{"4", "2", "7", "1", "3"})
+	printTreeNodeByBFS(searchBST(root, 2))
+	printTreeNodeByBFS(searchBST(root, 5))
 }
