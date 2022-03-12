@@ -19,7 +19,7 @@ Example 3:
 Input: root = [4,2,7,1,3,null,null,null,null,null,null], val = 5
 Output: [4,2,7,1,3,5]
 */
-
+// go run ./insert_into_a_binary_search_tree.go ./ysoftman_common.go
 package main
 
 /**
