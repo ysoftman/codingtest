@@ -39,10 +39,20 @@ func lowestCommonAncestor(root, p, q *TreeNode) *TreeNode {
 		return nil
 	}
 	if root == p || root == q {
+		// if root == p {
+		//     fmt.Println("found p")
+		// }
+		// if root == q {
+		//     fmt.Println("found q")
+		// }
 		return root
 	}
 	left := lowestCommonAncestor(root.Left, p, q)
 	right := lowestCommonAncestor(root.Right, p, q)
+
+	// left, right 둘다 찾으면 현재 root 가 LCA
+	// left, right 둘중 하나만 찾으면 상위 올리고, 마지막까지 둘중 하나만 리턴하면
+	// p 의 자식노드가 q 또는 q 의 자식노드가 p 인 경우다.
 	if left != nil && right != nil {
 		return root
 	} else if left != nil {
