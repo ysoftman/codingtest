@@ -13,16 +13,6 @@ type ListNode struct {
 	Next *ListNode
 }
 
-func printNodeList(head *ListNode) {
-	for head != nil {
-		fmt.Printf("%v", head.Val)
-		if head.Next != nil {
-			fmt.Print("->")
-		}
-		head = head.Next
-	}
-	fmt.Println()
-}
 func printLinkedList(head *ListNode) {
 	fmt.Printf("[")
 	for head != nil {
