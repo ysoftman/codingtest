@@ -27,12 +27,13 @@ package main
 
 import "fmt"
 
-// Definition for singly-linked list.
-type ListNode struct {
-	Val  int
-	Next *ListNode
-}
-
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
 func hasCycle(head *ListNode) bool {
 	for head != nil {
 		if head.Val == 1<<31-1 {
@@ -71,18 +72,7 @@ func makeCycleLinkedList(slice []int, pos int) *ListNode {
 	}
 	return root
 }
-func printLinkedList(head *ListNode) {
-	fmt.Printf("[")
-	for head != nil {
-		fmt.Print(head.Val)
-		if head.Next != nil {
-			fmt.Printf(",")
-		}
-		head = head.Next
-	}
-	fmt.Printf("]")
-	fmt.Println()
-}
+
 func main() {
 	if !hasCycle(makeCycleLinkedList([]int{3, 2, 0, -4}, 1)) {
 		printLinkedList(makeCycleLinkedList([]int{3, 2, 0, -4}, 1))

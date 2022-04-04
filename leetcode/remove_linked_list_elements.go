@@ -18,14 +18,13 @@ Output: []
 */
 package main
 
-import "fmt"
-
-// Definition for singly-linked list.
-type ListNode struct {
-	Val  int
-	Next *ListNode
-}
-
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
 func removeElements(head *ListNode, val int) *ListNode {
 	root := head
 	var pre *ListNode = nil
@@ -43,33 +42,7 @@ func removeElements(head *ListNode, val int) *ListNode {
 	}
 	return root
 }
-func makeLinkedList(slice []int) *ListNode {
-	if len(slice) == 0 {
-		return nil
-	}
-	root := &ListNode{}
-	head := root
-	for i, v := range slice {
-		head.Val = v
-		if i < len(slice)-1 {
-			head.Next = &ListNode{}
-		}
-		head = head.Next
-	}
-	return root
-}
-func printLinkedList(head *ListNode) {
-	fmt.Printf("[")
-	for head != nil {
-		fmt.Print(head.Val)
-		if head.Next != nil {
-			fmt.Printf(",")
-		}
-		head = head.Next
-	}
-	fmt.Printf("]")
-	fmt.Println()
-}
+
 func main() {
 	printLinkedList(removeElements(makeLinkedList([]int{1, 2, 6, 3, 4, 5, 6}), 6))
 	printLinkedList(removeElements(makeLinkedList([]int{}), 1))

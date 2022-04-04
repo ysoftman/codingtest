@@ -17,14 +17,13 @@ Explanation: Since the list has two middle nodes with values 3 and 4, we return 
 */
 package main
 
-import "fmt"
-
-// Definition for singly-linked list.
-type ListNode struct {
-	Val  int
-	Next *ListNode
-}
-
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
 func middleNode(head *ListNode) *ListNode {
 	cnt := 0
 	middleHead := head
@@ -41,29 +40,4 @@ func middleNode(head *ListNode) *ListNode {
 func main() {
 	printLinkedList(middleNode(makeLinkedList([]int{1, 2, 3, 4, 5})))
 	printLinkedList(middleNode(makeLinkedList([]int{1, 2, 3, 4, 5, 6})))
-}
-
-func makeLinkedList(nums []int) (root *ListNode) {
-	head := &ListNode{}
-	root = head
-	for i, v := range nums {
-		head.Val = v
-		if i < len(nums)-1 {
-			head.Next = &ListNode{}
-			head = head.Next
-		}
-	}
-	return root
-}
-func printLinkedList(head *ListNode) {
-	fmt.Printf("[")
-	for head != nil {
-		fmt.Print(head.Val)
-		if head.Next != nil {
-			fmt.Printf(",")
-		}
-		head = head.Next
-	}
-	fmt.Printf("]")
-	fmt.Println()
 }

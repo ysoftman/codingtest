@@ -20,14 +20,13 @@ Output: [1]
 
 package main
 
-import "fmt"
-
-// Definition for singly-linked list.
-type ListNode struct {
-	Val  int
-	Next *ListNode
-}
-
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
 func removeNthFromEnd2(head *ListNode, n int) *ListNode {
 	node := head
 	arr := []*ListNode{}
@@ -93,17 +92,6 @@ func removeNthFromEnd(head *ListNode, n int) *ListNode {
 	return root
 }
 
-func printNodeList(head *ListNode) {
-	for head != nil {
-		fmt.Printf("%v", head.Val)
-		if head.Next != nil {
-			fmt.Print("->")
-		}
-		head = head.Next
-	}
-	fmt.Println()
-}
-
 func array2LinkNode(arr *[]int) *ListNode {
 	node := &ListNode{}
 	head := node
@@ -121,19 +109,19 @@ func array2LinkNode(arr *[]int) *ListNode {
 }
 func main() {
 	head := array2LinkNode(&[]int{1, 2, 3, 4, 5})
-	printNodeList(head)
-	printNodeList(removeNthFromEnd(head, 2))
+	printLinkedList(head)
+	printLinkedList(removeNthFromEnd(head, 2))
 
 	head = array2LinkNode(&[]int{1})
-	printNodeList(head)
-	printNodeList(removeNthFromEnd(head, 1))
+	printLinkedList(head)
+	printLinkedList(removeNthFromEnd(head, 1))
 
 	head = array2LinkNode(&[]int{1, 2})
-	printNodeList(head)
-	printNodeList(removeNthFromEnd(head, 1))
+	printLinkedList(head)
+	printLinkedList(removeNthFromEnd(head, 1))
 
 	head = array2LinkNode(&[]int{1, 2})
-	printNodeList(head)
-	printNodeList(removeNthFromEnd(head, 2))
+	printLinkedList(head)
+	printLinkedList(removeNthFromEnd(head, 2))
 
 }

@@ -22,14 +22,13 @@ Output: [0]
 */
 package main
 
-import "fmt"
-
-// Definition for singly-linked list.
-type ListNode struct {
-	Val  int
-	Next *ListNode
-}
-
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
 func mergeTwoLists(list1 *ListNode, list2 *ListNode) *ListNode {
 	if list1 == nil && list2 == nil {
 		return nil
@@ -60,33 +59,7 @@ func mergeTwoLists(list1 *ListNode, list2 *ListNode) *ListNode {
 	}
 	return head
 }
-func makeLinkedList(nums []int) (root *ListNode) {
-	if len(nums) == 0 {
-		return nil
-	}
-	head := &ListNode{}
-	root = head
-	for i, v := range nums {
-		head.Val = v
-		if i < len(nums)-1 {
-			head.Next = &ListNode{}
-			head = head.Next
-		}
-	}
-	return root
-}
-func printLinkedList(head *ListNode) {
-	fmt.Printf("[")
-	for head != nil {
-		fmt.Print(head.Val)
-		if head.Next != nil {
-			fmt.Printf(",")
-		}
-		head = head.Next
-	}
-	fmt.Printf("]")
-	fmt.Println()
-}
+
 func main() {
 	list1 := makeLinkedList([]int{1, 2, 4})
 	list2 := makeLinkedList([]int{1, 3, 4})

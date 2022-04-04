@@ -20,13 +20,6 @@ Output: [8,9,9,9,0,0,0,1]
 
 package main
 
-import "fmt"
-
-type ListNode struct {
-	Val  int
-	Next *ListNode
-}
-
 /**
  * Definition for singly-linked list.
  * type ListNode struct {
@@ -67,13 +60,6 @@ func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 	return head
 }
 
-func printListNode(node *ListNode) {
-	for node != nil {
-		fmt.Print(node.Val, " ")
-		node = node.Next
-	}
-	fmt.Println()
-}
 func main() {
 	// Input: l1 = [2,4,3], l2 = [5,6,4]
 	l1 := &ListNode{Val: 2}
@@ -84,14 +70,14 @@ func main() {
 	l2.Next.Next = &ListNode{Val: 4}
 	l1Head := l1
 	l2Head := l2
-	// printListNode(l1Head)
-	// printListNode(l2Head)
-	printListNode(addTwoNumbers(l1, l2))
+	// printLinkedList(l1Head)
+	// printLinkedList(l2Head)
+	printLinkedList(addTwoNumbers(l1, l2))
 
 	// Input: l1 = [0], l2 = [0]
 	l1 = &ListNode{Val: 0}
 	l2 = &ListNode{Val: 0}
-	printListNode(addTwoNumbers(l1, l2))
+	printLinkedList(addTwoNumbers(l1, l2))
 
 	// Input: l1 = [9,9,9,9,9,9,9], l2 = [9,9,9,9]
 	l1 = &ListNode{Val: 9}
@@ -112,8 +98,8 @@ func main() {
 		l2.Next = newNode
 		l2 = l2.Next
 	}
-	// printListNode(l1Head)
-	// printListNode(l2Head)
+	// printLinkedList(l1Head)
+	// printLinkedList(l2Head)
 
-	printListNode(addTwoNumbers(l1Head, l2Head))
+	printLinkedList(addTwoNumbers(l1Head, l2Head))
 }

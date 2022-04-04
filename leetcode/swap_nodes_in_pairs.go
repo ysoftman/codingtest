@@ -10,14 +10,13 @@ Given 1->2->3->4, you should return the list as 2->1->4->3.
 */
 package main
 
-import "fmt"
-
-//  Definition for singly-linked list.
-type ListNode struct {
-	Val  int
-	Next *ListNode
-}
-
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
 func swapPairs(head *ListNode) *ListNode {
 	if head == nil || head.Next == nil {
 		return head
@@ -47,17 +46,6 @@ func swapPairs(head *ListNode) *ListNode {
 
 }
 
-func printNodeList(head *ListNode) {
-	for head != nil {
-		fmt.Printf("%v", head.Val)
-		if head.Next != nil {
-			fmt.Print("->")
-		}
-		head = head.Next
-	}
-	fmt.Println()
-}
-
 func main() {
 	node := &ListNode{Val: 1}
 	start := node
@@ -67,8 +55,8 @@ func main() {
 	node = node.Next
 	node.Next = &ListNode{Val: 4}
 	node = node.Next
-	printNodeList(start)
-	printNodeList(swapPairs(start))
+	printLinkedList(start)
+	printLinkedList(swapPairs(start))
 
 	node = &ListNode{Val: 1}
 	start = node
@@ -76,6 +64,6 @@ func main() {
 	node = node.Next
 	node.Next = &ListNode{Val: 3}
 	node = node.Next
-	printNodeList(start)
-	printNodeList(swapPairs(start))
+	printLinkedList(start)
+	printLinkedList(swapPairs(start))
 }

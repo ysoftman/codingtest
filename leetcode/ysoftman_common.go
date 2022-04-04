@@ -8,6 +8,50 @@ import (
 	"strconv"
 )
 
+type ListNode struct {
+	Val  int
+	Next *ListNode
+}
+
+func printNodeList(head *ListNode) {
+	for head != nil {
+		fmt.Printf("%v", head.Val)
+		if head.Next != nil {
+			fmt.Print("->")
+		}
+		head = head.Next
+	}
+	fmt.Println()
+}
+func printLinkedList(head *ListNode) {
+	fmt.Printf("[")
+	for head != nil {
+		fmt.Print(head.Val)
+		if head.Next != nil {
+			fmt.Printf(",")
+		}
+		head = head.Next
+	}
+	fmt.Printf("]")
+	fmt.Println()
+}
+
+func makeLinkedList(nums []int) (root *ListNode) {
+	if len(nums) == 0 {
+		return nil
+	}
+	head := &ListNode{}
+	root = head
+	for i, v := range nums {
+		head.Val = v
+		if i < len(nums)-1 {
+			head.Next = &ListNode{}
+			head = head.Next
+		}
+	}
+	return root
+}
+
 // Definition for a binary tree node.
 type TreeNode struct {
 	Val   int
