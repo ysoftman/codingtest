@@ -8,6 +8,20 @@ import (
 	"strconv"
 )
 
+func printMatrix(matrix [][]int) {
+	m := len(matrix)
+	n := len(matrix[0])
+	for i := 0; i < m; i++ {
+		for j := 0; j < n; j++ {
+			fmt.Printf("%2v", matrix[i][j])
+			if j != n-1 {
+				fmt.Printf(",")
+			}
+		}
+		fmt.Println()
+	}
+}
+
 type ListNode struct {
 	Val  int
 	Next *ListNode
