@@ -22,14 +22,15 @@ package main
 
 import "fmt"
 
-//Definition for a binary tree node.
-type TreeNode struct {
-	Val   int
-	Left  *TreeNode
-	Right *TreeNode
-}
-
-func isSameTree(p *TreeNode, q *TreeNode) bool {
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func isSameTree2(p *TreeNode, q *TreeNode) bool {
 	pNodes := []TreeNode{}
 	qNodes := []TreeNode{}
 	if p != nil {
@@ -82,102 +83,41 @@ func isSameTree(p *TreeNode, q *TreeNode) bool {
 		}
 
 	}
-
 	return true
-
 }
+
+func isSameTree(p *TreeNode, q *TreeNode) bool {
+	if p == nil && q == nil {
+		return true
+	}
+	if p == nil && q != nil {
+		return false
+	}
+	if p != nil && q == nil {
+		return false
+	}
+	if p.Val != q.Val {
+		return false
+	}
+	if isSameTree(p.Left, q.Left) == false {
+		return false
+	}
+	if isSameTree(p.Right, q.Right) == false {
+		return false
+	}
+	return true
+}
+
 func main() {
-	left := &TreeNode{
-		Val: 1,
-		Left: &TreeNode{
-			Val:  2,
-			Left: nil,
-			Right: &TreeNode{
-				Val:   5,
-				Left:  nil,
-				Right: nil,
-			},
-		},
-		Right: &TreeNode{
-			Val:   3,
-			Left:  nil,
-			Right: nil,
-		},
-	}
-	right := &TreeNode{
-		Val: 1,
-		Left: &TreeNode{
-			Val:  2,
-			Left: nil,
-			Right: &TreeNode{
-				Val:   5,
-				Left:  nil,
-				Right: nil,
-			},
-		},
-		Right: &TreeNode{
-			Val:   3,
-			Left:  nil,
-			Right: nil,
-		},
-	}
+	left := makeArrayToBinaryTreeNode([]string{"1", "2", "3"})
+	right := makeArrayToBinaryTreeNode([]string{"1", "2", "3"})
 	fmt.Println(isSameTree(left, right))
 
-	left = &TreeNode{
-		Val: 1,
-		Left: &TreeNode{
-			Val:  2,
-			Left: nil,
-			Right: &TreeNode{
-				Val:   5,
-				Left:  nil,
-				Right: nil,
-			},
-		},
-	}
-	right = &TreeNode{
-		Val: 1,
-		Right: &TreeNode{
-			Val:   2,
-			Left:  nil,
-			Right: nil,
-		},
-	}
+	left = makeArrayToBinaryTreeNode([]string{"1", "2"})
+	right = makeArrayToBinaryTreeNode([]string{"1", "null", "2"})
 	fmt.Println(isSameTree(left, right))
 
-	left = &TreeNode{
-		Val: 1,
-		Left: &TreeNode{
-			Val:  2,
-			Left: nil,
-			Right: &TreeNode{
-				Val:   5,
-				Left:  nil,
-				Right: nil,
-			},
-		},
-		Right: &TreeNode{
-			Val:   1,
-			Left:  nil,
-			Right: nil,
-		},
-	}
-	right = &TreeNode{
-		Val: 1,
-		Left: &TreeNode{
-			Val:  1,
-			Left: nil,
-			Right: &TreeNode{
-				Val:   5,
-				Left:  nil,
-				Right: nil,
-			},
-		},
-		Right: &TreeNode{
-			Val:   2,
-			Left:  nil,
-			Right: nil,
-		},
-	}
+	left = makeArrayToBinaryTreeNode([]string{"1", "2", "1"})
+	right = makeArrayToBinaryTreeNode([]string{"1", "1", "2"})
 	fmt.Println(isSameTree(left, right))
 }
