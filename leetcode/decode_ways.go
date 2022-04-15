@@ -40,6 +40,18 @@ package main
 
 import "fmt"
 
+/*
+dp[0] = 1
+1 -> 1      dp[1] = dp[1-1]
+11 -> 2     dp[2] = dp[2-1] + dp[2-2]
+111 -> 3    dp[3] = dp[3-1] + dp[3-2]
+1111 -> 5   dp[4] = dp[4-1] + dp[4-2]
+
+
+if i-1 == 0, skip adding dp[i-1]
+if (i-2 i-2) 10~26, adding dp[i-2]
+110 -> 1    dp[3] = dp[3-2]
+*/
 func numDecodings(s string) int {
 	dp := make([]int, len(s)+1)
 	if s[0] != '0' {
