@@ -1,10 +1,9 @@
 /*
 https://leetcode.com/problems/maximum-depth-of-binary-tree/
-04. Maximum Depth of Binary Tree
-Share
+104. Maximum Depth of Binary Tree
+Easye
 Given the root of a binary tree, return its maximum depth.
 A binary tree's maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.
-
 
 Example 1:
 Input: root = [3,9,20,null,null,15,7]
@@ -14,29 +13,44 @@ Example 2:
 Input: root = [1,null,2]
 Output: 2
 
+Constraints:
+The number of nodes in the tree is in the range [0, 104].
+-100 <= Node.val <= 100
 */
 package main
 
 import "fmt"
 
-// Definition for a binary tree node.
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
 type TreeNode struct {
 	Val   int
 	Left  *TreeNode
 	Right *TreeNode
 }
 
-// recursive approach
-func maxDepth2(root *TreeNode) int {
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+
+// dfs(recursive approach)
+func dfs(root *TreeNode, depth int) int {
 	if root == nil {
-		return 0
+		return depth - 1
 	}
-	leftDepth := maxDepth(root.Left)
-	rightDepth := maxDepth(root.Right)
-	if leftDepth > rightDepth {
-		return leftDepth + 1
-	}
-	return rightDepth + 1
+	return max(dfs(root.Left, depth+1), dfs(root.Right, depth+1))
+}
+func maxDepth2(root *TreeNode) int {
+	return dfs(root, 1)
 }
 
 // using BFS approach
