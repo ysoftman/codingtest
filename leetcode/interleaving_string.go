@@ -33,7 +33,7 @@ package main
 
 import "fmt"
 
-// time limit exceeded!
+// brute force, O(2^m+n), time limit exceeded!
 func recursiveIsInterleave(s1, s2, s3 string, s1i, s2i, s3i int) bool {
 	if s3i == len(s3) {
 		if s1i == len(s1) && s2i == len(s2) {
