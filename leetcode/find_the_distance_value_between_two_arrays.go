@@ -40,7 +40,10 @@ Constraints:
 */
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"sort"
+)
 
 func abs(a int) int {
 	if a < 0 {
@@ -49,7 +52,7 @@ func abs(a int) int {
 	return a
 }
 
-func findTheDistanceValue(arr1 []int, arr2 []int, d int) int {
+func findTheDistanceValue2(arr1 []int, arr2 []int, d int) int {
 	cnt := 0
 	for i := 0; i < len(arr1); i++ {
 		skip := false
@@ -66,8 +69,43 @@ func findTheDistanceValue(arr1 []int, arr2 []int, d int) int {
 	return cnt
 }
 
+// time complexity O(nLogn)+O(LogN) = O(nLogn)
+func findTheDistanceValue(arr1 []int, arr2 []int, d int) int {
+	cnt := 0
+	// sort.Ints(arr1)  // O(nLogn)
+	sort.Ints(arr2) // O(nLogn)
+	// fmt.Println("arr1:",arr1)
+	// fmt.Println("arr2:",arr2)
+
+	for i := 0; i < len(arr1); i++ {
+		left, right := 0, len(arr2)-1
+		skip := false
+		// binary search O(LogN)
+		for left <= right {
+			mid := (right-left)/2 + left
+			// fmt.Println("arr1[i]:", arr1[i], "arr2[mid]", arr2[mid])
+			if abs(arr1[i]-arr2[mid]) <= d {
+				// fmt.Println("--", arr1[i])
+				skip = true
+				break
+			}
+			// 값이 음수가 있어 abs 결과대시 비교대상 값들 크기를 비교한다.
+			if arr1[i] < arr2[mid] {
+				right = mid - 1
+			} else {
+				left = mid + 1
+			}
+		}
+		if skip == false {
+			cnt++
+		}
+	}
+	return cnt
+}
+
 func main() {
 	fmt.Println(findTheDistanceValue([]int{4, 5, 8}, []int{10, 9, 1, 8}, 2))
 	fmt.Println(findTheDistanceValue([]int{1, 4, 2, 3}, []int{-4, -3, 6, 10, 20, 30}, 3))
 	fmt.Println(findTheDistanceValue([]int{2, 1, 100, 3}, []int{-5, -2, 10, -3, 7}, 6))
+	fmt.Println(findTheDistanceValue([]int{-3, 10, 2, 8, 0, 10}, []int{-9, -1, -4, -9, -8}, 9))
 }
