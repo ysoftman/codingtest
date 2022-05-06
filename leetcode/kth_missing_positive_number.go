@@ -50,19 +50,22 @@ func findKthPositive(arr []int, k int) int {
 	left, right := 0, len(arr)
 	for left < right {
 		mid := (right-left)/2 + left
-		// 원래 빠진게 없다면 mid(빠진 숫자 없을때 값)와 실제 arr[mid] 는 같아야 한다.
-		// 빠진게 있다면 arr[mid] > mid 상태
-		// mid 는 0 기준이고, arr 값은 1부터 시작이라 -1 해준다.
 		// ex) [2,3,4,7,9], k=5
-		// mid = (5-0)/2+0 = 2, arr[2](4)-1-2 < 5,  4(mid=2) => left=mid+1, left=2+1
-		// mid = (5-3)/2+3 = 4, arr[4](11)-1-4 >=5, 11(mid=4) => right=mid, right=4
-		// mid = (4-3)/2+3 = 3, arr[3](7)-1-3 < 5,  7(mid=3) => left=mid+1, left=4
+		// [1,2,3,4,5,6,7,8,9] => 빠진것 없는 것으로 봤을때
+		// [  2,3,4, , ,7, ,9]
+		// 원래 빠진게 없다면 mid(빠진 숫자 없을때 값)와 실제 arr[mid] 는 같아야 한다. 빠진게 있다면 arr[mid] > mid 상태
+		// 빠진것(arr)과 실제(mid)의 차이가 arr[mid] - mid <= k, mid 보다 위(오른쪽)에서 찾는다. ex) k=2, arr=[1,2,5]
+		// 빠진것(arr)과 실제(mid)의 차이가 arr[mid] - mid > k, mid 보다 아래(왼쪽)에서 찾는다. ex) k=2, arr=[1,100,101]
+		// mid 는 0 기준이고, arr 값은 1부터 시작이라 -1 해준다.
+		// mid = (5-0)/2+0 = 2, arr[2] = (4)-1-2 < 5,  4(mid=2) => left=mid+1, left=2+1
+		// mid = (5-3)/2+3 = 4, arr[4] = (11)-1-4 >=5, 11(mid=4) => right=mid, right=4
+		// mid = (4-3)/2+3 = 3, arr[3] = (7)-1-3 < 5,  7(mid=3) => left=mid+1, left=4
 		if (arr[mid]-1)-mid < k {
 			left = mid + 1
 		} else {
 			right = mid
 		}
-		fmt.Printf("mid:%v left:%v right:%v\n", mid, left, right)
+		// fmt.Printf("mid:%v left:%v right:%v\n", mid, left, right)
 	}
 	// fmt.Println("left:",left)
 	return left + k
