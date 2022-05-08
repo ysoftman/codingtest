@@ -27,8 +27,8 @@ import (
 	"sort"
 )
 
+// using hash table
 func twoSum(nums []int, target int) []int {
-
 	m := map[int]int{}
 	for i := range nums {
 		temp := target - nums[i]
@@ -43,7 +43,7 @@ func twoSum(nums []int, target int) []int {
 }
 
 // 배열 정렬후, 시작,끝 인덱스를 두고 찾을때
-// if sorted array, using two index pointer : log(n)
+// if sorted array, using two (index) pointers : log(n)
 func sortedTwoSum(nums []int, target int) []int {
 	sort.Ints(nums)
 	i := 0
