@@ -28,6 +28,8 @@ func min(a, b int) int {
 	}
 	return b
 }
+
+// time complexity : O(N)
 func trap(height []int) int {
 	trappedRain := make([]int, len(height))
 
