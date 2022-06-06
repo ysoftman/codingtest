@@ -27,24 +27,19 @@ func maxSubArray2(nums []int) int {
 	if len(nums) == 0 {
 		return 0
 	}
-	max := 0
-	for i := 0; i < len(nums); i++ {
-		if max > nums[i] {
-			max = nums[i]
-		}
-	}
+	max := nums[0]
 	// time limit exceeded
 	// temp := make(map[string]int)
-	// for i:=0; i<len(nums); i++ {
-	//     pre := 0
-	//     for j:=i; j<len(nums); j++ {
-	//         key := fmt.Sprintf("%v-v", i, j)
-	//         temp[key] += pre + nums[j]
-	//         if max < temp[key] {
-	//             max = temp[key]
-	//         }
-	//         pre = temp[key]
-	//     }
+	// for i := 0; i < len(nums); i++ {
+	// 	pre := 0
+	// 	for j := i; j < len(nums); j++ {
+	// 		key := fmt.Sprintf("%v-v", i, j)
+	// 		temp[key] += pre + nums[j]
+	// 		if max < temp[key] {
+	// 			max = temp[key]
+	// 		}
+	// 		pre = temp[key]
+	// 	}
 	// }
 
 	temp := 0
