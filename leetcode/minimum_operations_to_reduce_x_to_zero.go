@@ -46,15 +46,15 @@ two pointer 응용 문제
 nums 에서 x 를 제외한 나머지 값들의 합(target)이 되는 지점의 길이를 찾아 len(nums)에 빼야 한다.
 
 taget:6
-i=0, j=0
-(i=0, j=0)=> sum(nums[i]) ~ nums[j]) = 1
-(i=0, j=1)=> sum(nums[i]) ~ nums[j]) = 1+1=2
-(i=0, j=2)=> sum(nums[i]) ~ nums[j]) = 1+1+4=6, 6 == target(6)
-만약 target 보다 큰 경우는 i 를 증가해서 sum 을 다시 구한다.(이전 sum -= num[i]; i++)
+left=0, right=0
+(left=0, right=0)=> sum(nums[left]) ~ nums[right]) = 1
+(left=0, right=1)=> sum(nums[left]) ~ nums[right]) = 1+1=2
+(left=0, right=2)=> sum(nums[left]) ~ nums[right]) = 1+1+4=6, 6 == target(6)
+만약 target 보다 큰 경우는 left 를 증가해서 sum 을 다시 구한다.(이전 sum -= num[left]; left++)
 
 5(nums 길이) - 3(0~2idx=>6, 0~2 의 길이) = 2(나머지 길이)
 
-... 를 j < len(nums) 를 반복하면서 가장 큰 나머지 길이를 아야 최종 len(nums)에서 뺄때 가정 적은(최소회수,minimum-operations)가 된다.
+... 를 right < len(nums) 를 반복하면서 가장 큰 나머지 길이를 아야 최종 len(nums)에서 뺄때 가정 적은(최소회수,minimum-operations)가 된다.
 */
 
 func minOperations(nums []int, x int) int {
@@ -69,16 +69,16 @@ func minOperations(nums []int, x int) int {
 	}
 	sum = 0
 	rest_length := 0
-	i := 0
-	for j := 0; j < len(nums); j++ {
-		sum += nums[j]
-		for sum > target && i < len(nums) {
-			sum -= nums[i]
-			i++
+	left := 0
+	for right := 0; right < len(nums); right++ {
+		sum += nums[right]
+		for sum > target && left < len(nums) {
+			sum -= nums[left]
+			left++
 		}
 		if sum == target {
-			// rest_length(j-i+1) 중 가장 길어야 최종 len(nums)에서 뺄때 가정 적은(최소회수,minimum-operations)가 된다.
-			rest_length = max(rest_length, (j-i)+1)
+			// rest_length(right-left+1) 중 가장 길어야 최종 len(nums)에서 뺄때 가정 적은(최소회수,minimum-operations)가 된다.
+			rest_length = max(rest_length, (right-left)+1)
 		}
 	}
 	if rest_length > 0 {
