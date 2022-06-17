@@ -48,7 +48,7 @@ func maxProfit2(prices []int) int {
 
 /*
  dynamic programming
- 이익t = max(이익, 현재가격-이전 낮은 가격)
+ 이익 = max(이익, 현재가격-이전 낮은 가격)
  이전낮은 가격 = min(현재가격, 이전 낮은 가격)
 
  max(profit,7-7)  max(profit,1-7)  max(profit, 5-1)  max(profit, 3-1)  max(profit, 6-1)  max(profit, 4-1)
