@@ -37,6 +37,8 @@ func insertionSortList(head *ListNode) *ListNode {
 		return nil
 	}
 
+	// 정렬된 리스트의 기록을 위해 사용한다.
+	// sortedHead.Next = nil 정렬되지 않은 나머지 노드와 구분한다.
 	sortedHead := &ListNode{Val: 0}
 	for head != nil {
 		next := head.Next
