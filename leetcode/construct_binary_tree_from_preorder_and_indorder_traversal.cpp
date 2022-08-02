@@ -169,6 +169,9 @@ string treeNodeToString(TreeNode *root)
 int main()
 {
     string line;
+    cout << "example input preorder and inorder, ctrl+c/ctrl+d/enter to exit" << endl;
+    cout << "[3,9,20,15,7]\n[9,3,15,20,7]" << endl;
+
     while (getline(cin, line))
     {
         vector<int> preorder = stringToIntegerVector(line);
