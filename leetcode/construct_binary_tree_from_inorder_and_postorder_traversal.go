@@ -21,6 +21,8 @@ Each value of postorder also appears in inorder.
 inorder is guaranteed to be the inorder traversal of the tree.
 postorder is guaranteed to be the postorder traversal of the tree.
 */
+
+// go run ./construct_binary_tree_from_inorder_and_postorder_traversal.go ./ysoftman_common.go
 package main
 
 /**

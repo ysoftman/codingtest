@@ -11,20 +11,53 @@ Output: [3,9,20,null,null,15,7]
 Example 2:
 Input: preorder = [-1], inorder = [-1]
 Output: [-1]
+
+
+Constraints:
+1 <= preorder.length <= 3000
+inorder.length == preorder.length
+-3000 <= preorder[i], inorder[i] <= 3000
+preorder and inorder consist of unique values.
+Each value of inorder also appears in preorder.
+preorder is guaranteed to be the preorder traversal of the tree.
+inorder is guaranteed to be the inorder traversal of the tree.
 */
 
-// go run ./construct_binary_tree_from_preorder_and_traversal.go ./ysoftman_common.go
+//  go run ./construct_binary_tree_from_preorder_and_indorder_traversal.go ./ysoftman_common.go
 package main
 
 import "fmt"
 
-// Definition for a binary tree node.
-// type TreeNode struct {
-// 	Val   int
-// 	Left  *TreeNode
-// 	Right *TreeNode
-// }
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
 
+/*
+# preorder : 부모 -> 왼쪽 -> 오른쪽 순으로 순회
+preorder = [3,9,20,15,7]
+# inorder : 왼쪽 -> 부모 -> 오른쪽 순으로 순회
+inorder = [9,3,15,20,7]
+
+Return the following binary tree:
+
+    3
+   / \
+  9  20
+    /  \
+   15   7
+
+# 다음과 같은 포맷으로 입력
+[3,9,20,15,7]
+[9,3,15,20,7]
+
+# 결과
+[3,9,20,null,null,15,7]
+*/
 var preorder_index int = 0
 
 func searchinorder(inorder []int, start, end, v int) int {
