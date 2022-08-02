@@ -1,6 +1,7 @@
 /*
 https://leetcode.com/problems/range-sum-query-mutable
 307. Range Sum Query - Mutable
+Medium
 Given an integer array nums, handle multiple queries of the following types:
 
 Update the value of an element in nums.
