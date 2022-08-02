@@ -23,7 +23,7 @@ preorder is guaranteed to be the preorder traversal of the tree.
 inorder is guaranteed to be the inorder traversal of the tree.
 */
 
-//  go run ./construct_binary_tree_from_preorder_and_indorder_traversal.go ./ysoftman_common.go
+// go run ./construct_binary_tree_from_preorder_and_indorder_traversal.go ./ysoftman_common.go
 package main
 
 import "fmt"
