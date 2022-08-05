@@ -37,14 +37,16 @@ import "fmt"
  *     Right *TreeNode
  * }
  */
+// DFS preorder 로 탐색
+// space complexity: in-place O(1)
 func flatten(root *TreeNode) {
+	if root == nil {
+		return
+	}
 	// inner function 를 사용하는 이유
 	// preNode 를 global 변수로 사용하면 초기화 되지 않아 다른 testcase 이전 testcase 값이 남아 있어 실패하게 된다.
 	var preNode *TreeNode = nil
 	var dfs func(root *TreeNode)
-	// DFS preorder 로 탐색
-	// return 이 없어 root 를 주소를 수정(노드 추가,삭제)할 수 없고 val,left,right 값만 변경해야 한다.
-	// space complexity: in-place O(1)
 	dfs = func(root *TreeNode) {
 		if root == nil {
 			return
