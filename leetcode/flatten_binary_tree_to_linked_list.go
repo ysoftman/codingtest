@@ -37,6 +37,30 @@ import "fmt"
  *     Right *TreeNode
  * }
  */
+// DFS preorder 로 탐색, easy approach(별도 결과 저공간을 사용하는 경우)
+// space complexity: O(N)
+func dfs(root, r *TreeNode) *TreeNode {
+	if root == nil {
+		return r
+	}
+	// fmt.Println(r.Val)
+	r.Right = &TreeNode{}
+	r = r.Right
+	r.Val = root.Val
+	r = dfs(root.Left, r)
+	r = dfs(root.Right, r)
+	return r
+}
+
+func flatten2(root *TreeNode) {
+	if root == nil {
+		return
+	}
+	r := TreeNode{}
+	dfs(root, &r)
+	*root = *r.Right
+}
+
 // DFS preorder 로 탐색
 // space complexity: in-place O(1)
 func flatten(root *TreeNode) {
