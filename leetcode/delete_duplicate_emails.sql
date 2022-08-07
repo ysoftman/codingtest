@@ -20,7 +20,7 @@ After running your script, the answer shown is the Person table. The driver will
 The query result format is in the following example.
 
 Example 1:
-Input: 
+Input:
 Person table:
 +----+------------------+
 | id | email            |
@@ -29,7 +29,7 @@ Person table:
 | 2  | bob@example.com  |
 | 3  | john@example.com |
 +----+------------------+
-Output: 
+Output:
 +----+------------------+
 | id | email            |
 +----+------------------+
