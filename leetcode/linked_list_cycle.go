@@ -39,44 +39,15 @@ func hasCycle(head *ListNode) bool {
 		if head.Val == 1<<31-1 {
 			return true
 		}
-		// mark traversa;
+		// mark traversal;
 		head.Val = 1<<31 - 1
 		head = head.Next
 	}
 	return false
 }
 
-func makeCycleLinkedList(slice []int, pos int) *ListNode {
-	if len(slice) == 0 {
-		return nil
-	}
-	root := &ListNode{}
-	head := root
-	var temp *ListNode = nil
-	var pre *ListNode = nil
-	for i, v := range slice {
-		head.Val = v
-		if i < len(slice)-1 {
-			head.Next = &ListNode{}
-		}
-		if i == pos {
-			temp = head
-			// fmt.Println("i:", i, ", pos:", pos, ", temp:", temp)
-		}
-		pre = head
-		head = head.Next
-	}
-	// make Cycle
-	if pre != nil && temp != nil {
-		pre.Next = temp
-	}
-	return root
-}
-
 func main() {
-	if !hasCycle(makeCycleLinkedList([]int{3, 2, 0, -4}, 1)) {
-		printLinkedList(makeCycleLinkedList([]int{3, 2, 0, -4}, 1))
-	}
+	// CycleLinkedList 만들어서 확인
 	fmt.Println(hasCycle(makeCycleLinkedList([]int{3, 2, 0, -4}, 1)))
 	fmt.Println(hasCycle(makeCycleLinkedList([]int{1, 2}, 0)))
 	fmt.Println(hasCycle(makeCycleLinkedList([]int{1}, -1)))
