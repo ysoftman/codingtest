@@ -1,6 +1,6 @@
 /*
 https://leetcode.com/problems/lru-cache/
-46. LRU Cache
+146. LRU Cache
 Medium
 Design a data structure that follows the constraints of a Least Recently Used (LRU) cache.
 
