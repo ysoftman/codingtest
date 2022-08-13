@@ -27,6 +27,11 @@ zzz
 
 # using awk(c 와 비슷한 문법사용)
 awk '
+# BEGIN 입력 파일 라인 처리전 실행
+BEGIN {
+    # print "BEGIN (before reading input)"
+}
+# 입력 파일 라인 처리
 {
     # 단어 " " 카운드 로 기록
     for (i = 1; i <= NF; i++) {
@@ -37,6 +42,7 @@ awk '
         }
     }
 }
+# END 입력 파일 라인 처리 후 실행
 END {
     for (i = 1; s[i] != ""; i++) {
         print s[i];
