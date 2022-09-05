@@ -83,6 +83,64 @@ func makeCycleLinkedList(slice []int, pos int) *ListNode {
 	return root
 }
 
+type Node struct {
+	Val      int
+	Children []*Node
+}
+
+func makeArrayToTreeNode(arr []string) *Node {
+	if len(arr) == 0 {
+		return nil
+	}
+	temp, _ := strconv.Atoi(arr[0])
+	root := &Node{
+		Val: temp,
+	}
+	node := root
+
+	queue := make([]*Node, 0)
+	queue = append(queue, node)
+	for i := 1; i < len(arr); i++ {
+		if len(queue) == 0 {
+			continue
+		}
+		// root 다음 null 인 경우 스킵
+		if i == 1 && arr[i] == "null" {
+			i++
+		}
+		front := queue[0]
+		queue = queue[1:]
+
+		// null 은 현재 level 과 다음 level 의 구분
+		for i < len(arr) && arr[i] != "null" {
+			val, _ := strconv.Atoi(arr[i])
+			n := &Node{
+				Val: val,
+			}
+			front.Children = append(front.Children, n)
+			i++
+		}
+		queue = append(queue, front.Children...)
+	}
+	return root
+}
+
+func printTreeNode(root *Node) {
+	q := []*Node{}
+	q = append(q, root)
+	for len(q) > 0 {
+		top := q[0]
+		q = q[1:]
+		if top == nil {
+			fmt.Printf("nil ")
+			continue
+		}
+		fmt.Printf("%v ", top.Val)
+		q = append(q, top.Children...)
+	}
+	fmt.Println()
+}
+
 // Definition for a binary tree node.
 type TreeNode struct {
 	Val   int
