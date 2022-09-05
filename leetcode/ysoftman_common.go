@@ -88,7 +88,7 @@ type Node struct {
 	Children []*Node
 }
 
-func makeArrayToTreeNode(arr []string) *Node {
+func makeArrayToNode(arr []string) *Node {
 	if len(arr) == 0 {
 		return nil
 	}
@@ -125,18 +125,27 @@ func makeArrayToTreeNode(arr []string) *Node {
 	return root
 }
 
-func printTreeNode(root *Node) {
+func printNodeByBFS(root *Node) {
 	q := []*Node{}
 	q = append(q, root)
 	for len(q) > 0 {
-		top := q[0]
-		q = q[1:]
-		if top == nil {
-			fmt.Printf("nil ")
-			continue
+		levelq := []*Node{}
+		fmt.Printf("[")
+		for len(q) > 0 {
+			top := q[0]
+			q = q[1:]
+			if top == nil {
+				// fmt.Printf("nil ")
+				continue
+			}
+			fmt.Printf("%v", top.Val)
+			if len(q) > 0 {
+				fmt.Printf(" ")
+			}
+			levelq = append(levelq, top.Children...)
 		}
-		fmt.Printf("%v ", top.Val)
-		q = append(q, top.Children...)
+		fmt.Printf("] ")
+		q = levelq
 	}
 	fmt.Println()
 }
@@ -192,18 +201,28 @@ func printTreeNodeByBFS(root *TreeNode) {
 	q := []*TreeNode{}
 	q = append(q, root)
 	for len(q) > 0 {
-		top := q[0]
-		q = q[1:]
-		if top == nil {
-			fmt.Printf("nil ")
-			continue
+		levelq := []*TreeNode{}
+		fmt.Printf("[")
+		for len(q) > 0 {
+			top := q[0]
+			q = q[1:]
+			if top == nil {
+				// fmt.Printf("nil ")
+				continue
+			}
+			fmt.Printf("%v", top.Val)
+			if len(q) > 0 {
+				fmt.Printf(" ")
+			}
+			levelq = append(levelq, top.Left)
+			levelq = append(levelq, top.Right)
 		}
-		fmt.Printf("%v ", top.Val)
-		q = append(q, top.Left)
-		q = append(q, top.Right)
+		fmt.Printf("] ")
+		q = levelq
 	}
 	fmt.Println()
 }
+
 func printTreeNodeByDFS(root *TreeNode) {
 	if root == nil {
 		fmt.Printf("nil ")
