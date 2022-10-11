@@ -33,18 +33,15 @@ import "fmt"
 // time complexity: O(n)
 // space complexity: O(1)
 func increasingTriplet(nums []int) bool {
-	min := 1<<31 - 1
-	max := 1<<31 - 1
+	first := 1<<31 - 1
+	second := 1<<31 - 1
 	for i := 0; i < len(nums); i++ {
-		// nums[i] 값이 가장 작은것과 가장 큰것 사이에 있으면 된다.
-		if nums[i] <= min {
-			min = nums[i] // 현재까지중 가장 작은것
-			// fmt.Println("min:", min)
-		} else if nums[i] <= max {
-			max = nums[i] // 현재까지중 가장 큰것
-			// fmt.Println("max:", max)
+		if nums[i] <= first {
+			first = nums[i] // 현재까지중 가장 작은것
+		} else if nums[i] <= second {
+			second = nums[i] // 현재까지중 두번째로 큰것
 		} else {
-			return true // nums[i] 값이 가장 작은것과 가장 큰것 사이에 있으면 된다.
+			return true // 세번째로 큰것이 있을때
 		}
 	}
 	return false
