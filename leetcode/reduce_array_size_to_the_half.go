@@ -40,7 +40,7 @@ func minSetSize(arr []int) int {
 	// fmt.Println("m:", m)
 	v := []int{}
 
-	// 참고로 c++ 등의 multi set 이나 priority queue를 이욯하면 데이터를 추가하면서 정렬되서 더 빠를것 같음
+	// 참고로 c++ 등의 multi set 이나 priority queue를 이용하면 데이터를 추가하면서 정렬되서 더 빠를것 같음
 	// 가장 많이 카운트된 원소순으로 정렬
 	for i := range m {
 		v = append(v, m[i])
