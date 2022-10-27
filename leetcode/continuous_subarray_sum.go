@@ -68,7 +68,6 @@ func main() {
 	fmt.Println(checkSubarraySum([]int{23, 2, 6, 4, 7}, 6))
 	fmt.Println(checkSubarraySum([]int{23, 2, 6, 4, 7}, 13))
 
-	//
 	// i=0, sum=23, remainder=23%7=2
 	// i=1, sum=25, remainder=25%7=4
 	// i=2, sum=29, remainder=29%7=1
