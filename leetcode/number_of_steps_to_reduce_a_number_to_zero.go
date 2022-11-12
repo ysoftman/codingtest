@@ -31,10 +31,6 @@ Output: 12
 
 Constraints:
 0 <= num <= 106
-Accepted
-293,089
-Submissions
-341,282
 */
 
 package main

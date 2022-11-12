@@ -15,8 +15,7 @@ Output: [[1]]
 
 Constraints:
 1 <= n <= 20
-Accepted
-312,369
+
 */
 
 package main

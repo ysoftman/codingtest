@@ -20,10 +20,6 @@ Output: [10,12,21,23,32,34,43,45,54,56,65,67,76,78,87,89,98]
 Constraints:
 2 <= n <= 9
 0 <= k <= 9
-Accepted
-56,069
-Submissions
-114,748
 */
 
 package main
@@ -51,11 +47,11 @@ func numSliceToString(nums []int) string {
 
 /*
 dfs
-// 가자리(tree 에서의 level) 가 0~9로 했을때 이전 자리의 수와 차이가 k 인 경로만 결과 포함
-      1            2         ...           9
-  .. 8 ..       ..  9                ..  2 ..
-.. 1 ..           .. 2 ..              .. 9
+가자리(tree 에서의 level) 가 0~9로 했을때 이전 자리의 수와 차이가 k 인 경로만 결과 포함
 
+		    1            2         ...           9
+		.. 8 ..       ..  9                ..  2 ..
+	 .. 1 ..           .. 2 ..              .. 9
 */
 func recusiveNumsSameConsecDiff(n int, k int, curidx int, cur []int, r *[]int) {
 	if len(cur) > n {
