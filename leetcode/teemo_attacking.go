@@ -35,9 +35,10 @@ import "fmt"
 
 func findPoisonedDuration(timeSeries []int, duration int) int {
 	r := 0
-	start := timeSeries[0]
-	end := start + duration
+	start := timeSeries[0]  // 독 시작
+	end := start + duration // 독 지속 끝
 	for i := 0; i < len(timeSeries); i++ {
+		// 독이 끝나면 횟수 누적 및 독시작 시간 갱신
 		if timeSeries[i] > end {
 			r += end - start
 			start = timeSeries[i]
