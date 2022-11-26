@@ -35,7 +35,7 @@ func addStrings(num1 string, num2 string) string {
 	sum := []byte{}
 	i := len(num1) - 1
 	j := len(num2) - 1
-	for i >= 0 || j >= 0 {
+	for i >= 0 || j >= 0 || carry > 0 {
 		operand1 = 0
 		operand2 = 0
 		if i >= 0 {
@@ -50,9 +50,6 @@ func addStrings(num1 string, num2 string) string {
 		sum = append(sum, byte(mod+'0'))
 		i--
 		j--
-	}
-	if carry > 0 {
-		sum = append(sum, byte(carry+'0'))
 	}
 	r := ""
 	for i := len(sum) - 1; i >= 0; i-- {
