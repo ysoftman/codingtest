@@ -1,6 +1,7 @@
 /*
 https://leetcode.com/problems/shuffle-an-array/
 384. Shuffle an Array
+Medium
 
 Given an integer array nums, design an algorithm to randomly shuffle the array. All permutations of the array should be equally likely as a result of the shuffling.
 
