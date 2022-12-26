@@ -27,11 +27,10 @@ greedy 방식으로 뒤에서 부터 마지막인덱스(last index)를 0번째 �
 2,3,1,1,4
 0 1 2 3 4 => index
 
-index 3 -> 1jump -> 4 true, update last index = 3
-index 2 -> 1jump -> 3 true, update last index = 2
-index 1 -> 1jump or 3jump -> 2 or 4 true, update last index = 1
-index 0 -> 1jump or 2jump -> 1 or 2 true, update last index = 0
-
+index 3 -> jump1 -> index 4, last index = 3
+index 2 -> jump1 -> index 3, last index = 2
+index 1 -> jump1 -> index 2 or jump2 -> index 3 or jump3 -> index 4, last index = 1
+index 0 -> jump1 -> index 1 or jump2 -> index 2, last index = 0
 */
 func canJump(nums []int) bool {
 	lastindex := len(nums) - 1
