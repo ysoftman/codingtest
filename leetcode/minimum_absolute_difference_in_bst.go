@@ -50,11 +50,9 @@ func min(a, b int) int {
 
 null   227        null  911
 
-BinarySearchTree(BST) 는 정렬되어 있다.
-left  노드는 부모보다는 작고 조부모보다는 크다
-right 노드는 부모보다는 크고 조부모보다는 작다 104 < 227 < 236
+BinarySearchTree(BST) 는 inorder 탐색 순서로 정렬되어 있다.
+104 < 227 < 236 < 701 < 911
 
-BST 라서
 227 노드에선 104(pre) 와 비교
 236 노드에선 227(pre) 와 비교
 701 노드에선 236(pre) 와 비교
