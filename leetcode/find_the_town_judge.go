@@ -42,10 +42,15 @@ func findJudge(n int, trust [][]int) int {
 		return 1
 	}
 	cnt := make([]int, n+1)
+	// 모든 사람은 town judge 를 믿음
+	// 0번째 -> 1번째 사람 믿음,
+	// 0번째 사람은 town judge 일 가능성 없음
+	// 1번째 사람은 town judge 일 가능성 있음
 	for _, t := range trust {
 		cnt[t[0]]--
 		cnt[t[1]]++
 	}
+	// 모든 사람이 믿는 사람(label)이 town judge
 	for i := 0; i < len(cnt); i++ {
 		if cnt[i] == n-1 {
 			return i
