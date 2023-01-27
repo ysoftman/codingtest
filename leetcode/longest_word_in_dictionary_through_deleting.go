@@ -25,9 +25,32 @@ import (
 	"sort"
 )
 
+func sortDictionary(dict []string) {
+	sort.Slice(dict, func(a, b int) bool {
+		if len(dict[a]) > len(dict[b]) {
+			return true
+		}
+		// 길이가 같으면 오름 차순
+		if len(dict[a]) == len(dict[b]) {
+			for i := 0; i < len(dict[a]); i++ {
+				if dict[a][i] < dict[b][i] {
+					return true
+				}
+				if dict[a][i] == dict[b][i] {
+					continue
+				}
+				return false
+			}
+		}
+		return false
+	})
+}
+
 func findLongestWord(s string, dictionary []string) string {
-	// 사전순으로 정렬
-	sort.Strings(dictionary)
+	// 방법 1 - 사전순으로 정렬
+	// sort.Strings(dictionary)
+	// 방법 2 - 길이 우선, 같은 길이면 사전순(오름차순)으로 정렬
+	sortDictionary(dictionary)
 	// fmt.Println(dictionary)
 	r := ""
 	for i := 0; i < len(dictionary); i++ {
@@ -41,10 +64,16 @@ func findLongestWord(s string, dictionary []string) string {
 				break
 			}
 		}
+		// 방법1일 경우 dictionary 에 대해서 확인 필요
+		// if dicPos == len(dictionary[i]) {
+		// 	if len(r) < len(dictionary[i]) {
+		// 		r = dictionary[i]
+		// 	}
+		// }
+		// 방법2일 경우 첫번째 매칭되는 dictionary 가 정답
 		if dicPos == len(dictionary[i]) {
-			if len(r) < len(dictionary[i]) {
-				r = dictionary[i]
-			}
+			r = dictionary[i]
+			break
 		}
 	}
 	return r
@@ -54,4 +83,6 @@ func main() {
 	fmt.Println(findLongestWord("abpcplea", []string{"ale", "apple", "monkey", "plea"}))
 	fmt.Println(findLongestWord("abpcplea", []string{"a", "b", "c"}))
 	fmt.Println(findLongestWord("abce", []string{"abe", "abc"}))
+	fmt.Println(findLongestWord("abce", []string{"zzzz", "abe", "abc"}))
+	fmt.Println(findLongestWord("barfoofoobarthefoobarman", []string{"bbz", "bar", "bbr", "foo", "the"}))
 }
