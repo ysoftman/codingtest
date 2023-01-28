@@ -1,7 +1,7 @@
 /*
 https://leetcode.com/problems/min-stack/
 155. Min Stack
-Easy
+Medium
 Design a stack that supports push, pop, top, and retrieving the minimum element in constant time.
 Implement the MinStack class:
 MinStack() initializes the stack object.
@@ -25,7 +25,6 @@ minStack.getMin(); // return -3
 minStack.pop();
 minStack.top();    // return 0
 minStack.getMin(); // return -2
-
 
 Constraints:
 -231 <= val <= 231 - 1
