@@ -1,7 +1,7 @@
 /*
 https://leetcode.com/problems/diagonal-traverse/
 498. Diagonal Traverse
-
+Medium
 Given an m x n matrix mat, return an array of all the elements of the array in a diagonal order.
 
 Example 1:
