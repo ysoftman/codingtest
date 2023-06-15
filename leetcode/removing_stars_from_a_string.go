@@ -1,4 +1,5 @@
 /*
+https://leetcode.com/problems/removing-stars-from-a-string/
 2390. Removing Stars From a String
 Medium
 You are given a string s, which contains stars *.

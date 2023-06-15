@@ -1,4 +1,5 @@
 /*
+https://leetcode.com/problems/valid-square/
 593. Valid Square
 Medium
 Given the coordinates of four points in 2D space p1, p2, p3 and p4, return true if the four points construct a square.

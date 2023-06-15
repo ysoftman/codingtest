@@ -1,4 +1,5 @@
 /*
+https://leetcode.com/problems/equal-row-and-column-pairs/
 2352. Equal Row and Column Pairs
 Medium
 Given a 0-indexed n x n integer matrix grid, return the number of pairs (ri, cj) such that row ri and column cj are equal.
