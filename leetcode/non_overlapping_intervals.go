@@ -36,6 +36,7 @@ func eraseOverlapIntervals(intervals [][]int) int {
 	// starti 값만 이전 intervals[i-1]과 비교해서 오버랩 체크
 	for i := 1; i < len(intervals); i++ {
 		if intervals[i][0] < intervals[i-1][1] {
+			// 오버랩된것은 삭제해서 다음 비교에서 제외 시킨다
 			intervals[i] = intervals[i-1]
 			cnt++
 		}
