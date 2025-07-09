@@ -56,31 +56,24 @@ The string {{[[(())]]}} meets both criteria for being a balanced string, so we p
 using namespace std;
 
 // Complete the isBalanced function below.
-string isBalanced(string s)
-{
+string isBalanced(string s) {
     // stack 을 사용해서 열고, 닫는 짝을 맞춘다.
     stack<char> st;
-    int i = 0;
-    while (i < s.length())
-    {
+    int         i = 0;
+    while (i < s.length()) {
         if (s[i] == '{' or s[i] == '[' or s[i] == '(')
             st.push(s[i]);
-        else if (s[i] == '}')
-        {
+        else if (s[i] == '}') {
             if (st.size() > 0 and st.top() == '{')
                 st.pop();
             else
                 return "NO";
-        }
-        else if (s[i] == ']')
-        {
+        } else if (s[i] == ']') {
             if (st.size() > 0 and st.top() == '[')
                 st.pop();
             else
                 return "NO";
-        }
-        else if (s[i] == ')')
-        {
+        } else if (s[i] == ')') {
             if (st.size() > 0 and st.top() == '(')
                 st.pop();
             else
@@ -93,8 +86,7 @@ string isBalanced(string s)
     return "NO";
 }
 
-int main()
-{
+int main() {
     // 로컬 컴파일시 사용하지 않음.
     // ofstream fout(getenv("OUTPUT_PATH"));
 
@@ -102,8 +94,7 @@ int main()
     cin >> t;
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
-    for (int t_itr = 0; t_itr < t; t_itr++)
-    {
+    for (int t_itr = 0; t_itr < t; t_itr++) {
         string s;
         getline(cin, s);
 

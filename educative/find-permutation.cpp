@@ -29,27 +29,23 @@ Here we need to find the Kth permutation
 
 using namespace std;
 
-int factorial(int n)
-{
+int factorial(int n) {
     if (n == 0 || n == 1)
         return 1;
     return n * factorial(n - 1);
 }
 
-void recursive_permuation(vector<char> &v, int a, int b, vector<string> &rv)
-{
-    if (a == b)
-    {
+void recursive_permuation(vector<char> &v, int a, int b, vector<string> &rv) {
+    if (a == b) {
         string str(v.begin(), v.end());
         rv.push_back(str);
         return;
     }
-    for (int i = a; i <= b; i++)
-    {
+    for (int i = a; i <= b; i++) {
         // swap
         char temp = v[a];
-        v[a] = v[i];
-        v[i] = temp;
+        v[a]      = v[i];
+        v[i]      = temp;
         recursive_permuation(v, a + 1, b, rv);
         // 다음 루프를 위해 원복
         temp = v[a];
@@ -60,21 +56,18 @@ void recursive_permuation(vector<char> &v, int a, int b, vector<string> &rv)
 
 void find_kth_permutation(
     vector<char> &v,
-    int k,
-    string &result)
-{
-    //TODO: Write - Your - Code
+    int           k,
+    string       &result) {
+    // TODO: Write - Your - Code
     vector<string> rv;
     recursive_permuation(v, 0, v.size() - 1, rv);
 
     result = rv[k - 1];
 }
 
-string get_permutation(int n, int k)
-{
+string get_permutation(int n, int k) {
     vector<char> v;
-    for (char i = 1; i <= n; ++i)
-    {
+    for (char i = 1; i <= n; ++i) {
         v.push_back(i + '0');
     }
 
@@ -83,10 +76,8 @@ string get_permutation(int n, int k)
     return result;
 }
 
-int main(int argc, char *argv[])
-{
-    for (int i = 1; i <= factorial(4); ++i)
-    {
+int main(int argc, char *argv[]) {
+    for (int i = 1; i <= factorial(4); ++i) {
         cout << i << "th permutation = " << get_permutation(4, i) << endl;
     }
 }

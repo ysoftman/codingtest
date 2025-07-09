@@ -57,40 +57,30 @@ There are  nodes in this path that are connected by  edges, meaning our binary t
 
 using namespace std;
 
-class Node
-{
-public:
-    int data;
+class Node {
+   public:
+    int   data;
     Node *left;
     Node *right;
-    Node(int d)
-    {
-        data = d;
-        left = NULL;
+    Node(int d) {
+        data  = d;
+        left  = NULL;
         right = NULL;
     }
 };
 
-class Solution
-{
-public:
-    Node *insert(Node *root, int data)
-    {
-        if (root == NULL)
-        {
+class Solution {
+   public:
+    Node *insert(Node *root, int data) {
+        if (root == NULL) {
             return new Node(data);
-        }
-        else
-        {
+        } else {
             Node *cur;
-            if (data <= root->data)
-            {
-                cur = insert(root->left, data);
+            if (data <= root->data) {
+                cur        = insert(root->left, data);
                 root->left = cur;
-            }
-            else
-            {
-                cur = insert(root->right, data);
+            } else {
+                cur         = insert(root->right, data);
                 root->right = cur;
             }
 
@@ -105,28 +95,23 @@ class Node {
 };
 
 */
-    int height(Node *root)
-    {
+    int height(Node *root) {
         // Write your code here.
         // BFS(너비 우선 탐색)
         queue<Node *> q;
         // cout << root->data << endl;
         q.push(root);
-        int height = 0;
+        int height         = 0;
         int previous_nodes = 0;
-        while (not q.empty())
-        {
+        while (not q.empty()) {
             // cout << q.front()->data << " height: " << height << endl;
-            if (q.front()->left != NULL)
-            {
+            if (q.front()->left != NULL) {
                 q.push(q.front()->left);
             }
-            if (q.front()->right != NULL)
-            {
+            if (q.front()->right != NULL) {
                 q.push(q.front()->right);
             }
-            if (previous_nodes != 2 and (q.front()->left != NULL or q.front()->right != NULL))
-            {
+            if (previous_nodes != 2 and (q.front()->left != NULL or q.front()->right != NULL)) {
                 ++height;
             }
             // 이전(부모) 노드에서 left,right 둘다 노드가 존재하는 경우 2번 카운트 되는것을 막기위해
@@ -140,20 +125,18 @@ class Node {
         }
         return height;
     }
-}; //End of Solution
+};  // End of Solution
 
-int main()
-{
+int main() {
     Solution myTree;
-    Node *root = NULL;
+    Node    *root = NULL;
 
-    int t;
-    int data;
+    int      t;
+    int      data;
 
     std::cin >> t;
 
-    while (t-- > 0)
-    {
+    while (t-- > 0) {
         std::cin >> data;
         root = myTree.insert(root, data);
     }

@@ -13,26 +13,20 @@ using std::cout;
 using std::endl;
 using std::string;
 using std::vector;
-void reverse_words(char *sentence)
-{
-    //TODO: Write - Your - Code
+void reverse_words(char *sentence) {
+    // TODO: Write - Your - Code
     vector<string> vec;
-    string temp;
-    char *head = sentence;
-    while (*sentence != '\0')
-    {
-        if (*sentence == ' ')
-        {
+    string         temp;
+    char          *head = sentence;
+    while (*sentence != '\0') {
+        if (*sentence == ' ') {
             vec.push_back(temp);
             temp = "";
-        }
-        else
-        {
+        } else {
             temp += *sentence;
         }
 
-        if (*(sentence + 1) == '\0')
-        {
+        if (*(sentence + 1) == '\0') {
             vec.push_back(temp);
         }
         sentence++;
@@ -41,8 +35,7 @@ void reverse_words(char *sentence)
     string result;
     // cout << "for debugging" << endl;
     vector<string>::reverse_iterator rever_iter;
-    for (rever_iter = vec.rbegin(); rever_iter != vec.rend(); rever_iter++)
-    {
+    for (rever_iter = vec.rbegin(); rever_iter != vec.rend(); rever_iter++) {
         // cout << *rever_iter << endl;
         result += *rever_iter + " ";
     }
@@ -51,10 +44,9 @@ void reverse_words(char *sentence)
     strcpy(head, result.c_str());
 }
 
-int main()
-{
+int main() {
     string str = "Hello World!";
-    char *a = const_cast<char *>(str.c_str());
+    char  *a   = const_cast<char *>(str.c_str());
     cout << a << endl;
     reverse_words(a);
     cout << a << endl;

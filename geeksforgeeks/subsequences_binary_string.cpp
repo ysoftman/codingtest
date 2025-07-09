@@ -25,14 +25,11 @@ Output: 22
 
 using namespace std;
 
-int countSubsequencesInBinaryString(string str)
-{
+int countSubsequencesInBinaryString(string str) {
     int result = 0;
-    int mul = 1;
-    for (int i = 0; i < str.length(); i++)
-    {
-        if (str[i] == '0')
-        {
+    int mul    = 1;
+    for (int i = 0; i < str.length(); i++) {
+        if (str[i] == '0') {
             result += mul;
         }
         mul *= 2;
@@ -40,8 +37,7 @@ int countSubsequencesInBinaryString(string str)
     return result;
 }
 
-int main()
-{
+int main() {
     string input("101");
     cout << input << " --> " << countSubsequencesInBinaryString(input) << endl;
     input = "10010";

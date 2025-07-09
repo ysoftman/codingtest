@@ -12,20 +12,20 @@ Input
  7  8  9
 
 Output:
- 3  6  9 
- 2  5  8 
- 1  4  7 
+ 3  6  9
+ 2  5  8
+ 1  4  7
 
 Input:
- 1  2  3  4 
- 5  6  7  8 
- 9 10 11 12 
-13 14 15 16 
+ 1  2  3  4
+ 5  6  7  8
+ 9 10 11 12
+13 14 15 16
 
 Output:
- 4  8 12 16 
- 3  7 11 15 
- 2  6 10 14 
+ 4  8 12 16
+ 3  7 11 15
+ 2  6 10 14
  1  5  9 13
 */
 
@@ -33,12 +33,9 @@ Output:
 
 using namespace std;
 
-void printMatrix(int matrix[], int m, int n)
-{
-    for (int i = 0; i < m; i++)
-    {
-        for (int j = 0; j < n; j++)
-        {
+void printMatrix(int matrix[], int m, int n) {
+    for (int i = 0; i < m; i++) {
+        for (int j = 0; j < n; j++) {
             printf("%2d ", matrix[m * i + j]);
         }
         cout << endl;
@@ -48,25 +45,21 @@ void printMatrix(int matrix[], int m, int n)
 }
 
 // 반시계 방향으로 90도 회전
-int *rotateMatrix(int matrix[], int m, int n)
-{
+int *rotateMatrix(int matrix[], int m, int n) {
     int *newMatrix = new int[3 * 3];
 
-    int a = m - 1, b = 0;
-    for (int i = 0; i < m; i++)
-    {
-        for (int j = 0; j < n; j++)
-        {
-            a = m - 1 - j;
-            b = i;
+    int  a = m - 1, b = 0;
+    for (int i = 0; i < m; i++) {
+        for (int j = 0; j < n; j++) {
+            a                    = m - 1 - j;
+            b                    = i;
             newMatrix[m * a + b] = matrix[m * i + j];
         }
     }
     return newMatrix;
 }
 
-int *rotateMatrix2(int matrix[], int m, int n)
-{
+int *rotateMatrix2(int matrix[], int m, int n) {
     /*
 0,0 -> 3,0 -> 3,3 -> 0,3 -> 0,0
 0,1 -> 2,0 -> 3,2 -> 1,3 -> 0,1
@@ -77,22 +70,19 @@ int *rotateMatrix2(int matrix[], int m, int n)
 1,2 -> 1,1 -> 2,1 -> 2,2 -> 1,3
 1,3 -> 0,1 -> 2,0 -> 3,2 -> 1,3
 */
-    for (int x = 0; x < n / 2; x++)
-    {
-        for (int y = x; y < n - x - 1; y++)
-        {
-            int temp = matrix[(x)*m + (y)];
-            matrix[x * m + y] = matrix[y * m + (n - 1 - x)];
-            matrix[y * m + (n - 1 - x)] = matrix[(n - 1 - x) * m + (m - 1 - y)];
+    for (int x = 0; x < n / 2; x++) {
+        for (int y = x; y < n - x - 1; y++) {
+            int temp                              = matrix[(x)*m + (y)];
+            matrix[x * m + y]                     = matrix[y * m + (n - 1 - x)];
+            matrix[y * m + (n - 1 - x)]           = matrix[(n - 1 - x) * m + (m - 1 - y)];
             matrix[(n - 1 - x) * m + (m - 1 - y)] = matrix[(n - 1 - y) * m + (x)];
-            matrix[(n - 1 - y) * m + (x)] = temp;
+            matrix[(n - 1 - y) * m + (x)]         = temp;
         }
     }
     return matrix;
 }
 
-int main()
-{
+int main() {
     int m1[][3] = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
     printMatrix(&m1[0][0], 3, 3);
 

@@ -31,67 +31,58 @@ Follow up: Could you solve the problem if repeated values on the tree are allowe
 #include <iostream>
 
 // Definition for a binary tree node.
-struct TreeNode
-{
-	int val;
-	TreeNode *left;
-	TreeNode *right;
-	TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+struct TreeNode {
+    int       val;
+    TreeNode *left;
+    TreeNode *right;
+    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
 };
 
-class Solution
-{
-public:
-	TreeNode *getTargetCopy(TreeNode *original, TreeNode *cloned, TreeNode *target)
-	{
-		// DFS - prerder
-		if (original == nullptr)
-		{
-			std::cout << "-nullptr-" << std::endl;
-			return nullptr;
-		}
-		if (original->val == target->val)
-		{
-			std::cout << cloned->val << std::endl;
-			return cloned;
-		}
-		TreeNode *left = getTargetCopy(original->left, cloned->left, target);
-		if (left != nullptr)
-		{
-			return left;
-		}
-		TreeNode *right = getTargetCopy(original->right, cloned->right, target);
-		if (right != nullptr)
-		{
-			return right;
-		}
-		std::cout << "---last nullptr---" << std::endl;
-		return nullptr;
-	}
+class Solution {
+   public:
+    TreeNode *getTargetCopy(TreeNode *original, TreeNode *cloned, TreeNode *target) {
+        // DFS - prerder
+        if (original == nullptr) {
+            std::cout << "-nullptr-" << std::endl;
+            return nullptr;
+        }
+        if (original->val == target->val) {
+            std::cout << cloned->val << std::endl;
+            return cloned;
+        }
+        TreeNode *left = getTargetCopy(original->left, cloned->left, target);
+        if (left != nullptr) {
+            return left;
+        }
+        TreeNode *right = getTargetCopy(original->right, cloned->right, target);
+        if (right != nullptr) {
+            return right;
+        }
+        std::cout << "---last nullptr---" << std::endl;
+        return nullptr;
+    }
 };
 
-int main()
-{
-	// [7,4,3,null,null,6,19], target = 3
-	TreeNode *a = new TreeNode(3);
-	a->left = new TreeNode(6);
-	a->right = new TreeNode(19);
-	TreeNode org(7);
-	org.left = a;
-	org.right = new TreeNode(3);
+int main() {
+    // [7,4,3,null,null,6,19], target = 3
+    TreeNode *a = new TreeNode(3);
+    a->left     = new TreeNode(6);
+    a->right    = new TreeNode(19);
+    TreeNode org(7);
+    org.left    = a;
+    org.right   = new TreeNode(3);
 
-	TreeNode *b = new TreeNode(3);
-	b->left = new TreeNode(6);
-	b->right = new TreeNode(19);
-	TreeNode cloned(7);
-	cloned.left = b;
-	cloned.right = new TreeNode(3);
+    TreeNode *b = new TreeNode(3);
+    b->left     = new TreeNode(6);
+    b->right    = new TreeNode(19);
+    TreeNode cloned(7);
+    cloned.left  = b;
+    cloned.right = new TreeNode(3);
 
-	TreeNode target(3);
-	Solution sol;
-	TreeNode *ret = sol.getTargetCopy(&org, &cloned, &target);
-	if (ret != nullptr)
-	{
-		std::cout << ret->val << std::endl;
-	}
+    TreeNode  target(3);
+    Solution  sol;
+    TreeNode *ret = sol.getTargetCopy(&org, &cloned, &target);
+    if (ret != nullptr) {
+        std::cout << ret->val << std::endl;
+    }
 }

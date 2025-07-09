@@ -15,14 +15,11 @@ target sum 19 => no 2 values sum upto 19
 #include <vector>
 using namespace std;
 
-bool find_sum_of_two(vector<int> &A, int val)
-{
-    //TODO: Write - Your - Code
+bool find_sum_of_two(vector<int> &A, int val) {
+    // TODO: Write - Your - Code
     unordered_set<int> hashset;
-    for (auto a : A)
-    {
-        if (hashset.find(val - a) != hashset.end())
-        {
+    for (auto a : A) {
+        if (hashset.find(val - a) != hashset.end()) {
             return true;
         }
         hashset.insert(a);
@@ -30,13 +27,11 @@ bool find_sum_of_two(vector<int> &A, int val)
     return false;
 }
 
-int main()
-{
-    vector<int> v = {5, 7, 1, 2, 8, 4, 3};
+int main() {
+    vector<int> v    = {5, 7, 1, 2, 8, 4, 3};
     vector<int> test = {3, 20, 1, 2, 7};
 
-    for (int i = 0; i < test.size(); i++)
-    {
+    for (int i = 0; i < test.size(); i++) {
         bool output = find_sum_of_two(v, test[i]);
         cout << "find_sum_of_two(v, " << test[i] << ") = " << (output ? "true" : "false") << endl;
     }

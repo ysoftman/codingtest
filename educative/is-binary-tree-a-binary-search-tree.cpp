@@ -23,36 +23,30 @@ Below is an example of a binary tree that is not a BST
 
 */
 
-bool is_bst_recursive(BinaryTreeNode *root, int min, int max)
-{
-    if (root == nullptr)
-    {
+bool is_bst_recursive(BinaryTreeNode *root, int min, int max) {
+    if (root == nullptr) {
         return true;
     }
-    if (root->data < min || root->data > max)
-    {
+    if (root->data < min || root->data > max) {
         return false;
     }
 
     // inorder traversal (left -> root -> right)
     // left
-    if (is_bst_recursive(root->left, min, root->data) == false)
-    {
+    if (is_bst_recursive(root->left, min, root->data) == false) {
         return false;
     }
     // root
     // cout << root->data;
     // right
-    if (is_bst_recursive(root->right, root->data, max) == false)
-    {
+    if (is_bst_recursive(root->right, root->data, max) == false) {
         return false;
     }
     return true;
 }
 
-bool is_bst(BinaryTreeNode *root)
-{
-    //TODO: Write - Your - Code
+bool is_bst(BinaryTreeNode *root) {
+    // TODO: Write - Your - Code
     int max = (1 << 31 - 1);
     int min = (1 << 31 - 1) * -1;
     return is_bst_recursive(root, min, max);

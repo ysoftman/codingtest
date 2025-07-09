@@ -13,22 +13,18 @@ missing number = 6
 
 using namespace std;
 
-int find_missing(const vector<int> &input)
-{
-    //TODO: Write - Your - Code
+int find_missing(const vector<int> &input) {
+    // TODO: Write - Your - Code
     int sum = 0;
     int max = 0;
-    for (auto i : input)
-    {
-        if (max < i)
-        {
+    for (auto i : input) {
+        if (max < i) {
             max = i;
         }
         sum += i;
     }
     int correct_sum = 0;
-    for (int i = 1; i <= max; i++)
-    {
+    for (int i = 1; i <= max; i++) {
         correct_sum += i;
     }
     cout << sum << endl;
@@ -37,14 +33,11 @@ int find_missing(const vector<int> &input)
     return correct_sum - sum;
 }
 
-void test(int n)
-{
-    int missing_element = rand() % n + 1;
+void test(int n) {
+    int         missing_element = rand() % n + 1;
     vector<int> v;
-    for (int i = 1; i <= n; ++i)
-    {
-        if (i == missing_element)
-        {
+    for (int i = 1; i <= n; ++i) {
+        if (i == missing_element) {
             continue;
         }
         v.push_back(i);
@@ -53,8 +46,7 @@ void test(int n)
     cout << "Expected Missing = " << missing_element << " Actual Missing = " << actual_missing << endl;
 }
 
-int main()
-{
+int main() {
     srand(time(NULL));
     for (int i = 1; i < 10; ++i)
         test(100000);

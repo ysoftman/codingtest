@@ -31,7 +31,7 @@ Example:
 Given 1->2->3->4, you should return the list as 2->1->4->3.
 */
 
-// g++ -std=c++11 ./swap_nodes_in_pairs.cpp && ./a.out 
+// g++ -std=c++11 ./swap_nodes_in_pairs.cpp && ./a.out
 #include <iostream>
 using namespace std;
 
@@ -46,63 +46,51 @@ using namespace std;
  * };
  */
 
-struct ListNode
-{
-    int val;
+struct ListNode {
+    int       val;
     ListNode *next;
     ListNode() : val(0), next(nullptr) {}
     ListNode(int x) : val(x), next(nullptr) {}
     ListNode(int x, ListNode *next) : val(x), next(next) {}
 };
 
-class Solution
-{
-public:
+class Solution {
+   public:
     // 재귀함수로 처리
-    ListNode *swapPairs(ListNode *head)
-    {
-        if (head == NULL)
-        {
+    ListNode *swapPairs(ListNode *head) {
+        if (head == NULL) {
             return NULL;
         }
-        if (head->next == NULL)
-        {
+        if (head->next == NULL) {
             return head;
         }
         ListNode *temp;
-        temp = head->next;
+        temp       = head->next;
         head->next = swapPairs(head->next->next);
         temp->next = head;
-        head = temp;
+        head       = temp;
 
         return head;
     }
     // 반복문으로 처리
-    ListNode *swapPairs2(ListNode *head)
-    {
-        if (head == nullptr || head->next == nullptr)
-        {
+    ListNode *swapPairs2(ListNode *head) {
+        if (head == nullptr || head->next == nullptr) {
             return head;
         }
-        ListNode *temp = NULL;
-        ListNode *pre = NULL;
+        ListNode *temp    = NULL;
+        ListNode *pre     = NULL;
         ListNode *newhead = NULL;
-        ListNode *cur = head;
-        while (cur != NULL)
-        {
-            if (cur->next == NULL)
-            {
+        ListNode *cur     = head;
+        while (cur != NULL) {
+            if (cur->next == NULL) {
                 break;
             }
-            temp = cur->next;
-            cur->next = temp->next;
+            temp       = cur->next;
+            cur->next  = temp->next;
             temp->next = cur;
-            if (newhead == NULL)
-            {
+            if (newhead == NULL) {
                 newhead = temp;
-            }
-            else
-            {
+            } else {
                 pre->next = temp;
             }
             pre = cur;
@@ -112,26 +100,22 @@ public:
     }
 };
 
-void printlist(ListNode *node)
-{
-    while (node != NULL)
-    {
+void printlist(ListNode *node) {
+    while (node != NULL) {
         cout << node->val << " ";
         node = node->next;
     }
     cout << endl;
 }
 
-int main()
-{
-    Solution sol = Solution();
+int main() {
+    Solution  sol  = Solution();
     ListNode *node = new ListNode(1);
     ListNode *head = node;
-    for (int i = 2; i <= 10; ++i)
-    {
+    for (int i = 2; i <= 10; ++i) {
         ListNode *nn = new ListNode(i);
-        node->next = nn;
-        node = node->next;
+        node->next   = nn;
+        node         = node->next;
     }
     printlist(head);
     head = sol.swapPairs(head);

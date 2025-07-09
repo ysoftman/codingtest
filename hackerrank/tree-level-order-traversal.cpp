@@ -10,7 +10,7 @@ You are given a pointer to the root of a binary tree. You need to print the leve
         /  \
        3    6
         \
-         4  
+         4
 For the above tree, the level order traversal is 1 -> 2 -> 5 -> 3 -> 6 -> 4.
 
 Input Format
@@ -38,7 +38,7 @@ Sample Input
         /  \
        3    6
         \
-         4  
+         4
 Sample Output
 
 1 2 5 3 6 4
@@ -54,40 +54,30 @@ Level Order Traversal: 1 -> 2 -> 5 -> 3 -> 6 -> 4.
 
 using namespace std;
 
-class Node
-{
-public:
-    int data;
+class Node {
+   public:
+    int   data;
     Node *left;
     Node *right;
-    Node(int d)
-    {
-        data = d;
-        left = NULL;
+    Node(int d) {
+        data  = d;
+        left  = NULL;
         right = NULL;
     }
 };
 
-class Solution
-{
-public:
-    Node *insert(Node *root, int data)
-    {
-        if (root == NULL)
-        {
+class Solution {
+   public:
+    Node *insert(Node *root, int data) {
+        if (root == NULL) {
             return new Node(data);
-        }
-        else
-        {
+        } else {
             Node *cur;
-            if (data <= root->data)
-            {
-                cur = insert(root->left, data);
+            if (data <= root->data) {
+                cur        = insert(root->left, data);
                 root->left = cur;
-            }
-            else
-            {
-                cur = insert(root->right, data);
+            } else {
+                cur         = insert(root->right, data);
                 root->right = cur;
             }
 
@@ -108,13 +98,11 @@ class Node {
 };
 */
 
-    void levelOrder(Node *root)
-    {
+    void levelOrder(Node *root) {
         // BFS(너비 우선 탐색)
         queue<Node *> q;
         q.push(root);
-        while (not q.empty())
-        {
+        while (not q.empty()) {
             // 공백으로 출력값들 구분
             if (q.front()->data != root->data)
                 cout << " ";
@@ -128,21 +116,18 @@ class Node {
         cout << endl;
     }
 
-}; //End of Solution
+};  // End of Solution
 
-int main()
-{
-
+int main() {
     Solution myTree;
-    Node *root = NULL;
+    Node    *root = NULL;
 
-    int t;
-    int data;
+    int      t;
+    int      data;
 
     std::cin >> t;
 
-    while (t-- > 0)
-    {
+    while (t-- > 0) {
         std::cin >> data;
         root = myTree.insert(root, data);
     }
@@ -152,7 +137,7 @@ int main()
 }
 
 /*
-6 # 노드 개수 입력 
+6 # 노드 개수 입력
 1 2 5 3 6 4 # 노드값 입력
 # 출력
 1 2 5 3 6 4

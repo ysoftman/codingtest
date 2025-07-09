@@ -37,110 +37,94 @@ Sample Output
 
 using namespace std;
 
-class Node
-{
-public:
-  int data;
-  Node *left;
-  Node *right;
-  Node(int d)
-  {
-    data = d;
-    left = NULL;
-    right = NULL;
-  }
+class Node {
+   public:
+    int   data;
+    Node *left;
+    Node *right;
+    Node(int d) {
+        data  = d;
+        left  = NULL;
+        right = NULL;
+    }
 };
 
-class Solution
-{
-public:
-  Node *insert(Node *root, int data)
-  {
-    if (root == NULL)
-    {
-      return new Node(data);
+class Solution {
+   public:
+    Node *insert(Node *root, int data) {
+        if (root == NULL) {
+            return new Node(data);
+        } else {
+            Node *cur;
+            if (data <= root->data) {
+                cur        = insert(root->left, data);
+                root->left = cur;
+            } else {
+                cur         = insert(root->right, data);
+                root->right = cur;
+            }
+
+            return root;
+        }
     }
-    else
-    {
-      Node *cur;
-      if (data <= root->data)
-      {
-        cur = insert(root->left, data);
-        root->left = cur;
-      }
-      else
-      {
-        cur = insert(root->right, data);
-        root->right = cur;
-      }
 
-      return root;
+    /* you only have to complete the function given below.
+    Node is defined as
+    */
+
+    // preorder traversal : 부모 -> 왼쪽 자식 -> 오른쪽 자식 우선순위로
+    void preOrder(Node *root) {
+        if (root == NULL)
+            return;
+        cout << root->data << " ";
+        if (root->left != NULL)
+            preOrder(root->left);
+        if (root->right != NULL)
+            preOrder(root->right);
     }
-  }
 
-  /* you only have to complete the function given below.
-  Node is defined as
-  */
+    // postorder traversal : 왼쪽 자식 -> 오른쪽 자식 ->  우선순위로
+    void postOrder(Node *root) {
+        if (root == NULL)
+            return;
+        if (root->left != NULL)
+            postOrder(root->left);
+        if (root->right != NULL)
+            postOrder(root->right);
+        cout << root->data << " ";
+    }
 
-  // preorder traversal : 부모 -> 왼쪽 자식 -> 오른쪽 자식 우선순위로
-  void preOrder(Node *root)
-  {
-    if (root == NULL)
-      return;
-    cout << root->data << " ";
-    if (root->left != NULL)
-      preOrder(root->left);
-    if (root->right != NULL)
-      preOrder(root->right);
-  }
+    // inorder traversal : 왼쪽 자식 -> 부모 -> 오른쪽 자식 우선순위로
+    void inOrder(Node *root) {
+        if (root == NULL)
+            return;
+        if (root->left != NULL)
+            inOrder(root->left);
+        cout << root->data << " ";
+        if (root->right != NULL)
+            inOrder(root->right);
+    }
 
-  // postorder traversal : 왼쪽 자식 -> 오른쪽 자식 ->  우선순위로
-  void postOrder(Node *root)
-  {
-    if (root == NULL)
-      return;
-    if (root->left != NULL)
-      postOrder(root->left);
-    if (root->right != NULL)
-      postOrder(root->right);
-    cout << root->data << " ";
-  }
+};  // End of Solution
 
-  // inorder traversal : 왼쪽 자식 -> 부모 -> 오른쪽 자식 우선순위로
-  void inOrder(Node *root)
-  {
-    if (root == NULL)
-      return;
-    if (root->left != NULL)
-      inOrder(root->left);
-    cout << root->data << " ";
-    if (root->right != NULL)
-      inOrder(root->right);
-  }
+int main() {
+    Solution myTree;
+    Node    *root = NULL;
 
-}; // End of Solution
+    int      t;
+    int      data;
 
-int main()
-{
+    std::cin >> t;
 
-  Solution myTree;
-  Node *root = NULL;
+    while (t-- > 0) {
+        std::cin >> data;
+        root = myTree.insert(root, data);
+    }
 
-  int t;
-  int data;
-
-  std::cin >> t;
-
-  while (t-- > 0)
-  {
-    std::cin >> data;
-    root = myTree.insert(root, data);
-  }
-
-  // myTree.preOrder(root);
-  // myTree.postOrder(root);
-  myTree.inOrder(root);
-  return 0;
+    // myTree.preOrder(root);
+    // myTree.postOrder(root);
+    myTree.inOrder(root);
+    return 0;
 }
 
 /*

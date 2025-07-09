@@ -13,23 +13,20 @@ Because nums[0] + nums[1] = 2 + 7 = 9,
 return [0, 1].
 */
 #include <iostream>
-#include <vector>
 #include <unordered_map>
+#include <vector>
 
 using namespace std;
 
 // 원소는 한번씩만 보고, O(n) 으로 끝내기
-vector<int> twoSum(vector<int> &nums, int target)
-{
+vector<int> twoSum(vector<int> &nums, int target) {
     vector<int> result;
     // hashmap O(1)
     unordered_map<int, int> hashmap;
-    for (int i = 0; i < nums.size(); ++i)
-    {
+    for (int i = 0; i < nums.size(); ++i) {
         int difference = target - nums[i];
         // 현재 원소가 대상값이 되려면 필요한 값이 hashmap에서 찾아본다.
-        if (hashmap.find(difference) != hashmap.end())
-        {
+        if (hashmap.find(difference) != hashmap.end()) {
             result.push_back(hashmap[difference]);
             result.push_back(i);
             return result;
@@ -41,12 +38,10 @@ vector<int> twoSum(vector<int> &nums, int target)
     return result;
 }
 
-int main()
-{
+int main() {
     vector<int> input = {2, 7, 11, 15};
-    vector<int> r = twoSum(input, 9);
-    for (auto i : r)
-    {
+    vector<int> r     = twoSum(input, 9);
+    for (auto i : r) {
         cout << i << endl;
     }
     return 0;

@@ -21,17 +21,14 @@ Level order traversal for this tree should look like:
 #include <queue>
 #include <vector>
 using namespace std;
-string level_order_traversal(BinaryTreeNode *root)
-{
+string level_order_traversal(BinaryTreeNode *root) {
     string result = "";
-    //TODO: Write - Your - Code
+    // TODO: Write - Your - Code
     queue<BinaryTreeNode *> q;
     q.push(root);
-    while (not q.empty())
-    {
+    while (not q.empty()) {
         vector<BinaryTreeNode *> vec;
-        while (not q.empty())
-        {
+        while (not q.empty()) {
             BinaryTreeNode *node = q.front();
             q.pop();
             vec.push_back(node);
@@ -42,14 +39,11 @@ string level_order_traversal(BinaryTreeNode *root)
         // {
         //     result[result.length() - 1] = '\n';
         // }
-        for (auto v : vec)
-        {
-            if (v->left != nullptr)
-            {
+        for (auto v : vec) {
+            if (v->left != nullptr) {
                 q.push(v->left);
             }
-            if (v->right != nullptr)
-            {
+            if (v->right != nullptr) {
                 q.push(v->right);
             }
         }

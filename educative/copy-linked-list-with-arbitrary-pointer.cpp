@@ -21,30 +21,26 @@ typedef LinkedListNode *NodePtr;
 using namespace std;
 
 LinkedListNode *deep_copy_arbitrary_pointer(
-    LinkedListNode *head)
-{
-    //TODO: Write - Your - Code
+    LinkedListNode *head) {
+    // TODO: Write - Your - Code
     unordered_map<LinkedListNode *, LinkedListNode *> hashmap;
-    LinkedListNode *copy_list = new LinkedListNode(head->data);
-    copy_list->arbitrary_pointer = head->arbitrary_pointer;
-    LinkedListNode *copy_list_head = copy_list;
-    head = head->next;
-    while (head != NULL)
-    {
-        LinkedListNode *node = new LinkedListNode(head->data);
+    LinkedListNode                                   *copy_list = new LinkedListNode(head->data);
+    copy_list->arbitrary_pointer                                = head->arbitrary_pointer;
+    LinkedListNode *copy_list_head                              = copy_list;
+    head                                                        = head->next;
+    while (head != NULL) {
+        LinkedListNode *node    = new LinkedListNode(head->data);
         node->arbitrary_pointer = head->arbitrary_pointer;
-        copy_list->next = node;
+        copy_list->next         = node;
         // 현재 원본 노드 주소를 복사된 신규 노드 주소와 맵핑
         hashmap[head] = node;
-        head = head->next;
-        copy_list = copy_list->next;
+        head          = head->next;
+        copy_list     = copy_list->next;
     }
     copy_list = copy_list_head;
-    while (copy_list != NULL)
-    {
+    while (copy_list != NULL) {
         // arbitrary_poiter 를 신규 노드 주소에 맞게 변경
-        if (hashmap.find(copy_list->arbitrary_pointer) != hashmap.end())
-        {
+        if (hashmap.find(copy_list->arbitrary_pointer) != hashmap.end()) {
             copy_list->arbitrary_pointer = hashmap[copy_list->arbitrary_pointer];
         }
         copy_list = copy_list->next;

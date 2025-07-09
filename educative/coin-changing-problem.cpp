@@ -4,7 +4,7 @@ https://www.educative.io/m/coin-changing-problem
 Coin Changing Problem
 
 Problem Statement
-Suppose we have coin denominations of [1, 2, 5] and the total amount is 7. 
+Suppose we have coin denominations of [1, 2, 5] and the total amount is 7.
 We can make changes in the following 6 ways:
 
 Denomination: 1,2,5
@@ -118,31 +118,26 @@ methods[7] += methods[7-5] = 4+2=6
 #include <vector>
 using namespace std;
 
-int solve_coin_change(vector<int> &denominations, int amount)
-{
+int solve_coin_change(vector<int> &denominations, int amount) {
     // TODO: Write - Your - Code
     vector<int> methods(amount + 1);
     methods[0] = 1;
     // time complexity : O(mxn)
-    for (auto coin : denominations)
-    {
-        for (int i = coin; i <= amount; i++)
-        {
+    for (auto coin : denominations) {
+        for (int i = coin; i <= amount; i++) {
             methods[i] += methods[i - coin];
         }
     }
     return methods[amount];
 }
 
-int main()
-{
+int main() {
     vector<int> denominations = {1, 2, 5};
-    int amount = 7;
-    int result = solve_coin_change(denominations, amount);
+    int         amount        = 7;
+    int         result        = solve_coin_change(denominations, amount);
     // printing result
     cout << "solve_coin_change_dp([";
-    for (int den : denominations)
-    {
+    for (int den : denominations) {
         cout << den << " ";
     }
     cout << "], " << amount << ") = " << result << endl;

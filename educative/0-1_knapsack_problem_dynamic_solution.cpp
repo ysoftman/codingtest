@@ -1,9 +1,9 @@
 /*
 https://www.educative.io/blog/0-1-knapsack-problem-dynamic-solution
 
-        itemA  itemB itemC itemD 
+        itemA  itemB itemC itemD
 value:    30     20    40   10
-weight:   1      2     3    4 
+weight:   1      2     3    4
 
 capacity : 5
 
@@ -41,44 +41,39 @@ O(nw)
 
 */
 
+#include <string.h>  // for memset
+
 #include <iostream>
-#include <string.h> // for memset
 
 using namespace std;
 
 const int maxLen = 100;
-int recursiveKnapSack(int DP[][maxLen], int v[], int vLength, int w[], int cap, int idx)
-{
-    if (cap <= 0 || idx < 0 || idx >= vLength)
-    {
+int       recursiveKnapSack(int DP[][maxLen], int v[], int vLength, int w[], int cap, int idx) {
+    if (cap <= 0 || idx < 0 || idx >= vLength) {
         return 0;
     }
-    if (DP[idx][cap] > 0)
-    {
+    if (DP[idx][cap] > 0) {
         return DP[idx][cap];
     }
     int case1 = 0;
     int case2 = 0;
     // 대각선 아래 방향(idx 아이템을 넣은 경우)
-    if (w[idx] <= cap)
-    {
+    if (w[idx] <= cap) {
         case1 = recursiveKnapSack(DP, v, vLength, w, cap - w[idx], idx + 1) + v[idx];
     }
-    case2 = recursiveKnapSack(DP, v, vLength, w, cap, idx + 1);
+    case2        = recursiveKnapSack(DP, v, vLength, w, cap, idx + 1);
 
     DP[idx][cap] = std::max(case1, case2);
     return DP[idx][cap];
 }
 
-int knapSack(int profits[], int profitsLength, int weights[], int capacity)
-{
+int knapSack(int profits[], int profitsLength, int weights[], int capacity) {
     int DP[maxLen][maxLen];
     memset(DP, 0, sizeof(int) * maxLen * maxLen);
     return recursiveKnapSack(DP, profits, profitsLength, weights, capacity, 0);
 }
 
-int main()
-{
+int main() {
     int profits[] = {30, 20, 40, 10};
     int weights[] = {1, 2, 3, 4};
     cout << "Total knapsack profit = " << knapSack(profits, 4, weights, 5) << endl;

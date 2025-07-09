@@ -15,7 +15,7 @@ Input: s = "rat", t = "car"
 Output: false
 */
 
-// g++ -std=c++11 valid_anagram.cpp && ./a.out 
+// g++ -std=c++11 valid_anagram.cpp && ./a.out
 #include <iostream>
 #include <unordered_map>
 
@@ -24,18 +24,14 @@ using std::endl;
 using std::string;
 using std::unordered_map;
 
-class Solution
-{
-public:
-    bool isAnagram(string s, string t)
-    {
-        if (s.length() != t.length())
-        {
+class Solution {
+   public:
+    bool isAnagram(string s, string t) {
+        if (s.length() != t.length()) {
             return false;
         }
         unordered_map<char, int> hashmap;
-        for (auto c : s)
-        {
+        for (auto c : s) {
             hashmap[c]++;
         }
         // for (auto m : hashmap) {
@@ -49,14 +45,11 @@ public:
         // cout << endl;
         // cout << endl;
 
-        for (auto c : t)
-        {
-            if (hashmap.find(c) == hashmap.end())
-            {
+        for (auto c : t) {
+            if (hashmap.find(c) == hashmap.end()) {
                 return false;
             }
-            if (hashmap[c] <= 0)
-            {
+            if (hashmap[c] <= 0) {
                 return false;
             }
             hashmap[c]--;
@@ -65,8 +58,7 @@ public:
     }
 };
 
-int main()
-{
+int main() {
     Solution *sol = new Solution();
     cout << sol->isAnagram("anagram", "nagaram") << endl;
     cout << sol->isAnagram("rat", "car") << endl;
