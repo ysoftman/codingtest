@@ -21,11 +21,11 @@ Output: "https://leetcode.com/problems/design-tinyurl"
 Explanation:
 Solution obj = new Solution();
 string tiny = obj.encode(url); // returns the encoded tiny url.
-string ans = obj.decode(tiny); // returns the original url after deconding it.
+string ans = obj.decode(tiny); // returns the original url after decoding it.
 
 Constraints:
 1 <= url.length <= 104
-url is guranteed to be a valid URL.
+url is guaranteed to be a valid URL.
 */
 package main
 

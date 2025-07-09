@@ -37,8 +37,8 @@ bob:   9%3 ==0, n=9-3=6
 alice: 6%2 ==0, n=6-2=4
 box: X --> alice wins
 */
-// mathmatical solution...
-func divisorGame_mathmatical(n int) bool {
+// mathematical solution...
+func divisorGame_mathematical(n int) bool {
 	return n%2 == 0
 }
 
@@ -86,8 +86,8 @@ func divisorGame(n int) bool {
 }
 
 func main() {
-	fmt.Println(divisorGame(2), divisorGame_mathmatical(2))
-	fmt.Println(divisorGame(3), divisorGame_mathmatical(3))
-	fmt.Println(divisorGame(10), divisorGame_mathmatical(10))
-	fmt.Println(divisorGame(100), divisorGame_mathmatical(100))
+	fmt.Println(divisorGame(2), divisorGame_mathematical(2))
+	fmt.Println(divisorGame(3), divisorGame_mathematical(3))
+	fmt.Println(divisorGame(10), divisorGame_mathematical(10))
+	fmt.Println(divisorGame(100), divisorGame_mathematical(100))
 }

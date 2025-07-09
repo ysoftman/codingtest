@@ -48,7 +48,7 @@ func findPeakElement2(nums []int) int {
 	return len(nums) - 1
 }
 
-// binary seach, O(logN)
+// binary search, O(logN)
 func findPeakElement(nums []int) int {
 	left := 0
 	right := len(nums) - 1

@@ -28,7 +28,7 @@ package main
 import "fmt"
 
 /*
-deci-bianry(0과1로 이루어진 10진수)
+deci-binary(0과1로 이루어진 10진수)
 case: 32
 3 => 111 : 1이 3개 있어야 한다.
 2 => 110 : 1이 2개 있어야 한다.

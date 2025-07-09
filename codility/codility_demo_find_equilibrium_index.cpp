@@ -10,7 +10,7 @@
 
 using namespace std;
 
-// 주어진 정수 배열에서 앞부분에서의 합과 뒷부분에서의 합이 같아 기즌 지점(equilibrium index) 찾기
+// 주어진 정수 배열에서 앞부분에서의 합과 뒷부분에서의 합이 같아 기준 지점(equilibrium index) 찾기
 // 여러개의 equilibrium index 가 있을 수 있기 때문에 결과 값을 배열로 따로 받는다.
 int solution(vector<int> &A, vector<int> &output) {
     // write your code in C++11 (g++ 4.8.2)

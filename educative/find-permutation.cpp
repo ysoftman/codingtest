@@ -35,7 +35,7 @@ int factorial(int n) {
     return n * factorial(n - 1);
 }
 
-void recursive_permuation(vector<char> &v, int a, int b, vector<string> &rv) {
+void recursive_permutation(vector<char> &v, int a, int b, vector<string> &rv) {
     if (a == b) {
         string str(v.begin(), v.end());
         rv.push_back(str);
@@ -46,7 +46,7 @@ void recursive_permuation(vector<char> &v, int a, int b, vector<string> &rv) {
         char temp = v[a];
         v[a]      = v[i];
         v[i]      = temp;
-        recursive_permuation(v, a + 1, b, rv);
+        recursive_permutation(v, a + 1, b, rv);
         // 다음 루프를 위해 원복
         temp = v[a];
         v[a] = v[i];
@@ -60,7 +60,7 @@ void find_kth_permutation(
     string       &result) {
     // TODO: Write - Your - Code
     vector<string> rv;
-    recursive_permuation(v, 0, v.size() - 1, rv);
+    recursive_permutation(v, 0, v.size() - 1, rv);
 
     result = rv[k - 1];
 }

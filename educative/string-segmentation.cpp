@@ -43,23 +43,23 @@ bool                  can_segment_string(string s, unordered_set<string> &dictio
 }
 
 int main() {
-    string                s         = "hellonow";
-    unordered_set<string> dictonary = {"hello", "hell", "on", "now"};
-    if (can_segment_string(s, dictonary))
+    string                s          = "hellonow";
+    unordered_set<string> dictionary = {"hello", "hell", "on", "now"};
+    if (can_segment_string(s, dictionary))
         cout << "String Can be Segmented" << endl;
     else
         cout << "String Can NOT be Segmented" << endl;
 
-    s         = "applepie";
-    dictonary = {"apple", "pear", "pier", "pie"};
-    if (can_segment_string(s, dictonary))
+    s          = "applepie";
+    dictionary = {"apple", "pear", "pier", "pie"};
+    if (can_segment_string(s, dictionary))
         cout << "String Can be Segmented" << endl;
     else
         cout << "String Can NOT be Segmented" << endl;
 
-    s         = "applepeer";
-    dictonary = {"apple", "pear", "pier", "pie"};
-    if (can_segment_string(s, dictonary))
+    s          = "applepeer";
+    dictionary = {"apple", "pear", "pier", "pie"};
+    if (can_segment_string(s, dictionary))
         cout << "String Can be Segmented" << endl;
     else
         cout << "String Can NOT be Segmented" << endl;

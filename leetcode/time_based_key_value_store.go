@@ -27,7 +27,6 @@ timeMap.set("foo", "bar2", 4); // store the key "foo" and value "bar2" along wit
 timeMap.get("foo", 4);         // return "bar2"
 timeMap.get("foo", 5);         // return "bar2"
 
-
 Constraints:
 1 <= key.length, value.length <= 100
 key and value consist of lowercase English letters and digits.
@@ -75,7 +74,7 @@ func (this *TimeMap) Get(key string, timestamp int) string {
 			ts = timestamp
 			break
 		}
-		// max 는 timstamp 보다는 작아야 한다.
+		// max 는 timestamp 보다는 작아야 한다.
 		if max < tsValues[i] && tsValues[i] < timestamp {
 			max = tsValues[i]
 		}
@@ -125,5 +124,4 @@ func main() {
 	fmt.Println(obj.Get("love", 15))
 	fmt.Println(obj.Get("love", 20))
 	fmt.Println(obj.Get("love", 25))
-
 }

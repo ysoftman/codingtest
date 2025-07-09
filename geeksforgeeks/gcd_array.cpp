@@ -13,7 +13,7 @@ int gcd(int a, int b) {
     return gcd(b, a % b);
 }
 
-int gcd_arrary(int *arr, int len) {
+int gcd_array(int *arr, int len) {
     int max_gcd = 1;
     for (int i = 0; i < len; ++i) {
         cout << arr[i] << " ";
@@ -29,5 +29,5 @@ int gcd_arrary(int *arr, int len) {
 int main() {
     int arr[] = {88, 80, 14, 64, 32};
     int len   = 5;
-    cout << gcd_arrary(arr, len) << endl;
+    cout << gcd_array(arr, len) << endl;
 }

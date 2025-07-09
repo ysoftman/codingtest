@@ -45,7 +45,7 @@ two pointer 응용 문제
 1+1+4+2+3=11(sum of nums)-5(x) = 6(target)
 nums 에서 x 를 제외한 나머지 값들의 합(target)이 되는 지점의 길이를 찾아 len(nums)에 빼야 한다.
 
-taget:6
+target:6
 left=0, right=0
 (left=0, right=0)=> sum(nums[left]) ~ nums[right]) = 1
 (left=0, right=1)=> sum(nums[left]) ~ nums[right]) = 1+1=2

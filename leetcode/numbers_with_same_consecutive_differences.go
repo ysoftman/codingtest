@@ -53,7 +53,7 @@ dfs
 		.. 8 ..       ..  9                ..  2 ..
 	 .. 1 ..           .. 2 ..              .. 9
 */
-func recusiveNumsSameConsecDiff(n int, k int, curidx int, cur []int, r *[]int) {
+func recursiveNumsSameConsecDiff(n int, k int, curidx int, cur []int, r *[]int) {
 	if len(cur) > n {
 		return
 	}
@@ -66,7 +66,7 @@ func recusiveNumsSameConsecDiff(n int, k int, curidx int, cur []int, r *[]int) {
 	}
 	for i := 0; i <= 9; i++ {
 		if abs(cur[curidx]-i) == k {
-			recusiveNumsSameConsecDiff(n, k, curidx+1, append(cur, i), r)
+			recursiveNumsSameConsecDiff(n, k, curidx+1, append(cur, i), r)
 		}
 	}
 }
@@ -74,7 +74,7 @@ func recusiveNumsSameConsecDiff(n int, k int, curidx int, cur []int, r *[]int) {
 func numsSameConsecDiff(n int, k int) []int {
 	r := []int{}
 	for j := 1; j <= 9; j++ {
-		recusiveNumsSameConsecDiff(n, k, 0, []int{j}, &r)
+		recursiveNumsSameConsecDiff(n, k, 0, []int{j}, &r)
 	}
 	return r
 }

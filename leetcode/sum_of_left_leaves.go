@@ -41,7 +41,7 @@ func dfs_SOLL(root *TreeNode, leftchild bool) int {
 	}
 	// leaf node
 	if root.Left == nil && root.Right == nil {
-		// only left chlid returns value
+		// only left child returns value
 		if leftchild {
 			return root.Val
 		}

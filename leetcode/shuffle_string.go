@@ -41,13 +41,13 @@ func restoreString2(s string, indices []int) string {
 // time complexity: O(n)
 // space complexity: O(1)
 func restoreString(s string, indices []int) string {
-	// golang 에서는 string mutal 이라, byte slice 로 변경한다.
+	// golang 에서는 string immutable 이라, byte slice 로 변경한다.
 	// 다른 언어에서는 이과정이 없어 이부분은 시간 복잡도에서 제외했음
 	bstr := make([]byte, len(s))
 	copy(bstr, s)
 	fmt.Println("bstr:", string(bstr))
 	for i := 0; i < len(indices); i++ {
-		// 현재 indices[i] 가 제자지를 찾을때까지 스왑 반복
+		// 현재 indices[i] 가 제자리를 찾을때까지 스왑 반복
 		for indices[i] != i {
 			// swap
 			bstr[indices[i]], bstr[i] = bstr[i], bstr[indices[i]]

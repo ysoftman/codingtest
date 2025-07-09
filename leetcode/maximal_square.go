@@ -34,6 +34,7 @@ func min(a, b int) int {
 	}
 	return b
 }
+
 func max(a, b int) int {
 	if a > b {
 		return a
@@ -74,7 +75,7 @@ func maximalSquare2(matrix [][]byte) int {
 			// 길이를 1씩 늘려가면서 square(정사각형)이 될 수 있는지 확인한다.
 			for i+length < m && j+length < n {
 				stop := false
-				// j+lenth col 에서의 row 값들이 1 되는지 확인
+				// j+length col 에서의 row 값들이 1 되는지 확인
 				for k := i; k <= i+length; k++ {
 					if matrix[k][j+length] == '0' {
 						stop = true
@@ -84,7 +85,7 @@ func maximalSquare2(matrix [][]byte) int {
 				if stop {
 					break
 				}
-				// i+lenth row 에서의 col 값들이 1 되는지 확인
+				// i+length row 에서의 col 값들이 1 되는지 확인
 				for k := j; k <= j+length; k++ {
 					if matrix[i+length][k] == '0' {
 						stop = true
@@ -133,6 +134,7 @@ func maximalSquare(matrix [][]byte) int {
 
 	return maxLength * maxLength
 }
+
 func main() {
 	fmt.Println(maximalSquare([][]byte{{'1', '0', '1', '0', '0'}, {'1', '0', '1', '1', '1'}, {'1', '1', '1', '1', '1'}, {'1', '0', '0', '1', '0'}}))
 	fmt.Println(maximalSquare([][]byte{{'0', '1'}, {'1', '0'}}))

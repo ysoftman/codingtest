@@ -42,7 +42,7 @@ func recursive(root *Node, r *[]int) {
 	}
 }
 
-// recursive iteraion
+// recursive iteration
 func preorder2(root *Node) []int {
 	r := []int{}
 	recursive(root, &r)

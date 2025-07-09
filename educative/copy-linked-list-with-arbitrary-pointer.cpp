@@ -39,7 +39,7 @@ LinkedListNode *deep_copy_arbitrary_pointer(
     }
     copy_list = copy_list_head;
     while (copy_list != NULL) {
-        // arbitrary_poiter 를 신규 노드 주소에 맞게 변경
+        // arbitrary_pointer 를 신규 노드 주소에 맞게 변경
         if (hashmap.find(copy_list->arbitrary_pointer) != hashmap.end()) {
             copy_list->arbitrary_pointer = hashmap[copy_list->arbitrary_pointer];
         }

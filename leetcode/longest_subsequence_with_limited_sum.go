@@ -47,7 +47,7 @@ func answerQueries(nums []int, queries []int) []int {
 	r := make([]int, len(queries))
 	for i := 0; i < len(queries); i++ {
 		for j := 0; j < len(accumulated); j++ {
-			// 쿼리보다 작은 누적합의 위치(누적된 elemenet 개수) 기록
+			// 쿼리보다 작은 누적합의 위치(누적된 element 개수) 기록
 			if accumulated[j] > queries[i] {
 				r[i] = j
 				break

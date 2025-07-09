@@ -42,7 +42,7 @@ func recursive(root *Node, r *[]int) {
 	*r = append(*r, root.Val)
 }
 
-// recursive iteraion
+// recursive iteration
 func postorder2(root *Node) []int {
 	r := []int{}
 	recursive(root, &r)

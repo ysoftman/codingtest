@@ -27,7 +27,7 @@ Each of the next  lines contains a single string , a sequence of brackets.
 Constraints
 
 , where  is the length of the sequence.
-All chracters in the sequences ∈ { {, }, (, ), [, ] }.
+All characters in the sequences ∈ { {, }, (, ), [, ] }.
 Output Format
 
 For each string, return YES or NO.

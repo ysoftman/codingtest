@@ -48,7 +48,7 @@ func largestValues(root *TreeNode) []int {
 				levelQ = append(levelQ, front.Right)
 			}
 		}
-		// get max value from current level vallues
+		// get max value from current level values
 		if len(levelQ) > 0 {
 			maxval := levelQ[0].Val
 			for _, v := range levelQ {
@@ -72,5 +72,4 @@ func main() {
 	fmt.Println(largestValues(root))
 	root = makeArrayToBinaryTreeNode([]string{"1"})
 	fmt.Println(largestValues(root))
-
 }

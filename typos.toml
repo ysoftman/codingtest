@@ -1,0 +1,61 @@
+# https://github.com/crate-ci/typos/blob/master/docs/reference.md
+[default]
+extend-ignore-re = [
+  ".*(?i)ysoftman.*", # ignorecase https://docs.rs/regex/latest/regex/index.html#grouping-and-flags
+  "ba",
+  "rever_iter",
+  "ser.",
+  "\"(?i)abba\"",
+  "\"(?i)ba\"",
+]
+
+# 변수,함수 및 파일 이름 자체에 오타 무시
+extend-ignore-identifiers-re = ["(?i)splitted"]
+
+[default.extend-identifiers]
+# *sigh* this just isn't worth the cost of fixing
+AttributeIDSupressMenu = "AttributeIDSupressMenu"
+
+[default.extend-words]
+# Don't correct the surname "Teh"
+teh = "teh"
+
+# typos 검사 제외 파일타입
+# 지원되는 타입 확인
+#typos --type-list
+[type.lock]
+check-file = false
+[type.xml]
+check-file = false
+[type.jupyter]
+check-file = false
+[type.asm]
+check-file = false
+[type.csv]
+check-file = false
+[type.log]
+check-file = false
+
+# 커스텀 파일 타입
+[type.raw]
+extend-glob = ["*.raw"]
+check-file = false
+[type.mod]
+extend-glob = ["*.mod"]
+check-file = false
+[type.ysoftman]
+extend-glob = ["*.ysoftman"]
+check-file = false
+
+# typos 검사 제외파일
+[files]
+extend-exclude = [
+  "go.sum",
+  "maximum_length_of_a_concatenated_string_with_unique_characters.go",
+  "edit_distance.go",
+]
+
+
+# 설치 및 실행
+#brew install typos-cli
+#typos

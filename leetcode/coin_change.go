@@ -61,9 +61,8 @@ Output: 0
 1,1,5
 2,5
 
-
 amount=-1 이하
-==> invaild
+==> invalid
 
 amount=0 인경우
 0
@@ -95,13 +94,11 @@ amount=7 인경우
 7-5원 => 2원 만드는 최소개수(1) + 1(5원)
 중 최소 => 2
 
-
 dp[7] = min(dp[7-1], dp[7-2], dp[7-5]) + 1
 
 bottom-up 방식으로 채워나가자
 0 1 2 3 4 5 6 7 => amount
 0 1 1 2 2 1 2 2 => min
-
 */
 package main
 

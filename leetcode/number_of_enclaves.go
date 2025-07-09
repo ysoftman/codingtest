@@ -35,7 +35,7 @@ func markVisited(grid *[][]int, i, j int) {
 		return
 	}
 	(*grid)[i][j] = 0
-	// recursive mark horizontallly and vertically
+	// recursive mark horizontally and vertically
 	markVisited(grid, i-1, j)
 	markVisited(grid, i+1, j)
 	markVisited(grid, i, j-1)
@@ -73,12 +73,14 @@ func main() {
 		{0, 0, 0, 0},
 		{1, 0, 1, 0},
 		{0, 1, 1, 0},
-		{0, 0, 0, 0}}))
+		{0, 0, 0, 0},
+	}))
 	fmt.Println(numEnclaves([][]int{
 		{0, 1, 1, 0},
 		{0, 0, 1, 0},
 		{0, 0, 1, 0},
-		{0, 0, 0, 0}}))
+		{0, 0, 0, 0},
+	}))
 	fmt.Println(numEnclaves([][]int{
 		{0, 0, 0, 1, 1, 1, 0, 1, 0, 0},
 		{1, 1, 0, 0, 0, 1, 0, 1, 1, 1},
@@ -89,5 +91,6 @@ func main() {
 		{0, 1, 1, 0, 0, 0, 1, 1, 1, 1},
 		{0, 0, 1, 0, 0, 1, 0, 1, 0, 1},
 		{1, 0, 1, 0, 1, 1, 0, 0, 0, 0},
-		{0, 0, 0, 0, 1, 1, 0, 0, 0, 1}}))
+		{0, 0, 0, 0, 1, 1, 0, 0, 0, 1},
+	}))
 }

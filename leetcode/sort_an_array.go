@@ -15,7 +15,7 @@ Explanation: After sorting the array, the positions of some numbers are not chan
 Example 2:
 Input: nums = [5,1,1,2,0,0]
 Output: [0,0,1,1,2,5]
-Explanation: Note that the values of nums are not necessairly unique.
+Explanation: Note that the values of nums are not necessarily unique.
 
 Constraints:
 1 <= nums.length <= 5 * 104
@@ -68,6 +68,7 @@ func quickSort(nums []int, left, right int) {
 	quickSort(nums, start, left-1)
 	quickSort(nums, left+1, end)
 }
+
 func sortArray(nums []int) []int {
 	quickSort(nums, 0, len(nums)-1)
 	return nums

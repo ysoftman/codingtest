@@ -99,26 +99,26 @@ func topKFrequent(words []string, k int) []string {
 		m[words[i]]++
 	}
 	// 정렬을 위해 data 리스트로 옮기기
-	datas := []data{}
+	ds := []data{}
 	for k, v := range m {
 		d := data{
 			word: k,
 			cnt:  v,
 		}
-		datas = append(datas, d)
+		ds = append(ds, d)
 	}
-	sort.Slice(datas, func(a, b int) bool {
-		if datas[a].cnt == datas[b].cnt {
-			return datas[a].word < datas[b].word
+	sort.Slice(ds, func(a, b int) bool {
+		if ds[a].cnt == ds[b].cnt {
+			return ds[a].word < ds[b].word
 		}
-		return datas[a].cnt > datas[b].cnt
+		return ds[a].cnt > ds[b].cnt
 	})
 	r := []string{}
-	for i := 0; i < len(datas); i++ {
+	for i := 0; i < len(ds); i++ {
 		if i >= k {
 			break
 		}
-		r = append(r, datas[i].word)
+		r = append(r, ds[i].word)
 	}
 	return r
 }

@@ -27,7 +27,7 @@ import (
 	"strings"
 )
 
-func findOcurrences(text string, first string, second string) []string {
+func findOccurrences(text string, first string, second string) []string {
 	results := []string{}
 	strs := strings.Split(text, " ")
 	for i := 2; i < len(strs); i++ {
@@ -39,7 +39,7 @@ func findOcurrences(text string, first string, second string) []string {
 }
 
 func main() {
-	fmt.Println(findOcurrences("alice is a good girl she is a good student", "a", "good"))
-	fmt.Println(findOcurrences("we will we will rock you", "we", "will"))
-	fmt.Println(findOcurrences("we we we we will rock you", "we", "we"))
+	fmt.Println(findOccurrences("alice is a good girl she is a good student", "a", "good"))
+	fmt.Println(findOccurrences("we will we will rock you", "we", "will"))
+	fmt.Println(findOccurrences("we we we we will rock you", "we", "we"))
 }

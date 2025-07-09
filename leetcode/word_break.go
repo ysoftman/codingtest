@@ -42,7 +42,7 @@ dp[2] == false ...  > dp[2] = false
 dp[3] == false ...  > dp[3] = false
 dp[0] == true && s[0:4] == leet > dp[4] = true
 dp[4] == true && s[4:8] == code > dp[8] = true
-reutrn dp[8]
+return dp[8]
 */
 func wordBreak(s string, wordDict []string) bool {
 	m := make(map[string]bool, len(wordDict))

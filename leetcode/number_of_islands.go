@@ -32,7 +32,6 @@ package main
 import "fmt"
 
 func markVisited(grid *[][]byte, i, j int) {
-
 	if i < 0 || i >= len(*grid) || j < 0 || j >= len((*grid)[i]) {
 		return
 	}
@@ -41,7 +40,7 @@ func markVisited(grid *[][]byte, i, j int) {
 	}
 
 	(*grid)[i][j] = '2'
-	// recursive mark horizontallly and vertically
+	// recursive mark horizontally and vertically
 	markVisited(grid, i-1, j)
 	markVisited(grid, i+1, j)
 	markVisited(grid, i, j-1)
@@ -59,7 +58,6 @@ func numIslands(grid [][]byte) int {
 				countIsland++
 				markVisited(&grid, i, j)
 			}
-
 		}
 	}
 	// for i:=0; i<len(grid); i++ {

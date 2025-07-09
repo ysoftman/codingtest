@@ -23,7 +23,7 @@ package main
 import "fmt"
 
 /*
-taget : 7
+target : 7
 2,3,1,2,4,3
 
 2,3,1,2 >= 7 found! then l++
