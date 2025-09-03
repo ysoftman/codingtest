@@ -12,30 +12,49 @@ using namespace std;
 
 // 주어진 정수 배열에서 앞부분에서의 합과 뒷부분에서의 합이 같아 기준 지점(equilibrium index) 찾기
 // 여러개의 equilibrium index 가 있을 수 있기 때문에 결과 값을 배열로 따로 받는다.
+// O(n^2)
+// int solution(vector<int> &A, vector<int> &output) {
+//     // write your code in C++11 (g++ 4.8.2)
+//     long         prefix_sum = 0;
+//     long         surfix_sum = 0;
+//
+//     unsigned int i          = 0;
+//     unsigned int j          = 0;
+//     unsigned int k          = 0;
+//     for (i = 0; i < A.size(); i++) {
+//         prefix_sum = surfix_sum = 0;
+//         for (j = 0; j < i; j++) {
+//             prefix_sum += A[j];
+//         }
+//
+//         for (k = i + 1; k < A.size(); k++) {
+//             surfix_sum += A[k];
+//         }
+//
+//         if (prefix_sum == surfix_sum) {
+//             // return i;
+//             output.push_back(i);
+//         }
+//     }
+//
+//     return 0;
+// }
+
+// O(n)
 int solution(vector<int> &A, vector<int> &output) {
-    // write your code in C++11 (g++ 4.8.2)
-    long         prefix_sum = 0;
-    long         surfix_sum = 0;
-
-    unsigned int i          = 0;
-    unsigned int j          = 0;
-    unsigned int k          = 0;
-    for (i = 0; i < A.size(); i++) {
-        prefix_sum = surfix_sum = 0;
-        for (j = 0; j < i; j++) {
-            prefix_sum += A[j];
-        }
-
-        for (k = i + 1; k < A.size(); k++) {
-            surfix_sum += A[k];
-        }
-
-        if (prefix_sum == surfix_sum) {
-            // return i;
-            output.push_back(i);
-        }
+    int sum = 0;
+    for (int i = 0; i < A.size(); i++) {
+        sum += A[i];
     }
-
+    int left_sum  = 0;
+    int right_sum = 0;
+    for (int i = 0; i < A.size(); i++) {
+        right_sum = sum - left_sum - A[i];
+        if (left_sum == right_sum) {
+            output.emplace_back(i);
+        }
+        left_sum += A[i];
+    }
     return 0;
 }
 
