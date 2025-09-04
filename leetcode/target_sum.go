@@ -68,7 +68,7 @@ p + n = sum(nums)
 2p = target + sum(nums)
 p = ( target + sum(nums) ) / 2
 
-p 는 taget+sum(num)이 짝수 일때만 유효, p 를 만들 수 있는 sub sum 카운팅
+p 는 target+sum(num)이 짝수 일때만 유효, p 를 만들 수 있는 sub sum 카운팅
 */
 func abs(n int) int {
 	if n < 0 {
