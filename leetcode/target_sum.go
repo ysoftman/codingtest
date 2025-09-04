@@ -52,11 +52,63 @@ func recursiveFindSum(nums []int, target, presum, idx int) int {
 	return a + b
 }
 
+// func findTargetSumWays(nums []int, target int) int {
+// 	return recursiveFindSum(nums, target, 0, 0)
+// }
+
+/*
+p : 양수로 부분들의 합
+n : 음수로 부분들의 합
+
+다음 2개의 식을 만들 수 있다.
+p - n = target
+p + n = sum(nums)
+
+위 2개을 더하면
+2p = target + sum(nums)
+p = ( target + sum(nums) ) / 2
+
+p 는 taget+sum(num)이 짝수 일때만 유효, p 를 만들 수 있는 sub sum 카운팅
+*/
+func abs(n int) int {
+	if n < 0 {
+		return -n
+	}
+	return n
+}
+
+// O(n*s)
 func findTargetSumWays(nums []int, target int) int {
-	return recursiveFindSum(nums, target, 0, 0)
+	s := 0
+	for i := 0; i < len(nums); i++ {
+		s += nums[i]
+	}
+
+	// 모두 다 더해도 target 보다 작으면 답이 없다.
+	if s < abs(target) {
+		return 0
+	}
+	// 홀수면 답이 없다.
+	if (target+s)%2 == 1 {
+		return 0
+	}
+
+	p := (target + s) / 2
+	dp := make([]int, p+1)
+	// 합이 0이 되는 경우는 아무것도 선택하지 않는 경우 1가지
+	dp[0] = 1
+
+	for _, n := range nums {
+		for i := p; i >= n; i-- {
+			dp[i] += dp[i-n]
+		}
+	}
+
+	return dp[p]
 }
 
 func main() {
+	fmt.Println(findTargetSumWays([]int{1, 1, 1, 1, 1}, -1000))
 	fmt.Println(findTargetSumWays([]int{1, 1, 1, 1, 1}, 3))
 	fmt.Println(findTargetSumWays([]int{1}, 1))
 	fmt.Println(findTargetSumWays([]int{1, 0}, 1))
