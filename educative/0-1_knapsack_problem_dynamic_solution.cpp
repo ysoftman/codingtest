@@ -48,6 +48,7 @@ O(nw)
 using namespace std;
 
 const int maxLen = 100;
+
 int       recursiveKnapSack(int DP[][maxLen], int v[], int vLength, int w[], int cap, int idx) {
     if (cap <= 0 || idx < 0 || idx >= vLength) {
         return 0;

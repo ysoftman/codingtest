@@ -19,50 +19,14 @@ Example 3:
 Input: coins = [1], amount = 0
 Output: 0
 
-// 점화식
-1,2,5
+// problems -> sub problems 으로 나누기
+F(11)  -> F(5동전이 없는 경우11-5, 6) F(2동전이 없는경우11-2, 9) F(1동전이 없는경우11-1,10) 3가지로 나뉘고, 여기 동전 종류 하나만 더하면 11 이 되니 +1 한다
 
-0 => 0
-
-1 => 1(1)
-1
-
-2 => 1(2)
-1,1
-2
-
-3 => 2(1,2)
-1,1,1
-1,2
-
-4 => 2(2,2)
-1,1,1,1
-1,1,2
-2,2
-
-5 => 1(5)
-1,1,1,1,1
-1,1,1,2
-1,2,2
-5
-
-6 => 2(1,5)
-1,1,1,1,1,1
-1,1,1,1,2
-1,1,2,2
-2,2,2
-1,5
-
-7 => 2(1,5)
-1,1,1,1,1,1,1
-1,1,1,1,1,2
-1,1,1,2,2
-1,2,2,2
-1,1,5
-2,5
+점화식
+F(11) = min(F(11-5), F(11-2), F(11-1)) + 1
 
 amount=-1 이하
-==> invalid
+==> invalid (-1 리턴)
 
 amount=0 인경우
 0
@@ -104,23 +68,33 @@ package main
 
 import "fmt"
 
-func coinChange(coins []int, amount int) int {
-	if len(coins) == 0 {
-		return 0
+// 시간 복잡도: O(k*n)
+func min(a, b int) int {
+	if a < b {
+		return a
 	}
+	return b
+}
+
+func coinChange(coins []int, amount int) int {
 	dp := make([]int, amount+1)
-	for i := 1; i <= amount; i++ {
-		min := 1<<31 - 1
-		for _, coin := range coins {
-			if i-coin >= 0 && min >= dp[i-coin] {
-				min = dp[i-coin]
+
+	dp[0] = 0
+
+	for a := 1; a <= amount; a++ {
+		dp[a] = 1<<31 - 1
+		for _, c := range coins {
+			if a-c < 0 {
+				continue
 			}
+			dp[a] = min(dp[a-c], dp[a])
 		}
-		dp[i] = min + 1
+		dp[a] += 1
 	}
 	if dp[amount] == (1<<31-1)+1 {
 		return -1
 	}
+
 	return dp[amount]
 }
 
