@@ -48,23 +48,23 @@ using namespace std;
 
 struct ListNode {
     int       val;
-    ListNode *next;
+    ListNode* next;
     ListNode() : val(0), next(nullptr) {}
     ListNode(int x) : val(x), next(nullptr) {}
-    ListNode(int x, ListNode *next) : val(x), next(next) {}
+    ListNode(int x, ListNode* next) : val(x), next(next) {}
 };
 
 class Solution {
    public:
     // 재귀함수로 처리
-    ListNode *swapPairs(ListNode *head) {
+    ListNode* swapPairs(ListNode* head) {
         if (head == NULL) {
             return NULL;
         }
         if (head->next == NULL) {
             return head;
         }
-        ListNode *temp;
+        ListNode* temp;
         temp       = head->next;
         head->next = swapPairs(head->next->next);
         temp->next = head;
@@ -73,14 +73,14 @@ class Solution {
         return head;
     }
     // 반복문으로 처리
-    ListNode *swapPairs2(ListNode *head) {
+    ListNode* swapPairs2(ListNode* head) {
         if (head == nullptr || head->next == nullptr) {
             return head;
         }
-        ListNode *temp    = NULL;
-        ListNode *pre     = NULL;
-        ListNode *newhead = NULL;
-        ListNode *cur     = head;
+        ListNode* temp    = NULL;
+        ListNode* pre     = NULL;
+        ListNode* newhead = NULL;
+        ListNode* cur     = head;
         while (cur != NULL) {
             if (cur->next == NULL) {
                 break;
@@ -100,7 +100,7 @@ class Solution {
     }
 };
 
-void printlist(ListNode *node) {
+void printlist(ListNode* node) {
     while (node != NULL) {
         cout << node->val << " ";
         node = node->next;
@@ -110,10 +110,10 @@ void printlist(ListNode *node) {
 
 int main() {
     Solution  sol  = Solution();
-    ListNode *node = new ListNode(1);
-    ListNode *head = node;
+    ListNode* node = new ListNode(1);
+    ListNode* head = node;
     for (int i = 2; i <= 10; ++i) {
-        ListNode *nn = new ListNode(i);
+        ListNode* nn = new ListNode(i);
         node->next   = nn;
         node         = node->next;
     }

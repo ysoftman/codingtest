@@ -59,7 +59,7 @@ class Solution {
 };
 
 int main() {
-    Solution *sol = new Solution();
+    Solution* sol = new Solution();
     cout << sol->isAnagram("anagram", "nagaram") << endl;
     cout << sol->isAnagram("rat", "car") << endl;
     cout << sol->isAnagram("aacc", "ccac") << endl;

@@ -52,8 +52,8 @@ Return the following binary tree:
 using namespace std;
 struct TreeNode {
     int       val;
-    TreeNode *left;
-    TreeNode *right;
+    TreeNode* left;
+    TreeNode* right;
     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
 };
 
@@ -67,14 +67,14 @@ int        searchinorder(vector<int> inorder, int start, int end, int v) {
     }
     return -1;
 }
-TreeNode *makeTree(vector<int> preorder, vector<int> inorder, int left, int right) {
+TreeNode* makeTree(vector<int> preorder, vector<int> inorder, int left, int right) {
     if (left > right) {
         return NULL;
     }
 
     // preorder 의 원소값을 inorder 에서 찾아 그 index 를 기준으로
     // 왼쪽부분에서는 left 오른쪽부분에서 right 노드를 재귀로 찾아간다.
-    struct TreeNode *node = new TreeNode(preorder[preorder_index++]);
+    struct TreeNode* node = new TreeNode(preorder[preorder_index++]);
     if (left == right) {
         return node;
     }
@@ -91,19 +91,19 @@ TreeNode *makeTree(vector<int> preorder, vector<int> inorder, int left, int righ
 
 class Solution {
    public:
-    TreeNode *buildTree(vector<int> &preorder, vector<int> &inorder) {
+    TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder) {
         preorder_index = 0;
         return makeTree(preorder, inorder, 0, inorder.size() - 1);
     }
 };
 
-void trimLeftTrailingSpaces(string &input) {
+void trimLeftTrailingSpaces(string& input) {
     input.erase(input.begin(), find_if(input.begin(), input.end(), [](int ch) {
                     return !isspace(ch);
                 }));
 }
 
-void trimRightTrailingSpaces(string &input) {
+void trimRightTrailingSpaces(string& input) {
     input.erase(find_if(input.rbegin(), input.rend(), [](int ch) {
                     return !isspace(ch);
                 }).base(),
@@ -125,16 +125,16 @@ vector<int> stringToIntegerVector(string input) {
     return output;
 }
 
-string treeNodeToString(TreeNode *root) {
+string treeNodeToString(TreeNode* root) {
     if (root == nullptr) {
         return "[]";
     }
 
-    string            output = "";
-    queue<TreeNode *> q;
+    string           output = "";
+    queue<TreeNode*> q;
     q.push(root);
     while (!q.empty()) {
-        TreeNode *node = q.front();
+        TreeNode* node = q.front();
         q.pop();
 
         if (node == nullptr) {
@@ -159,7 +159,7 @@ int main() {
         getline(cin, line);
         vector<int> inorder = stringToIntegerVector(line);
 
-        TreeNode   *ret     = Solution().buildTree(preorder, inorder);
+        TreeNode*   ret     = Solution().buildTree(preorder, inorder);
 
         string      out     = treeNodeToString(ret);
         cout << out << endl;
