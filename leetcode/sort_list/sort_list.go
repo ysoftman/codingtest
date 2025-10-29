@@ -24,7 +24,11 @@ Follow up: Can you sort the linked list in O(n logn) time and O(1) memory (i.e. 
 */
 package main
 
-import "sort"
+import (
+	"sort"
+
+	"github.com/ysoftman/ysoftmancommon"
+)
 
 /**
  * Definition for singly-linked list.
@@ -36,17 +40,17 @@ import "sort"
 // 정렬된 새로운 ListNode 를 만들기
 // time complexity(nlogn)
 // space complexity(n)
-func sortList(head *ListNode) *ListNode {
+func sortList(head *ysoftmancommon.ListNode) *ysoftmancommon.ListNode {
 	l := []int{}
 	for head != nil {
 		l = append(l, head.Val)
 		head = head.Next
 	}
 	sort.Ints(l)
-	r := &ListNode{}
+	r := &ysoftmancommon.ListNode{}
 	newhead := r
 	for _, v := range l {
-		r.Next = &ListNode{
+		r.Next = &ysoftmancommon.ListNode{
 			Val: v,
 		}
 		r = r.Next
@@ -55,7 +59,7 @@ func sortList(head *ListNode) *ListNode {
 }
 
 func main() {
-	printLinkedList(sortList(makeLinkedList([]int{4, 2, 1, 3})))
-	printLinkedList(sortList(makeLinkedList([]int{-1, 5, 3, 4, 0})))
-	printLinkedList(sortList(makeLinkedList([]int{})))
+	ysoftmancommon.PrintLinkedList(sortList(ysoftmancommon.MakeLinkedList([]int{4, 2, 1, 3})))
+	ysoftmancommon.PrintLinkedList(sortList(ysoftmancommon.MakeLinkedList([]int{-1, 5, 3, 4, 0})))
+	ysoftmancommon.PrintLinkedList(sortList(ysoftmancommon.MakeLinkedList([]int{})))
 }

@@ -98,10 +98,10 @@ func isPalindrome(head *ListNode) bool {
 }
 
 func main() {
-	fmt.Println(isPalindrome(makeLinkedList([]int{1, 2, 2, 1})))
-	fmt.Println(isPalindrome(makeLinkedList([]int{1, 2})))
-	fmt.Println(isPalindrome(makeLinkedList([]int{1})))
-	fmt.Println(isPalindrome(makeLinkedList([]int{1, 2, 3, 5, 5, 3})))
-	fmt.Println(isPalindrome(makeLinkedList([]int{1, 2, 3, 2, 1})))
-	fmt.Println(isPalindrome(makeLinkedList([]int{1, 2, 3, 4, 5, 5, 4, 3, 2, 1})))
+	fmt.Println(isPalindrome(([]int{1, 2, 2, 1})))
+	fmt.Println(isPalindrome(([]int{1, 2})))
+	fmt.Println(isPalindrome(([]int{1})))
+	fmt.Println(isPalindrome(([]int{1, 2, 3, 5, 5, 3})))
+	fmt.Println(isPalindrome(([]int{1, 2, 3, 2, 1})))
+	fmt.Println(isPalindrome(([]int{1, 2, 3, 4, 5, 5, 4, 3, 2, 1})))
 }

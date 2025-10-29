@@ -20,6 +20,8 @@ The number of nodes in the list is n.
 */
 package main
 
+import "github.com/ysoftman/ysoftmancommon"
+
 /**
  * Definition for singly-linked list.
  * type ListNode struct {
@@ -27,16 +29,16 @@ package main
  *     Next *ListNode
  * }
  */
-func reverseBetween(head *ListNode, left int, right int) *ListNode {
-	base := &ListNode{
+func reverseBetween(head *ysoftmancommon.ListNode, left int, right int) *ysoftmancommon.ListNode {
+	base := &ysoftmancommon.ListNode{
 		0,
 		head,
 	}
 	cnt := 0
-	var leftNodePre *ListNode
-	var leftNode *ListNode
-	var ppre *ListNode = base
-	var pre *ListNode = base
+	var leftNodePre *ysoftmancommon.ListNode
+	var leftNode *ysoftmancommon.ListNode
+	var ppre *ysoftmancommon.ListNode = base
+	var pre *ysoftmancommon.ListNode = base
 	for head != nil {
 		cnt++
 		if cnt == left {
@@ -59,12 +61,11 @@ func reverseBetween(head *ListNode, left int, right int) *ListNode {
 
 func main() {
 	head := []int{1, 2, 3, 4, 5}
-	printLinkedList(reverseBetween(makeLinkedList(head), 2, 4))
+	ysoftmancommon.PrintLinkedList(reverseBetween(ysoftmancommon.MakeLinkedList(head), 2, 4))
 
 	head = []int{5}
-	printLinkedList(reverseBetween(makeLinkedList(head), 1, 1))
+	ysoftmancommon.PrintLinkedList(reverseBetween(ysoftmancommon.MakeLinkedList(head), 1, 1))
 
 	head = []int{0, 1, 3, 2, 5, 2, 3, 1, 6}
-	printLinkedList(reverseBetween(makeLinkedList(head), 1, 5))
-
+	ysoftmancommon.PrintLinkedList(reverseBetween(ysoftmancommon.MakeLinkedList(head), 1, 5))
 }

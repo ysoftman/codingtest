@@ -20,6 +20,8 @@ The number of nodes in the list is in the range [0, 500].
 
 package main
 
+import "github.com/ysoftman/ysoftmancommon"
+
 /**
  * Definition for singly-linked list.
  * type ListNode struct {
@@ -27,14 +29,14 @@ package main
  *     Next *ListNode
  * }
  */
-func rotateRight(head *ListNode, k int) *ListNode {
+func rotateRight(head *ysoftmancommon.ListNode, k int) *ysoftmancommon.ListNode {
 	if k == 0 {
 		return head
 	}
 
 	length := 0
 	root := head
-	var tail *ListNode = nil
+	var tail *ysoftmancommon.ListNode = nil
 	for head != nil {
 		length++
 		head = head.Next
@@ -69,10 +71,10 @@ func rotateRight(head *ListNode, k int) *ListNode {
 }
 
 func main() {
-	printLinkedList(rotateRight(makeLinkedList([]int{1, 2, 3, 4, 5}), 2))
-	printLinkedList(rotateRight(makeLinkedList([]int{1, 2, 3, 4, 5}), 12))
-	printLinkedList(rotateRight(makeLinkedList([]int{1, 2, 3, 4, 5}), 5))
-	printLinkedList(rotateRight(makeLinkedList([]int{0, 1, 2}), 4))
-	printLinkedList(rotateRight(makeLinkedList([]int{}), 0))
-	printLinkedList(rotateRight(makeLinkedList([]int{}), 1))
+	ysoftmancommon.PrintLinkedList(rotateRight(ysoftmancommon.MakeLinkedList([]int{1, 2, 3, 4, 5}), 2))
+	ysoftmancommon.PrintLinkedList(rotateRight(ysoftmancommon.MakeLinkedList([]int{1, 2, 3, 4, 5}), 12))
+	ysoftmancommon.PrintLinkedList(rotateRight(ysoftmancommon.MakeLinkedList([]int{1, 2, 3, 4, 5}), 5))
+	ysoftmancommon.PrintLinkedList(rotateRight(ysoftmancommon.MakeLinkedList([]int{0, 1, 2}), 4))
+	ysoftmancommon.PrintLinkedList(rotateRight(ysoftmancommon.MakeLinkedList([]int{}), 0))
+	ysoftmancommon.PrintLinkedList(rotateRight(ysoftmancommon.MakeLinkedList([]int{}), 1))
 }

@@ -15,6 +15,8 @@ Output: [1,2,3]
 
 package main
 
+import "github.com/ysoftman/ysoftmancommon"
+
 /**
  * Definition for singly-linked list.
  * type ListNode struct {
@@ -23,18 +25,18 @@ package main
  * }
  */
 
-// func deleteDuplicates(head *ListNode) *ListNode {
+// func deleteDuplicates(head *ysoftmancommon.ListNode) *ysoftmancommon.ListNode {
 //     if head == nil {
 //         return nil
 //     }
-//     result := &ListNode{}
+//     result := &ysoftmancommon.ListNode{}
 //     result.Val = head.Val
 //     resultHead := result
 
 //     head = head.Next
 //     for head != nil {
 //         if head.Val != result.Val {
-//             result.Next = &ListNode {
+//             result.Next = &ysoftmancommon.ListNode {
 //                 Val: head.Val,
 //                 Next: nil,
 //             }
@@ -46,7 +48,7 @@ package main
 // }
 
 // 입력 노드 자체를 수정하는 방법
-func deleteDuplicates(head *ListNode) *ListNode {
+func deleteDuplicates(head *ysoftmancommon.ListNode) *ysoftmancommon.ListNode {
 	if head == nil {
 		return nil
 	}
@@ -64,9 +66,9 @@ func deleteDuplicates(head *ListNode) *ListNode {
 }
 
 func main() {
-	head := makeLinkedList([]int{1, 1, 2})
-	printLinkedList(deleteDuplicates(head))
+	head := ysoftmancommon.MakeLinkedList([]int{1, 1, 2})
+	ysoftmancommon.PrintLinkedList(deleteDuplicates(head))
 
-	head = makeLinkedList([]int{1, 1, 2, 3, 3})
-	printLinkedList(deleteDuplicates(head))
+	head = ysoftmancommon.MakeLinkedList([]int{1, 1, 2, 3, 3})
+	ysoftmancommon.PrintLinkedList(deleteDuplicates(head))
 }

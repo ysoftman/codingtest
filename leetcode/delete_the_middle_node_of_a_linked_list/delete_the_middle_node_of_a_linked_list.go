@@ -92,16 +92,16 @@ func deleteMiddle(head *ListNode) *ListNode {
 }
 
 func main() {
-	head := makeLinkedList([]int{1, 3, 4, 7, 1, 2, 6})
+	head := ([]int{1, 3, 4, 7, 1, 2, 6})
 	head = deleteMiddle(head)
 	printLinkedList(head)
-	head = makeLinkedList([]int{1, 2, 3, 4})
+	head = ([]int{1, 2, 3, 4})
 	head = deleteMiddle(head)
 	printLinkedList(head)
-	head = makeLinkedList([]int{2, 1})
+	head = ([]int{2, 1})
 	head = deleteMiddle(head)
 	printLinkedList(head)
-	head = makeLinkedList([]int{1})
+	head = ([]int{1})
 	head = deleteMiddle(head)
 	printLinkedList(head)
 }

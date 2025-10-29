@@ -21,6 +21,8 @@ Output: [8,9,9,9,0,0,0,1]
 
 package main
 
+import "github.com/ysoftman/ysoftmancommon"
+
 /**
  * Definition for singly-linked list.
  * type ListNode struct {
@@ -28,8 +30,8 @@ package main
  *     Next *ListNode
  * }
  */
-func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
-	node := &ListNode{}
+func addTwoNumbers(l1 *ysoftmancommon.ListNode, l2 *ysoftmancommon.ListNode) *ysoftmancommon.ListNode {
+	node := &ysoftmancommon.ListNode{}
 	head := node
 
 	carry := 0
@@ -51,7 +53,7 @@ func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 		if carry == 0 && l1 == nil && l2 == nil {
 			break
 		}
-		node.Next = &ListNode{}
+		node.Next = &ysoftmancommon.ListNode{}
 		node = node.Next
 	}
 	if node != nil && carry > 0 {
@@ -63,44 +65,44 @@ func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 
 func main() {
 	// Input: l1 = [2,4,3], l2 = [5,6,4]
-	l1 := &ListNode{Val: 2}
-	l1.Next = &ListNode{Val: 4}
-	l1.Next.Next = &ListNode{Val: 3}
-	l2 := &ListNode{Val: 5}
-	l2.Next = &ListNode{Val: 6}
-	l2.Next.Next = &ListNode{Val: 4}
+	l1 := &ysoftmancommon.ListNode{Val: 2}
+	l1.Next = &ysoftmancommon.ListNode{Val: 4}
+	l1.Next.Next = &ysoftmancommon.ListNode{Val: 3}
+	l2 := &ysoftmancommon.ListNode{Val: 5}
+	l2.Next = &ysoftmancommon.ListNode{Val: 6}
+	l2.Next.Next = &ysoftmancommon.ListNode{Val: 4}
 	l1Head := l1
 	l2Head := l2
-	// printLinkedList(l1Head)
-	// printLinkedList(l2Head)
-	printLinkedList(addTwoNumbers(l1, l2))
+	// ysoftmancommon.PrintLinkedList(l1Head)
+	// ysoftmancommon.PrintLinkedList(l2Head)
+	ysoftmancommon.PrintLinkedList(addTwoNumbers(l1, l2))
 
 	// Input: l1 = [0], l2 = [0]
-	l1 = &ListNode{Val: 0}
-	l2 = &ListNode{Val: 0}
-	printLinkedList(addTwoNumbers(l1, l2))
+	l1 = &ysoftmancommon.ListNode{Val: 0}
+	l2 = &ysoftmancommon.ListNode{Val: 0}
+	ysoftmancommon.PrintLinkedList(addTwoNumbers(l1, l2))
 
 	// Input: l1 = [9,9,9,9,9,9,9], l2 = [9,9,9,9]
-	l1 = &ListNode{Val: 9}
-	l2 = &ListNode{Val: 9}
+	l1 = &ysoftmancommon.ListNode{Val: 9}
+	l2 = &ysoftmancommon.ListNode{Val: 9}
 	l1Head = l1
 	l2Head = l2
 	for i := 0; i < 7; i++ {
-		newNode := &ListNode{
+		newNode := &ysoftmancommon.ListNode{
 			Val: 9,
 		}
 		l1.Next = newNode
 		l1 = l1.Next
 	}
 	for i := 0; i < 4; i++ {
-		newNode := &ListNode{
+		newNode := &ysoftmancommon.ListNode{
 			Val: 9,
 		}
 		l2.Next = newNode
 		l2 = l2.Next
 	}
-	// printLinkedList(l1Head)
-	// printLinkedList(l2Head)
+	// ysoftmancommon.PrintLinkedList(l1Head)
+	// ysoftmancommon.PrintLinkedList(l2Head)
 
-	printLinkedList(addTwoNumbers(l1Head, l2Head))
+	ysoftmancommon.PrintLinkedList(addTwoNumbers(l1Head, l2Head))
 }

@@ -116,11 +116,11 @@ func deleteDuplicates(head *ListNode) *ListNode {
 }
 
 func main() {
-	printLinkedList(deleteDuplicates(makeLinkedList([]int{1, 2, 3, 3, 4, 4, 5})))
-	printLinkedList(deleteDuplicates(makeLinkedList([]int{1, 1, 1, 2, 3})))
-	printLinkedList(deleteDuplicates(makeLinkedList([]int{1})))
-	printLinkedList(deleteDuplicates(makeLinkedList([]int{})))
-	printLinkedList(deleteDuplicates(makeLinkedList([]int{1, 1, 1, 1, 1})))
-	printLinkedList(deleteDuplicates(makeLinkedList([]int{1, 2, 2})))
-	printLinkedList(deleteDuplicates(makeLinkedList([]int{1, 2, 3, 3})))
+	printLinkedList(deleteDuplicates(([]int{1, 2, 3, 3, 4, 4, 5})))
+	printLinkedList(deleteDuplicates(([]int{1, 1, 1, 2, 3})))
+	printLinkedList(deleteDuplicates(([]int{1})))
+	printLinkedList(deleteDuplicates(([]int{})))
+	printLinkedList(deleteDuplicates(([]int{1, 1, 1, 1, 1})))
+	printLinkedList(deleteDuplicates(([]int{1, 2, 2})))
+	printLinkedList(deleteDuplicates(([]int{1, 2, 3, 3})))
 }

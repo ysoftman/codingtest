@@ -18,6 +18,8 @@ Output: []
 */
 package main
 
+import "github.com/ysoftman/ysoftmancommon"
+
 /**
  * Definition for singly-linked list.
  * type ListNode struct {
@@ -25,9 +27,9 @@ package main
  *     Next *ListNode
  * }
  */
-func removeElements(head *ListNode, val int) *ListNode {
+func removeElements(head *ysoftmancommon.ListNode, val int) *ysoftmancommon.ListNode {
 	root := head
-	var pre *ListNode = nil
+	var pre *ysoftmancommon.ListNode = nil
 	for head != nil {
 		if head.Val == val {
 			if pre != nil {
@@ -44,7 +46,7 @@ func removeElements(head *ListNode, val int) *ListNode {
 }
 
 func main() {
-	printLinkedList(removeElements(makeLinkedList([]int{1, 2, 6, 3, 4, 5, 6}), 6))
-	printLinkedList(removeElements(makeLinkedList([]int{}), 1))
-	printLinkedList(removeElements(makeLinkedList([]int{7, 7, 7, 7}), 7))
+	ysoftmancommon.PrintLinkedList(removeElements(ysoftmancommon.MakeLinkedList([]int{1, 2, 6, 3, 4, 5, 6}), 6))
+	ysoftmancommon.PrintLinkedList(removeElements(ysoftmancommon.MakeLinkedList([]int{}), 1))
+	ysoftmancommon.PrintLinkedList(removeElements(ysoftmancommon.MakeLinkedList([]int{7, 7, 7, 7}), 7))
 }

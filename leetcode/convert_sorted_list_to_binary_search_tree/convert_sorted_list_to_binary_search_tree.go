@@ -64,6 +64,6 @@ func sortedListToBST(head *ListNode) *TreeNode {
 }
 
 func main() {
-	printTreeNodeByBFS(sortedListToBST(makeLinkedList([]int{-10, -3, 0, 5, 9})))
-	printTreeNodeByBFS(sortedListToBST(makeLinkedList([]int{})))
+	printTreeNodeByBFS(sortedListToBST(([]int{-10, -3, 0, 5, 9})))
+	printTreeNodeByBFS(sortedListToBST(([]int{})))
 }

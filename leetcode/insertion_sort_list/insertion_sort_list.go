@@ -25,6 +25,8 @@ The number of nodes in the list is in the range [1, 5000].
 */
 package main
 
+import "github.com/ysoftman/ysoftmancommon"
+
 /**
  * Definition for singly-linked list.
  * type ListNode struct {
@@ -32,19 +34,19 @@ package main
  *     Next *ListNode
  * }
  */
-func insertionSortList(head *ListNode) *ListNode {
+func insertionSortList(head *ysoftmancommon.ListNode) *ysoftmancommon.ListNode {
 	if head == nil {
 		return nil
 	}
 
 	// 정렬된 리스트의 기록을 위해 사용한다.
 	// sortedHead.Next = nil 정렬되지 않은 나머지 노드와 구분한다.
-	sortedHead := &ListNode{Val: 0}
+	sortedHead := &ysoftmancommon.ListNode{Val: 0}
 	for head != nil {
 		next := head.Next
 
 		sortedNode := sortedHead.Next
-		var insertPos *ListNode = nil
+		var insertPos *ysoftmancommon.ListNode = nil
 		for sortedNode != nil {
 			if sortedNode.Val < head.Val {
 				insertPos = sortedNode
@@ -68,13 +70,12 @@ func insertionSortList(head *ListNode) *ListNode {
 }
 
 func main() {
-	head := makeLinkedList([]int{4, 2, 1, 3})
-	printLinkedList(insertionSortList(head))
-	head = makeLinkedList([]int{-1, 5, 3, 4, 0})
-	printLinkedList(insertionSortList(head))
-	head = makeLinkedList([]int{1})
-	printLinkedList(insertionSortList(head))
-	head = makeLinkedList([]int{5, 4, 3, 2, 3, 33, 2, 3, 2, 1})
-	printLinkedList(insertionSortList(head))
-
+	head := ysoftmancommon.MakeLinkedList([]int{4, 2, 1, 3})
+	ysoftmancommon.PrintLinkedList(insertionSortList(head))
+	head = ysoftmancommon.MakeLinkedList([]int{-1, 5, 3, 4, 0})
+	ysoftmancommon.PrintLinkedList(insertionSortList(head))
+	head = ysoftmancommon.MakeLinkedList([]int{1})
+	ysoftmancommon.PrintLinkedList(insertionSortList(head))
+	head = ysoftmancommon.MakeLinkedList([]int{5, 4, 3, 2, 3, 33, 2, 3, 2, 1})
+	ysoftmancommon.PrintLinkedList(insertionSortList(head))
 }

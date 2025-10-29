@@ -22,6 +22,8 @@ Output: [0]
 */
 package main
 
+import "github.com/ysoftman/ysoftmancommon"
+
 /**
  * Definition for singly-linked list.
  * type ListNode struct {
@@ -29,12 +31,12 @@ package main
  *     Next *ListNode
  * }
  */
-func mergeTwoLists(list1 *ListNode, list2 *ListNode) *ListNode {
+func mergeTwoLists(list1 *ysoftmancommon.ListNode, list2 *ysoftmancommon.ListNode) *ysoftmancommon.ListNode {
 	if list1 == nil && list2 == nil {
 		return nil
 	}
-	var result, head *ListNode
-	result = &ListNode{}
+	var result, head *ysoftmancommon.ListNode
+	result = &ysoftmancommon.ListNode{}
 	head = result
 	for true {
 		if list1 == nil {
@@ -51,7 +53,7 @@ func mergeTwoLists(list1 *ListNode, list2 *ListNode) *ListNode {
 			list2 = list2.Next
 		}
 		if list1 != nil || list2 != nil {
-			result.Next = &ListNode{}
+			result.Next = &ysoftmancommon.ListNode{}
 			result = result.Next
 		} else {
 			break
@@ -61,13 +63,13 @@ func mergeTwoLists(list1 *ListNode, list2 *ListNode) *ListNode {
 }
 
 func main() {
-	list1 := makeLinkedList([]int{1, 2, 4})
-	list2 := makeLinkedList([]int{1, 3, 4})
-	printLinkedList(mergeTwoLists(list1, list2))
-	list1 = makeLinkedList([]int{})
-	list2 = makeLinkedList([]int{})
-	printLinkedList(mergeTwoLists(list1, list2))
-	list1 = makeLinkedList([]int{})
-	list2 = makeLinkedList([]int{0})
-	printLinkedList(mergeTwoLists(list1, list2))
+	list1 := ysoftmancommon.MakeLinkedList([]int{1, 2, 4})
+	list2 := ysoftmancommon.MakeLinkedList([]int{1, 3, 4})
+	ysoftmancommon.PrintLinkedList(mergeTwoLists(list1, list2))
+	list1 = ysoftmancommon.MakeLinkedList([]int{})
+	list2 = ysoftmancommon.MakeLinkedList([]int{})
+	ysoftmancommon.PrintLinkedList(mergeTwoLists(list1, list2))
+	list1 = ysoftmancommon.MakeLinkedList([]int{})
+	list2 = ysoftmancommon.MakeLinkedList([]int{0})
+	ysoftmancommon.PrintLinkedList(mergeTwoLists(list1, list2))
 }

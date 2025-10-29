@@ -24,6 +24,8 @@ The number of nodes in the linked list is in the range [0, 104].
 
 package main
 
+import "github.com/ysoftman/ysoftmancommon"
+
 /**
  * Definition for singly-linked list.
  * type ListNode struct {
@@ -33,9 +35,9 @@ package main
  */
 // time complexity: O(n)
 // space complexity: O(1)
-func oddEvenList(head *ListNode) *ListNode {
-	odd := &ListNode{}
-	even := &ListNode{}
+func oddEvenList(head *ysoftmancommon.ListNode) *ysoftmancommon.ListNode {
+	odd := &ysoftmancommon.ListNode{}
+	even := &ysoftmancommon.ListNode{}
 	oddHead := odd
 	evenHead := even
 
@@ -60,8 +62,8 @@ func oddEvenList(head *ListNode) *ListNode {
 }
 
 func main() {
-	head := makeLinkedList([]int{1, 2, 3, 4, 5})
-	printLinkedList(oddEvenList(head))
-	head = makeLinkedList([]int{2, 1, 3, 5, 6, 4, 7})
-	printLinkedList(oddEvenList(head))
+	head := ysoftmancommon.MakeLinkedList([]int{1, 2, 3, 4, 5})
+	ysoftmancommon.PrintLinkedList(oddEvenList(head))
+	head = ysoftmancommon.MakeLinkedList([]int{2, 1, 3, 5, 6, 4, 7})
+	ysoftmancommon.PrintLinkedList(oddEvenList(head))
 }

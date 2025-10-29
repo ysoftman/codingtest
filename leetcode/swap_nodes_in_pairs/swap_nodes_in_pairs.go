@@ -32,6 +32,8 @@ Given 1->2->3->4, you should return the list as 2->1->4->3.
 */
 package main
 
+import "github.com/ysoftman/ysoftmancommon"
+
 /**
  * Definition for singly-linked list.
  * type ListNode struct {
@@ -39,14 +41,14 @@ package main
  *     Next *ListNode
  * }
  */
-func swapPairs(head *ListNode) *ListNode {
+func swapPairs(head *ysoftmancommon.ListNode) *ysoftmancommon.ListNode {
 	if head == nil || head.Next == nil {
 		return head
 	}
-	var start *ListNode = head.Next
+	var start *ysoftmancommon.ListNode = head.Next
 	for head != nil {
-		var NextNode *ListNode = nil
-		var NextPos *ListNode = nil
+		var NextNode *ysoftmancommon.ListNode = nil
+		var NextPos *ysoftmancommon.ListNode = nil
 		if head.Next == nil {
 			head = head.Next
 			continue
@@ -65,27 +67,26 @@ func swapPairs(head *ListNode) *ListNode {
 		head = NextPos
 	}
 	return start
-
 }
 
 func main() {
-	node := &ListNode{Val: 1}
+	node := &ysoftmancommon.ListNode{Val: 1}
 	start := node
-	node.Next = &ListNode{Val: 2}
+	node.Next = &ysoftmancommon.ListNode{Val: 2}
 	node = node.Next
-	node.Next = &ListNode{Val: 3}
+	node.Next = &ysoftmancommon.ListNode{Val: 3}
 	node = node.Next
-	node.Next = &ListNode{Val: 4}
+	node.Next = &ysoftmancommon.ListNode{Val: 4}
 	node = node.Next
-	printLinkedList(start)
-	printLinkedList(swapPairs(start))
+	ysoftmancommon.PrintLinkedList(start)
+	ysoftmancommon.PrintLinkedList(swapPairs(start))
 
-	node = &ListNode{Val: 1}
+	node = &ysoftmancommon.ListNode{Val: 1}
 	start = node
-	node.Next = &ListNode{Val: 2}
+	node.Next = &ysoftmancommon.ListNode{Val: 2}
 	node = node.Next
-	node.Next = &ListNode{Val: 3}
+	node.Next = &ysoftmancommon.ListNode{Val: 3}
 	node = node.Next
-	printLinkedList(start)
-	printLinkedList(swapPairs(start))
+	ysoftmancommon.PrintLinkedList(start)
+	ysoftmancommon.PrintLinkedList(swapPairs(start))
 }

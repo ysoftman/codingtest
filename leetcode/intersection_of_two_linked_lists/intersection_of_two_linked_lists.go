@@ -97,9 +97,9 @@ func getIntersectionNode(headA, headB *ListNode) *ListNode {
 }
 
 func main() {
-	commonList := makeLinkedList([]int{8, 4, 5})
-	listHeadA := makeLinkedList([]int{4, 1})
-	listHeadB := makeLinkedList([]int{5, 6, 1})
+	commonList := ([]int{8, 4, 5})
+	listHeadA := ([]int{4, 1})
+	listHeadB := ([]int{5, 6, 1})
 	listA := listHeadA
 	for listA.Next != nil {
 		listA = listA.Next

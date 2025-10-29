@@ -36,6 +36,8 @@ The sum of lists[i].length will not exceed 104.
 
 package main
 
+import "github.com/ysoftman/ysoftmancommon"
+
 /**
  * Definition for singly-linked list.
  * type ListNode struct {
@@ -43,8 +45,8 @@ package main
  *     Next *ListNode
  * }
  */
-func mergeKLists(lists []*ListNode) *ListNode {
-	head := &ListNode{}
+func mergeKLists(lists []*ysoftmancommon.ListNode) *ysoftmancommon.ListNode {
+	head := &ysoftmancommon.ListNode{}
 	node := head
 
 	for {
@@ -63,7 +65,7 @@ func mergeKLists(lists []*ListNode) *ListNode {
 			break
 		}
 		lists[minIdx] = lists[minIdx].Next
-		node.Next = &ListNode{Val: min}
+		node.Next = &ysoftmancommon.ListNode{Val: min}
 		node = node.Next
 	}
 
@@ -71,21 +73,21 @@ func mergeKLists(lists []*ListNode) *ListNode {
 }
 
 func main() {
-	lists := []*ListNode{}
-	lists = append(lists, makeLinkedList([]int{1, 4, 5}))
-	lists = append(lists, makeLinkedList([]int{1, 3, 4}))
-	lists = append(lists, makeLinkedList([]int{2, 6}))
-	printLinkedList(mergeKLists(lists))
+	lists := []*ysoftmancommon.ListNode{}
+	lists = append(lists, ysoftmancommon.MakeLinkedList([]int{1, 4, 5}))
+	lists = append(lists, ysoftmancommon.MakeLinkedList([]int{1, 3, 4}))
+	lists = append(lists, ysoftmancommon.MakeLinkedList([]int{2, 6}))
+	ysoftmancommon.PrintLinkedList(mergeKLists(lists))
 
-	lists = []*ListNode{}
-	printLinkedList(mergeKLists(lists))
+	lists = []*ysoftmancommon.ListNode{}
+	ysoftmancommon.PrintLinkedList(mergeKLists(lists))
 
-	lists = []*ListNode{}
-	lists = append(lists, makeLinkedList([]int{}))
-	printLinkedList(mergeKLists(lists))
+	lists = []*ysoftmancommon.ListNode{}
+	lists = append(lists, ysoftmancommon.MakeLinkedList([]int{}))
+	ysoftmancommon.PrintLinkedList(mergeKLists(lists))
 
-	lists = append(lists, makeLinkedList([]int{1, 3, 5, 98}))
-	lists = append(lists, makeLinkedList([]int{2, 4, 7, 7, 10, 12, 50}))
-	lists = append(lists, makeLinkedList([]int{12, 67}))
-	printLinkedList(mergeKLists(lists))
+	lists = append(lists, ysoftmancommon.MakeLinkedList([]int{1, 3, 5, 98}))
+	lists = append(lists, ysoftmancommon.MakeLinkedList([]int{2, 4, 7, 7, 10, 12, 50}))
+	lists = append(lists, ysoftmancommon.MakeLinkedList([]int{12, 67}))
+	ysoftmancommon.PrintLinkedList(mergeKLists(lists))
 }

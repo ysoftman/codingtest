@@ -40,6 +40,8 @@ import (
 	"fmt"
 	"math/rand"
 	"time"
+
+	"github.com/ysoftman/ysoftmancommon"
 )
 
 /**
@@ -50,12 +52,12 @@ import (
  * }
  */
 type Solution struct {
-	nodePointer []*ListNode
+	nodePointer []*ysoftmancommon.ListNode
 }
 
 // time complexity : O(n)
 // space complexity: O(n)
-func Constructor(head *ListNode) Solution {
+func Constructor(head *ysoftmancommon.ListNode) Solution {
 	rand.Seed(time.Now().UnixNano())
 	sol := Solution{}
 	for head != nil {
@@ -76,7 +78,7 @@ func (this *Solution) GetRandom() int {
  */
 
 func main() {
-	head := makeLinkedList([]int{1, 2, 3})
+	head := ysoftmancommon.MakeLinkedList([]int{1, 2, 3})
 	obj := Constructor(head)
 	fmt.Println(obj.GetRandom())
 }

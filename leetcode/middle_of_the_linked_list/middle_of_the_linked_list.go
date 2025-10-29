@@ -17,6 +17,8 @@ Explanation: Since the list has two middle nodes with values 3 and 4, we return 
 */
 package main
 
+import "github.com/ysoftman/ysoftmancommon"
+
 /**
  * Definition for singly-linked list.
  * type ListNode struct {
@@ -24,7 +26,7 @@ package main
  *     Next *ListNode
  * }
  */
-func middleNode(head *ListNode) *ListNode {
+func middleNode(head *ysoftmancommon.ListNode) *ysoftmancommon.ListNode {
 	cnt := 0
 	middleHead := head
 	for head.Next != nil {
@@ -38,6 +40,6 @@ func middleNode(head *ListNode) *ListNode {
 }
 
 func main() {
-	printLinkedList(middleNode(makeLinkedList([]int{1, 2, 3, 4, 5})))
-	printLinkedList(middleNode(makeLinkedList([]int{1, 2, 3, 4, 5, 6})))
+	ysoftmancommon.PrintLinkedList(middleNode(ysoftmancommon.MakeLinkedList([]int{1, 2, 3, 4, 5})))
+	ysoftmancommon.PrintLinkedList(middleNode(ysoftmancommon.MakeLinkedList([]int{1, 2, 3, 4, 5, 6})))
 }
