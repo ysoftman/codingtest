@@ -20,10 +20,9 @@
 # 987-123-4567
 # (123) 456-7890
 
-
 # Read from the file file.txt and output all valid phone numbers to stdout.
 
-cat << zzz > file.txt
+cat <<zzz >file.txt
 987-123-4567
 123 456 7890
 (123) 456-7890
@@ -31,14 +30,12 @@ zzz
 
 regx1="^[0-9]{3}-[0-9]{3}-[0-9]{4}$"
 regx2="^\([0-9]{3}\) [0-9]{3}-[0-9]{4}$"
-while read line
-do
+while read line; do
     #echo -n "${line} ==> "
     # =~ 정규식 매칭
-    if [[ ${line} =~ $regx1  ]] || [[ ${line} =~ $regx2  ]]; then
+    if [[ ${line} =~ $regx1 ]] || [[ ${line} =~ $regx2 ]]; then
         echo "${line}"
     fi
-done < file.txt
-
+done <file.txt
 
 rm -rf file.txt

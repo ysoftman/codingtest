@@ -19,7 +19,7 @@
 
 #!/bin/bash
 
-cat << 'zzz' > file.txt
+cat <<'zzz' >file.txt
 name age
 alice 21
 ryan 30

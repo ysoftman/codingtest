@@ -23,12 +23,10 @@
 # 1. If the file contains less than 10 lines, what should you output?
 # 2. There's at least three different solutions. Try to explore all possibilities.
 
-
 # Read from the file file.txt and output the tenth line to stdout.
 #!/bin/bash
 
-
-cat << zzz > file.txt
+cat <<zzz >file.txt
 1.apple
 2.123
 3.aaa
@@ -42,20 +40,18 @@ cat << zzz > file.txt
 11.zzz
 zzz
 
-
 # using sed
 # sed -n 10p file.txt
 
 # using loop
 cnt=0
 while read line; do
-    let cnt++;
+    let cnt++
     if [[ $cnt == 10 ]]; then
         echo $line
         break
     fi
     # echo $cnt $line
-done < file.txt
-
+done <file.txt
 
 rm -rf file.txt

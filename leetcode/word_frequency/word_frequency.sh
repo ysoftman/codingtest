@@ -27,7 +27,7 @@
 
 #!/bin/bash
 
-cat << 'zzz' > words.txt
+cat <<'zzz' >words.txt
 the day is sunny the the
 the sunny is is
 zzz
