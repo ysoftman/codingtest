@@ -20,11 +20,13 @@ Input: root = [2,1], p = 2, q = 1
 Output: 2
 */
 
-// go run ./lowest_common_ancestor_of_a_binary_search_tree.go ./ysoftman_common.go
+// go run ./lowest_common_ancestor_of_a_binary_search_tree.go
 package main
 
 import (
 	"fmt"
+
+	"github.com/ysoftman/ysoftmancommon"
 )
 
 // Definition for a binary tree node.
@@ -35,7 +37,7 @@ import (
 // }
 
 // LCA : 두 노드(자신 포함)의 첫번째  공통 부모
-func lowestCommonAncestor(root, p, q *TreeNode) *TreeNode {
+func lowestCommonAncestor(root, p, q *ysoftmancommon.TreeNode) *ysoftmancommon.TreeNode {
 	if root == nil {
 		return nil
 	}
@@ -64,7 +66,7 @@ func lowestCommonAncestor(root, p, q *TreeNode) *TreeNode {
 	return nil
 }
 
-func findNode(root *TreeNode, val int) *TreeNode {
+func findNode(root *ysoftmancommon.TreeNode, val int) *ysoftmancommon.TreeNode {
 	if root == nil {
 		return nil
 	}
@@ -80,24 +82,24 @@ func findNode(root *TreeNode, val int) *TreeNode {
 		return node
 	}
 	return nil
-
 }
+
 func main() {
-	root := makeArrayToBinaryTreeNode([]string{"6", "2", "8", "0", "4", "7", "9", "null", "null", "3", "5"})
+	root := ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"6", "2", "8", "0", "4", "7", "9", "null", "null", "3", "5"})
 	p := findNode(root, 2)
 	q := findNode(root, 8)
-	printTreeNodeByBFS(root)
+	ysoftmancommon.PrintTreeNodeByBFS(root)
 	fmt.Println(lowestCommonAncestor(root, p, q).Val)
 
-	root = makeArrayToBinaryTreeNode([]string{"6", "2", "8", "0", "4", "7", "9", "null", "null", "3", "5"})
+	root = ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"6", "2", "8", "0", "4", "7", "9", "null", "null", "3", "5"})
 	p = findNode(root, 2)
 	q = findNode(root, 4)
-	printTreeNodeByBFS(root)
+	ysoftmancommon.PrintTreeNodeByBFS(root)
 	fmt.Println(lowestCommonAncestor(root, p, q).Val)
 
-	root = makeArrayToBinaryTreeNode([]string{"2", "1"})
+	root = ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"2", "1"})
 	p = findNode(root, 2)
 	q = findNode(root, 1)
-	printTreeNodeByBFS(root)
+	ysoftmancommon.PrintTreeNodeByBFS(root)
 	fmt.Println(lowestCommonAncestor(root, p, q).Val)
 }

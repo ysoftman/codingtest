@@ -23,10 +23,14 @@ preorder is guaranteed to be the preorder traversal of the tree.
 inorder is guaranteed to be the inorder traversal of the tree.
 */
 
-// go run ./construct_binary_tree_from_preorder_and_indorder_traversal.go ./ysoftman_common.go
+// go run ./construct_binary_tree_from_preorder_and_indorder_traversal.go
 package main
 
-import "fmt"
+import (
+	"fmt"
+
+	"github.com/ysoftman/ysoftmancommon"
+)
 
 /**
  * Definition for a binary tree node.
@@ -45,11 +49,11 @@ inorder = [9,3,15,20,7]
 
 Return the following binary tree:
 
-    3
-   / \
-  9  20
-    /  \
-   15   7
+	  3
+	 / \
+	9  20
+	  /  \
+	 15   7
 
 # 다음과 같은 포맷으로 입력
 [3,9,20,15,7]
@@ -69,13 +73,13 @@ func searchinorder(inorder []int, start, end, v int) int {
 	return -1
 }
 
-func makeTree(preorder, inorder []int, left, right int) *TreeNode {
+func makeTree(preorder, inorder []int, left, right int) *ysoftmancommon.TreeNode {
 	if left > right {
 		return nil
 	}
 	// preorder 의 원소값을 inorder 에서 찾아 그 index 를 기준으로
 	// 왼쪽부분에서는 left 오른쪽부분에서 right 노드를 재귀로 찾아간다.
-	node := &TreeNode{
+	node := &ysoftmancommon.TreeNode{
 		Val: preorder[preorder_index],
 	}
 	preorder_index++
@@ -89,14 +93,14 @@ func makeTree(preorder, inorder []int, left, right int) *TreeNode {
 	return node
 }
 
-func buildTree(preorder []int, inorder []int) *TreeNode {
+func buildTree(preorder []int, inorder []int) *ysoftmancommon.TreeNode {
 	preorder_index = 0
 	return makeTree(preorder, inorder, 0, len(inorder)-1)
 }
 
 func main() {
-	printTreeNodeByDFS(buildTree([]int{3, 9, 20, 15, 7}, []int{9, 3, 15, 20, 7}))
+	ysoftmancommon.PrintTreeNodeByDFS(buildTree([]int{3, 9, 20, 15, 7}, []int{9, 3, 15, 20, 7}))
 	fmt.Println()
-	printTreeNodeByDFS(buildTree([]int{-1}, []int{-1}))
+	ysoftmancommon.PrintTreeNodeByDFS(buildTree([]int{-1}, []int{-1}))
 	fmt.Println()
 }

@@ -17,10 +17,14 @@ Input: root1 = [1], root2 = [1,2]
 Output: [2,2]
 */
 
-// go run ./merge_two_binary_trees.go ./ysoftman_common.go
+// go run ./merge_two_binary_trees.go
 package main
 
-import "fmt"
+import (
+	"fmt"
+
+	"github.com/ysoftman/ysoftmancommon"
+)
 
 // Definition for a binary tree node.
 // type TreeNode struct {
@@ -29,67 +33,68 @@ import "fmt"
 // 	Right *TreeNode
 // }
 
-func recursiveMergeTrees(root1 *TreeNode, root2 *TreeNode) *TreeNode {
+func recursiveMergeTrees(root1 *ysoftmancommon.TreeNode, root2 *ysoftmancommon.TreeNode) *ysoftmancommon.TreeNode {
 	if root1 == nil && root2 == nil {
 		return nil
 	}
 	if root1 != nil && root2 == nil {
-		return &TreeNode{
+		return &ysoftmancommon.TreeNode{
 			Val:   root1.Val,
 			Left:  recursiveMergeTrees(root1.Left, nil),
 			Right: recursiveMergeTrees(root1.Right, nil),
 		}
 	}
 	if root1 == nil && root2 != nil {
-		return &TreeNode{
+		return &ysoftmancommon.TreeNode{
 			Val:   root2.Val,
 			Left:  recursiveMergeTrees(nil, root2.Left),
 			Right: recursiveMergeTrees(nil, root2.Right),
 		}
 	}
-	result := &TreeNode{}
+	result := &ysoftmancommon.TreeNode{}
 	result.Val = root1.Val + root2.Val
 	result.Left = recursiveMergeTrees(root1.Left, root2.Left)
 	result.Right = recursiveMergeTrees(root1.Right, root2.Right)
 	return result
 }
-func mergeTrees(root1 *TreeNode, root2 *TreeNode) *TreeNode {
+
+func mergeTrees(root1 *ysoftmancommon.TreeNode, root2 *ysoftmancommon.TreeNode) *ysoftmancommon.TreeNode {
 	return recursiveMergeTrees(root1, root2)
 }
 
 func main() {
-	root1 := &TreeNode{
+	root1 := &ysoftmancommon.TreeNode{
 		Val: 1,
-		Left: &TreeNode{
+		Left: &ysoftmancommon.TreeNode{
 			Val: 3,
-			Left: &TreeNode{
+			Left: &ysoftmancommon.TreeNode{
 				Val:   5,
 				Left:  nil,
 				Right: nil,
 			},
 			Right: nil,
 		},
-		Right: &TreeNode{
+		Right: &ysoftmancommon.TreeNode{
 			Val:   2,
 			Left:  nil,
 			Right: nil,
 		},
 	}
-	root2 := &TreeNode{
+	root2 := &ysoftmancommon.TreeNode{
 		Val: 2,
-		Left: &TreeNode{
+		Left: &ysoftmancommon.TreeNode{
 			Val:  1,
 			Left: nil,
-			Right: &TreeNode{
+			Right: &ysoftmancommon.TreeNode{
 				Val:   4,
 				Left:  nil,
 				Right: nil,
 			},
 		},
-		Right: &TreeNode{
+		Right: &ysoftmancommon.TreeNode{
 			Val:  3,
 			Left: nil,
-			Right: &TreeNode{
+			Right: &ysoftmancommon.TreeNode{
 				Val:   7,
 				Left:  nil,
 				Right: nil,
@@ -97,7 +102,7 @@ func main() {
 		},
 	}
 	result := mergeTrees(root1, root2)
-	printTreeNodeByDFS(result)
+	ysoftmancommon.PrintTreeNodeByDFS(result)
 	fmt.Println()
-	printTreeNodeByBFS(result)
+	ysoftmancommon.PrintTreeNodeByBFS(result)
 }

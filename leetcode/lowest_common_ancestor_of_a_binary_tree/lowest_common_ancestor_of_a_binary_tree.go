@@ -28,8 +28,12 @@ p != q
 p and q will exist in the tree.
 */
 
-// go run ./lowest_common_ancestor_of_a_binary_tree.go ./ysoftman_common.go
+// go run ./lowest_common_ancestor_of_a_binary_tree.go
 package main
+
+import (
+	"github.com/ysoftman/ysoftmancommon"
+)
 
 /**
  * Definition for a binary tree node.
@@ -39,7 +43,7 @@ package main
  *     Right *TreeNode
  * }
  */
-func lowestCommonAncestor(root, p, q *TreeNode) *TreeNode {
+func lowestCommonAncestor(root, p, q *ysoftmancommon.TreeNode) *ysoftmancommon.TreeNode {
 	if root == nil {
 		return nil
 	}
@@ -63,7 +67,13 @@ func lowestCommonAncestor(root, p, q *TreeNode) *TreeNode {
 }
 
 func main() {
-	lowerlowestCommonAncestor(makeArrayToBinaryTreeNode([]string{"3", "5", "1", "6", "2", "0", "8", "null", "null", "7", "4"}), 5, 1)
-	lowerlowestCommonAncestor(makeArrayToBinaryTreeNode([]string{"3", "5", "1", "6", "2", "0", "8", "null", "null", "7", "4"}), 5, 4)
-	lowerlowestCommonAncestor(makeArrayToBinaryTreeNode([]string{"1", "2"}), 1, 2)
+	r := lowestCommonAncestor(ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"3", "5", "1", "6", "2", "0", "8", "null", "null", "7", "4"}),
+		ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"5"}), ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"1"}))
+	ysoftmancommon.PrintTreeNodeByBFS(r)
+	r = lowestCommonAncestor(ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"3", "5", "1", "6", "2", "0", "8", "null", "null", "7", "4"}),
+		ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"5"}), ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"4"}))
+	ysoftmancommon.PrintTreeNodeByBFS(r)
+	r = lowestCommonAncestor(ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"1", "2"}),
+		ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"1"}), ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"2"}))
+	ysoftmancommon.PrintTreeNodeByBFS(r)
 }

@@ -24,10 +24,14 @@ The number of nodes in the tree is in the range [1, 104].
 -231 <= Node.val <= 231 - 1
 */
 
-// go run ./validate_binary_search_tree.go ./ysoftman_common.go
+// go run ./validate_binary_search_tree.go
 package main
 
-import "fmt"
+import (
+	"fmt"
+
+	"github.com/ysoftman/ysoftmancommon"
+)
 
 /**
  * Definition for a binary tree node.
@@ -40,13 +44,16 @@ import "fmt"
 
 /*
 BST : false
-  5
- / \
+
+	 5
+	/ \
+
 4   6
-   / \
-  3   7
+
+	 / \
+	3   7
 */
-func checkBST(root *TreeNode, min, max int) bool {
+func checkBST(root *ysoftmancommon.TreeNode, min, max int) bool {
 	if root == nil {
 		return true
 	}
@@ -60,24 +67,24 @@ func checkBST(root *TreeNode, min, max int) bool {
 	return false
 }
 
-func isValidBST(root *TreeNode) bool {
+func isValidBST(root *ysoftmancommon.TreeNode) bool {
 	return checkBST(root, -1<<31-1, 1<<31)
 }
 
 func main() {
-	root := makeArrayToBinaryTreeNode([]string{"2", "1", "3"})
-	printTreeNodeByBFS(root)
+	root := ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"2", "1", "3"})
+	ysoftmancommon.PrintTreeNodeByBFS(root)
 	fmt.Println(isValidBST(root))
-	root = makeArrayToBinaryTreeNode([]string{"5", "1", "4", "null", "null", "3", "6"})
-	printTreeNodeByBFS(root)
+	root = ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"5", "1", "4", "null", "null", "3", "6"})
+	ysoftmancommon.PrintTreeNodeByBFS(root)
 	fmt.Println(isValidBST(root))
-	root = makeArrayToBinaryTreeNode([]string{"5", "4", "6", "null", "null", "3", "7"})
-	printTreeNodeByBFS(root)
+	root = ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"5", "4", "6", "null", "null", "3", "7"})
+	ysoftmancommon.PrintTreeNodeByBFS(root)
 	fmt.Println(isValidBST(root))
-	root = makeArrayToBinaryTreeNode([]string{"2147483647"})
-	printTreeNodeByBFS(root)
+	root = ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"2147483647"})
+	ysoftmancommon.PrintTreeNodeByBFS(root)
 	fmt.Println(isValidBST(root))
-	root = makeArrayToBinaryTreeNode([]string{"2", "2", "2"})
-	printTreeNodeByBFS(root)
+	root = ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"2", "2", "2"})
+	ysoftmancommon.PrintTreeNodeByBFS(root)
 	fmt.Println(isValidBST(root))
 }

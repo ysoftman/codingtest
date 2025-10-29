@@ -17,11 +17,13 @@ Input: root = []
 Output: []
 */
 
-// go run ./binary_tree_level_order_traversal.go ./ysoftman_common.go
+// go run ./binary_tree_level_order_traversal.go
 package main
 
 import (
 	"fmt"
+
+	"github.com/ysoftman/ysoftmancommon"
 )
 
 // Definition for a binary tree node.
@@ -32,14 +34,14 @@ import (
 // }
 
 // using BFS
-func levelOrderBFS(root *TreeNode) [][]int {
+func levelOrderBFS(root *ysoftmancommon.TreeNode) [][]int {
 	result := [][]int{}
 	if root == nil {
 		return result
 	}
 	// result = append(result, []int{root.Val})
-	queue := []*TreeNode{root}
-	levelQueue := []*TreeNode{}
+	queue := []*ysoftmancommon.TreeNode{root}
+	levelQueue := []*ysoftmancommon.TreeNode{}
 	levelVal := []int{}
 	for len(queue) > 0 {
 		front := queue[0]
@@ -56,7 +58,7 @@ func levelOrderBFS(root *TreeNode) [][]int {
 				levelVal = []int{}
 			}
 			queue = levelQueue
-			levelQueue = []*TreeNode{}
+			levelQueue = []*ysoftmancommon.TreeNode{}
 		}
 
 	}
@@ -64,7 +66,7 @@ func levelOrderBFS(root *TreeNode) [][]int {
 }
 
 // using DFS
-func dfsTreeLevel(root *TreeNode, level int, result map[int][]int) {
+func dfsTreeLevel(root *ysoftmancommon.TreeNode, level int, result map[int][]int) {
 	if root == nil {
 		return
 	}
@@ -72,7 +74,8 @@ func dfsTreeLevel(root *TreeNode, level int, result map[int][]int) {
 	dfsTreeLevel(root.Left, level+1, result)
 	dfsTreeLevel(root.Right, level+1, result)
 }
-func levelOrder(root *TreeNode) [][]int {
+
+func levelOrder(root *ysoftmancommon.TreeNode) [][]int {
 	m := make(map[int][]int, 0)
 	dfsTreeLevel(root, 0, m)
 	result := [][]int{}
@@ -83,33 +86,33 @@ func levelOrder(root *TreeNode) [][]int {
 }
 
 func main() {
-	root := makeArrayToBinaryTreeNode([]string{"3", "9", "20", "null", "null", "15", "7"})
-	printTreeNodeByBFS(root)
+	root := ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"3", "9", "20", "null", "null", "15", "7"})
+	ysoftmancommon.PrintTreeNodeByBFS(root)
 	fmt.Println(levelOrderBFS(root))
 	fmt.Println(levelOrder(root))
 
-	root = makeArrayToBinaryTreeNode([]string{"1", "2", "null", "3", "null", "4", "null", "5"})
-	printTreeNodeByBFS(root)
+	root = ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"1", "2", "null", "3", "null", "4", "null", "5"})
+	ysoftmancommon.PrintTreeNodeByBFS(root)
 	fmt.Println(levelOrderBFS(root))
 	fmt.Println(levelOrder(root))
 
-	root = makeArrayToBinaryTreeNode([]string{"1", "null", "2"})
-	printTreeNodeByBFS(root)
+	root = ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"1", "null", "2"})
+	ysoftmancommon.PrintTreeNodeByBFS(root)
 	fmt.Println(levelOrderBFS(root))
 	fmt.Println(levelOrder(root))
 
-	root = makeArrayToBinaryTreeNode([]string{"3", "9", "20", "null", "null", "15", "7"})
-	printTreeNodeByBFS(root)
+	root = ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"3", "9", "20", "null", "null", "15", "7"})
+	ysoftmancommon.PrintTreeNodeByBFS(root)
 	fmt.Println(levelOrderBFS(root))
 	fmt.Println(levelOrder(root))
 
-	root = makeArrayToBinaryTreeNode([]string{"1"})
-	printTreeNodeByBFS(root)
+	root = ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"1"})
+	ysoftmancommon.PrintTreeNodeByBFS(root)
 	fmt.Println(levelOrderBFS(root))
 	fmt.Println(levelOrder(root))
 
-	root = makeArrayToBinaryTreeNode([]string{})
-	printTreeNodeByBFS(root)
+	root = ysoftmancommon.MakeArrayToBinaryTreeNode([]string{})
+	ysoftmancommon.PrintTreeNodeByBFS(root)
 	fmt.Println(levelOrderBFS(root))
 	fmt.Println(levelOrder(root))
 }

@@ -7,7 +7,10 @@
 ```bash
 # go.mod 에 다음 추가
 replace github.com/ysoftman/ysoftmancommon => ../ysoftman_common
+require github.com/ysoftman/ysoftmancommon v0.0.0-00010101000000-000000000000 // indirect
+# require 는go get 으로 추가해도 됨
+# go get "github.com/ysoftman/ysoftmancommon"
 
-# go get 으로 추가
-go get "github.com/ysoftman/ysoftmancommon"
+# .go import 추가
+import "github.com/ysoftman/ysoftmancommon"
 ```

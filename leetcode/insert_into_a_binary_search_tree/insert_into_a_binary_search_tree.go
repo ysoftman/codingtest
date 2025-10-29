@@ -19,8 +19,10 @@ Example 3:
 Input: root = [4,2,7,1,3,null,null,null,null,null,null], val = 5
 Output: [4,2,7,1,3,5]
 */
-// go run ./insert_into_a_binary_search_tree.go ./ysoftman_common.go
+// go run ./insert_into_a_binary_search_tree.go
 package main
+
+import "github.com/ysoftman/ysoftmancommon"
 
 /**
  * Definition for a binary tree node.
@@ -30,13 +32,13 @@ package main
  *     Right *TreeNode
  * }
  */
-func insertIntoBSTbyDFS(root *TreeNode, val int) {
+func insertIntoBSTbyDFS(root *ysoftmancommon.TreeNode, val int) {
 	if root == nil {
 		return
 	}
 	if val < root.Val {
 		if root.Left == nil {
-			root.Left = &TreeNode{
+			root.Left = &ysoftmancommon.TreeNode{
 				Val: val,
 			}
 		} else {
@@ -44,7 +46,7 @@ func insertIntoBSTbyDFS(root *TreeNode, val int) {
 		}
 	} else {
 		if root.Right == nil {
-			root.Right = &TreeNode{
+			root.Right = &ysoftmancommon.TreeNode{
 				Val: val,
 			}
 		} else {
@@ -52,9 +54,10 @@ func insertIntoBSTbyDFS(root *TreeNode, val int) {
 		}
 	}
 }
-func insertIntoBST(root *TreeNode, val int) *TreeNode {
+
+func insertIntoBST(root *ysoftmancommon.TreeNode, val int) *ysoftmancommon.TreeNode {
 	if root == nil {
-		return &TreeNode{
+		return &ysoftmancommon.TreeNode{
 			Val: val,
 		}
 	}
@@ -64,10 +67,10 @@ func insertIntoBST(root *TreeNode, val int) *TreeNode {
 }
 
 func main() {
-	root := makeArrayToBinaryTreeNode([]string{"4", "2", "7", "1", "3"})
-	printTreeNodeByBFS(insertIntoBST(root, 5))
-	root = makeArrayToBinaryTreeNode([]string{"40", "20", "60", "10", "30", "50", "70"})
-	printTreeNodeByBFS(insertIntoBST(root, 25))
-	root = makeArrayToBinaryTreeNode([]string{"4", "2", "7", "1", "3", "null", "null", "null", "null", "null", "null"})
-	printTreeNodeByBFS(insertIntoBST(root, 5))
+	root := ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"4", "2", "7", "1", "3"})
+	ysoftmancommon.PrintTreeNodeByBFS(insertIntoBST(root, 5))
+	root = ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"40", "20", "60", "10", "30", "50", "70"})
+	ysoftmancommon.PrintTreeNodeByBFS(insertIntoBST(root, 25))
+	root = ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"4", "2", "7", "1", "3", "null", "null", "null", "null", "null", "null"})
+	ysoftmancommon.PrintTreeNodeByBFS(insertIntoBST(root, 5))
 }

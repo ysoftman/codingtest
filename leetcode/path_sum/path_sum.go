@@ -24,11 +24,13 @@ Output: false
 Explanation: Since the tree is empty, there are no root-to-leaf paths.
 */
 
-// go run ./path_sum.go ./ysoftman_common.go
+// go run ./path_sum.go
 package main
 
 import (
 	"fmt"
+
+	"github.com/ysoftman/ysoftmancommon"
 )
 
 //* Definition for a binary tree node.
@@ -39,7 +41,7 @@ import (
 // }
 
 // preorder dfs
-func dfsSum(root *TreeNode, parentSum, targetSum int) bool {
+func dfsSum(root *ysoftmancommon.TreeNode, parentSum, targetSum int) bool {
 	if root == nil {
 		return false
 	}
@@ -55,25 +57,26 @@ func dfsSum(root *TreeNode, parentSum, targetSum int) bool {
 	}
 	return false
 }
-func hasPathSum(root *TreeNode, targetSum int) bool {
+
+func hasPathSum(root *ysoftmancommon.TreeNode, targetSum int) bool {
 	parentSum := 0
 	return dfsSum(root, parentSum, targetSum)
 }
 
 func main() {
-	root := makeArrayToBinaryTreeNode([]string{"5", "4", "8", "11", "null", "13", "4", "7", "2", "null", "null", "null", "1"})
-	printTreeNodeByBFS(root)
+	root := ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"5", "4", "8", "11", "null", "13", "4", "7", "2", "null", "null", "null", "1"})
+	ysoftmancommon.PrintTreeNodeByBFS(root)
 	fmt.Println(hasPathSum(root, 22))
-	root = makeArrayToBinaryTreeNode([]string{"1", "2", "3"})
-	printTreeNodeByBFS(root)
+	root = ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"1", "2", "3"})
+	ysoftmancommon.PrintTreeNodeByBFS(root)
 	fmt.Println(hasPathSum(root, 5))
-	root = makeArrayToBinaryTreeNode([]string{})
-	printTreeNodeByBFS(root)
+	root = ysoftmancommon.MakeArrayToBinaryTreeNode([]string{})
+	ysoftmancommon.PrintTreeNodeByBFS(root)
 	fmt.Println(hasPathSum(root, 0))
-	root = makeArrayToBinaryTreeNode([]string{"1", "2"})
-	printTreeNodeByBFS(root)
+	root = ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"1", "2"})
+	ysoftmancommon.PrintTreeNodeByBFS(root)
 	fmt.Println(hasPathSum(root, 1))
-	root = makeArrayToBinaryTreeNode([]string{"1", "2"})
-	printTreeNodeByBFS(root)
+	root = ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"1", "2"})
+	ysoftmancommon.PrintTreeNodeByBFS(root)
 	fmt.Println(hasPathSum(root, 3))
 }

@@ -20,6 +20,8 @@ The number of nodes in the list is in the range [0, 200].
 */
 package main
 
+import "github.com/ysoftman/ysoftmancommon"
+
 /**
  * Definition for singly-linked list.
  * type ListNode struct {
@@ -27,14 +29,14 @@ package main
  *     Next *ListNode
  * }
  */
-func partition(head *ListNode, x int) *ListNode {
-	root := &ListNode{
+func partition(head *ysoftmancommon.ListNode, x int) *ysoftmancommon.ListNode {
+	root := &ysoftmancommon.ListNode{
 		0,
 		head,
 	}
 	less := root
-	var pre *ListNode
-	var geStart *ListNode
+	var pre *ysoftmancommon.ListNode
+	var geStart *ysoftmancommon.ListNode
 	for head != nil {
 		if geStart == nil {
 			if head.Val >= x {
@@ -66,12 +68,12 @@ func partition(head *ListNode, x int) *ListNode {
 }
 
 func main() {
-	head := makeLinkedList([]int{1, 4, 3, 2, 5, 2})
-	printLinkedList(partition(head, 3))
+	head := ysoftmancommon.MakeLinkedList([]int{1, 4, 3, 2, 5, 2})
+	ysoftmancommon.PrintLinkedList(partition(head, 3))
 
-	head = makeLinkedList([]int{2, 1})
-	printLinkedList(partition(head, 2))
+	head = ysoftmancommon.MakeLinkedList([]int{2, 1})
+	ysoftmancommon.PrintLinkedList(partition(head, 2))
 
-	head = makeLinkedList([]int{6, 4, 2, 6, 3, 4, 5})
-	printLinkedList(partition(head, 3))
+	head = ysoftmancommon.MakeLinkedList([]int{6, 4, 2, 6, 3, 4, 5})
+	ysoftmancommon.PrintLinkedList(partition(head, 3))
 }

@@ -18,13 +18,14 @@ Example 2:
 Input: head = [1,2,3,4,5]
 Output: [1,5,2,4,3]
 
-
 Constraints:
 
 The number of nodes in the list is in the range [1, 5 * 104].
 1 <= Node.val <= 1000
 */
 package main
+
+import "github.com/ysoftman/ysoftmancommon"
 
 /**
  * Definition for singly-linked list.
@@ -34,8 +35,8 @@ package main
  * }
  */
 // using stack
-func reorderList2(head *ListNode) {
-	stack := []*ListNode{}
+func reorderList2(head *ysoftmancommon.ListNode) {
+	stack := []*ysoftmancommon.ListNode{}
 	node := head
 	for node != nil {
 		stack = append(stack, node)
@@ -69,7 +70,7 @@ func reorderList2(head *ListNode) {
 // 중간노드 찾기 3
 // 중간노드 이후 반대방향으로 구성 1,2,3,6,5,4
 // head-mid, mid.next~tail 두분으로 나누어 합치기 1,6,2,5,3,4
-func reorderList(head *ListNode) {
+func reorderList(head *ysoftmancommon.ListNode) {
 	if head == nil || head.Next == nil {
 		return
 	}
@@ -105,16 +106,16 @@ func reorderList(head *ListNode) {
 }
 
 func main() {
-	head := makeLinkedList([]int{1, 2, 3, 4})
+	head := ysoftmancommon.MakeLinkedList([]int{1, 2, 3, 4})
 	reorderList(head)
-	printLinkedList(head)
-	head = makeLinkedList([]int{1, 2, 3, 4, 5})
+	ysoftmancommon.PrintLinkedList(head)
+	head = ysoftmancommon.MakeLinkedList([]int{1, 2, 3, 4, 5})
 	reorderList(head)
-	printLinkedList(head)
-	head = makeLinkedList([]int{1, 2, 3, 4, 5, 6})
+	ysoftmancommon.PrintLinkedList(head)
+	head = ysoftmancommon.MakeLinkedList([]int{1, 2, 3, 4, 5, 6})
 	reorderList(head)
-	printLinkedList(head)
-	head = makeLinkedList([]int{1})
+	ysoftmancommon.PrintLinkedList(head)
+	head = ysoftmancommon.MakeLinkedList([]int{1})
 	reorderList(head)
-	printLinkedList(head)
+	ysoftmancommon.PrintLinkedList(head)
 }

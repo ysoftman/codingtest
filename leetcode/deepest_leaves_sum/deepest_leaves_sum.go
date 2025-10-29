@@ -17,11 +17,15 @@ The number of nodes in the tree is in the range [1, 104].
 1 <= Node.val <= 100
 */
 
-// go run ./deepest_leaves_sum.go ./ysoftman_common.go
+// go run ./deepest_leaves_sum.go
 
 package main
 
-import "fmt"
+import (
+	"fmt"
+
+	ysoftmancommon "github.com/ysoftman/ysoftmancommon"
+)
 
 /**
  * Definition for a binary tree node.
@@ -32,12 +36,12 @@ import "fmt"
  * }
  */
 // BFS
-func deepestLeavesSum(root *TreeNode) int {
-	q := make([]*TreeNode, 0)
+func deepestLeavesSum(root *ysoftmancommon.TreeNode) int {
+	q := make([]*ysoftmancommon.TreeNode, 0)
 	q = append(q, root)
 	deepestSum := 0
 	for len(q) > 0 {
-		currentQ := make([]*TreeNode, 0)
+		currentQ := make([]*ysoftmancommon.TreeNode, 0)
 		deepestSum = 0
 		for len(q) > 0 {
 			head := q[0]
@@ -61,8 +65,8 @@ func deepestLeavesSum(root *TreeNode) int {
 }
 
 func main() {
-	node := makeArrayToBinaryTreeNode([]string{"1", "2", "3", "4", "5", "null", "6", "7", "null", "null", "null", "null", "8"})
+	node := ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"1", "2", "3", "4", "5", "null", "6", "7", "null", "null", "null", "null", "8"})
 	fmt.Println(deepestLeavesSum(node))
-	node = makeArrayToBinaryTreeNode([]string{"6", "7", "8", "2", "7", "1", "3", "9", "null", "1", "4", "null", "null", "null", "5"})
+	node = ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"6", "7", "8", "2", "7", "1", "3", "9", "null", "1", "4", "null", "null", "null", "5"})
 	fmt.Println(deepestLeavesSum(node))
 }

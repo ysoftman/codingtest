@@ -14,8 +14,10 @@ Input: root = [4,2,7,1,3], val = 5
 Output: []
 */
 
-// go run ./search_in_a_binary_search_tree.go ./ysoftman_common.go
+// go run ./search_in_a_binary_search_tree.go
 package main
+
+import "github.com/ysoftman/ysoftmancommon"
 
 /**
  * Definition for a binary tree node.
@@ -25,7 +27,7 @@ package main
  *     Right *TreeNode
  * }
  */
-func searchBST(root *TreeNode, val int) *TreeNode {
+func searchBST(root *ysoftmancommon.TreeNode, val int) *ysoftmancommon.TreeNode {
 	if root == nil {
 		return nil
 	}
@@ -44,7 +46,7 @@ func searchBST(root *TreeNode, val int) *TreeNode {
 }
 
 func main() {
-	root := makeArrayToBinaryTreeNode([]string{"4", "2", "7", "1", "3"})
-	printTreeNodeByBFS(searchBST(root, 2))
-	printTreeNodeByBFS(searchBST(root, 5))
+	root := ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"4", "2", "7", "1", "3"})
+	ysoftmancommon.PrintTreeNodeByBFS(searchBST(root, 2))
+	ysoftmancommon.PrintTreeNodeByBFS(searchBST(root, 5))
 }

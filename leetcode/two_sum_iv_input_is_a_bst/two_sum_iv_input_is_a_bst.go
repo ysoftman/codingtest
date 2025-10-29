@@ -13,21 +13,23 @@ Input: root = [5,3,6,2,4,null,7], k = 28
 Output: false
 */
 
-// go run ./two_sum_iv_input_is_a_bst.go ./ysoftman_common.go
+// go run ./two_sum_iv_input_is_a_bst.go
 package main
 
 import (
 	"fmt"
+
+	"github.com/ysoftman/ysoftmancommon"
 )
 
-//Definition for a binary tree node.
+// Definition for a binary tree node.
 // type TreeNode struct {
 // 	Val   int
 // 	Left  *TreeNode
 // 	Right *TreeNode
 // }
 
-func dfsTwoSum(node *TreeNode, hashmap map[int]int, k int) bool {
+func dfsTwoSum(node *ysoftmancommon.TreeNode, hashmap map[int]int, k int) bool {
 	if node == nil {
 		return false
 	}
@@ -45,16 +47,17 @@ func dfsTwoSum(node *TreeNode, hashmap map[int]int, k int) bool {
 	}
 	return false
 }
-func findTarget(root *TreeNode, k int) bool {
+
+func findTarget(root *ysoftmancommon.TreeNode, k int) bool {
 	hashmap := make(map[int]int)
 	return dfsTwoSum(root, hashmap, k)
 }
 
 func main() {
-	node := makeArrayToBinaryTreeNode([]string{"5", "3", "6", "2", "4", "null", "7"})
-	printTreeNodeByBFS(node)
+	node := ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"5", "3", "6", "2", "4", "null", "7"})
+	ysoftmancommon.PrintTreeNodeByBFS(node)
 	fmt.Println(findTarget(node, 9))
-	node = makeArrayToBinaryTreeNode([]string{"5", "3", "6", "2", "4", "null", "7"})
-	printTreeNodeByBFS(node)
+	node = ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"5", "3", "6", "2", "4", "null", "7"})
+	ysoftmancommon.PrintTreeNodeByBFS(node)
 	fmt.Println(findTarget(node, 28))
 }
