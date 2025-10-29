@@ -1,14 +1,14 @@
 /*
 local 에서 테스트를 위해 공통으로 필요한 함수들을 모아 둠
 */
-package main
+package ysoftmancommon
 
 import (
 	"fmt"
 	"strconv"
 )
 
-func printMatrix(matrix [][]int) {
+func PrintMatrix(matrix [][]int) {
 	m := len(matrix)
 	n := len(matrix[0])
 	for i := 0; i < m; i++ {
@@ -27,7 +27,7 @@ type ListNode struct {
 	Next *ListNode
 }
 
-func printLinkedList(head *ListNode) {
+func PrintLinkedList(head *ListNode) {
 	fmt.Printf("[")
 	for head != nil {
 		fmt.Print(head.Val)
@@ -40,7 +40,7 @@ func printLinkedList(head *ListNode) {
 	fmt.Println()
 }
 
-func makeLinkedList(nums []int) (root *ListNode) {
+func MakeLinkedList(nums []int) (root *ListNode) {
 	if len(nums) == 0 {
 		return nil
 	}
@@ -56,7 +56,7 @@ func makeLinkedList(nums []int) (root *ListNode) {
 	return root
 }
 
-func makeCycleLinkedList(slice []int, pos int) *ListNode {
+func MakeCycleLinkedList(slice []int, pos int) *ListNode {
 	if len(slice) == 0 {
 		return nil
 	}
@@ -88,7 +88,7 @@ type Node struct {
 	Children []*Node
 }
 
-func makeArrayToNode(arr []string) *Node {
+func MakeArrayToNode(arr []string) *Node {
 	if len(arr) == 0 {
 		return nil
 	}
@@ -125,7 +125,7 @@ func makeArrayToNode(arr []string) *Node {
 	return root
 }
 
-func printNodeByBFS(root *Node) {
+func PrintNodeByBFS(root *Node) {
 	q := []*Node{}
 	q = append(q, root)
 	for len(q) > 0 {
@@ -157,7 +157,7 @@ type TreeNode struct {
 	Right *TreeNode
 }
 
-func makeArrayToBinaryTreeNode(arr []string) *TreeNode {
+func MakeArrayToBinaryTreeNode(arr []string) *TreeNode {
 	if len(arr) == 0 {
 		return nil
 	}
@@ -197,7 +197,8 @@ func makeArrayToBinaryTreeNode(arr []string) *TreeNode {
 	}
 	return root
 }
-func printTreeNodeByBFS(root *TreeNode) {
+
+func PrintTreeNodeByBFS(root *TreeNode) {
 	q := []*TreeNode{}
 	q = append(q, root)
 	for len(q) > 0 {
@@ -223,12 +224,12 @@ func printTreeNodeByBFS(root *TreeNode) {
 	fmt.Println()
 }
 
-func printTreeNodeByDFS(root *TreeNode) {
+func PrintTreeNodeByDFS(root *TreeNode) {
 	if root == nil {
 		fmt.Printf("nil ")
 		return
 	}
 	fmt.Printf("%v ", root.Val)
-	printTreeNodeByDFS(root.Left)
-	printTreeNodeByDFS(root.Right)
+	PrintTreeNodeByDFS(root.Left)
+	PrintTreeNodeByDFS(root.Right)
 }
