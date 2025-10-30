@@ -9,7 +9,7 @@ for d in *; do
         )
         for f in *; do
             if [[ $f == *".go" ]]; then
-                echo $PWD/$f
+                echo "실행중: $PWD/$f"
                 # 많은 파일의 빠른 확인을 위해 백그라우드로 실행
                 go run $f >/dev/null || echo "run error $f" &
             fi
