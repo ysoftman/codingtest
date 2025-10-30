@@ -35,7 +35,6 @@ func inOrder(node *TreeNode, result *[]int) {
 	inOrder(node.Left, result)
 	*result = append(*result, node.Val)
 	inOrder(node.Right, result)
-
 }
 
 func inorderTraversal(root *TreeNode) []int {

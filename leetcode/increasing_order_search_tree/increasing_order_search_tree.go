@@ -18,7 +18,11 @@ The number of nodes in the given tree will be in the range [1, 100].
 */
 package main
 
-import "fmt"
+import (
+	"fmt"
+
+	"github.com/ysoftman/ysoftmancommon"
+)
 
 /**
  * Definition for a binary tree node.
@@ -28,7 +32,7 @@ import "fmt"
  *     Right *TreeNode
  * }
  */
-func recursiveIncreasingBST(root, newRoot *TreeNode) {
+func recursiveIncreasingBST(root, newRoot *ysoftmancommon.TreeNode) {
 	if root == nil {
 		return
 	}
@@ -38,14 +42,16 @@ func recursiveIncreasingBST(root, newRoot *TreeNode) {
 	for newRoot.Right != nil {
 		newRoot = newRoot.Right
 	}
-	newRoot.Right = &TreeNode{root.Val, nil, nil}
+	newRoot.Right = &ysoftmancommon.TreeNode{root.Val, nil, nil}
 	recursiveIncreasingBST(root.Right, newRoot)
 }
-func increasingBST(root *TreeNode) *TreeNode {
-	newRoot := TreeNode{}
+
+func increasingBST(root *ysoftmancommon.TreeNode) *ysoftmancommon.TreeNode {
+	newRoot := ysoftmancommon.TreeNode{}
 	recursiveIncreasingBST(root, &newRoot)
 	return newRoot.Right
 }
+
 func main() {
 	ysoftmancommon.PrintTreeNodeByDFS(increasingBST(ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"5", "3", "6", "2", "4", "null", "8", "1", "null", "null", "null", "7", "9"})))
 	fmt.Println()

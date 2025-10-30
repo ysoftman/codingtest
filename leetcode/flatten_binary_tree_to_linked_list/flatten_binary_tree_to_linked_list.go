@@ -27,7 +27,11 @@ Follow up: Can you flatten the tree in-place (with O(1) extra space)?
 */
 package main
 
-import "fmt"
+import (
+	"fmt"
+
+	"github.com/ysoftman/ysoftmancommon"
+)
 
 /**
  * Definition for a binary tree node.
@@ -39,12 +43,12 @@ import "fmt"
  */
 // DFS preorder 로 탐색, easy approach(별도 결과 저공간을 사용하는 경우)
 // space complexity: O(N)
-func dfs(root, r *TreeNode) *TreeNode {
+func dfs(root, r *ysoftmancommon.TreeNode) *ysoftmancommon.TreeNode {
 	if root == nil {
 		return r
 	}
 	// fmt.Println(r.Val)
-	r.Right = &TreeNode{}
+	r.Right = &ysoftmancommon.TreeNode{}
 	r = r.Right
 	r.Val = root.Val
 	r = dfs(root.Left, r)
@@ -52,26 +56,26 @@ func dfs(root, r *TreeNode) *TreeNode {
 	return r
 }
 
-func flatten2(root *TreeNode) {
+func flatten2(root *ysoftmancommon.TreeNode) {
 	if root == nil {
 		return
 	}
-	r := TreeNode{}
+	r := ysoftmancommon.TreeNode{}
 	dfs(root, &r)
 	*root = *r.Right
 }
 
 // DFS preorder 로 탐색
 // space complexity: in-place O(1)
-func flatten(root *TreeNode) {
+func flatten(root *ysoftmancommon.TreeNode) {
 	if root == nil {
 		return
 	}
 	// inner function 를 사용하는 이유
 	// preNode 를 global 변수로 사용하면 초기화 되지 않아 다른 testcase 이전 testcase 값이 남아 있어 실패하게 된다.
-	var preNode *TreeNode = nil
-	var dfs func(root *TreeNode)
-	dfs = func(root *TreeNode) {
+	var preNode *ysoftmancommon.TreeNode = nil
+	var dfs func(root *ysoftmancommon.TreeNode)
+	dfs = func(root *ysoftmancommon.TreeNode) {
 		if root == nil {
 			return
 		}

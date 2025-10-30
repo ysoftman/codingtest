@@ -40,6 +40,8 @@ package main
 import (
 	"fmt"
 	"strconv"
+
+	"github.com/ysoftman/ysoftmancommon"
 )
 
 /**
@@ -51,7 +53,7 @@ import (
  * }
  */
 
-func recursiveSumNumbers(root *TreeNode, strNum string, r *int) {
+func recursiveSumNumbers(root *ysoftmancommon.TreeNode, strNum string, r *int) {
 	if root == nil {
 		return
 	}
@@ -65,7 +67,7 @@ func recursiveSumNumbers(root *TreeNode, strNum string, r *int) {
 	recursiveSumNumbers(root.Right, strNum, r)
 }
 
-func sumNumbers(root *TreeNode) int {
+func sumNumbers(root *ysoftmancommon.TreeNode) int {
 	result := 0
 	recursiveSumNumbers(root, "", &result)
 	return result

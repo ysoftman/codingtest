@@ -22,7 +22,11 @@ The number of nodes in the tree is in the range [0, 2000].
 */
 package main
 
-import "fmt"
+import (
+	"fmt"
+
+	"github.com/ysoftman/ysoftmancommon"
+)
 
 /**
  * Definition for a binary tree node.
@@ -34,15 +38,15 @@ import "fmt"
  */
 
 // BFS
-func zigzagLevelOrder(root *TreeNode) [][]int {
+func zigzagLevelOrder(root *ysoftmancommon.TreeNode) [][]int {
 	result := [][]int{}
 	if root == nil {
 		return result
 	}
-	q := []*TreeNode{root}
+	q := []*ysoftmancommon.TreeNode{root}
 	level := 0
 	for len(q) > 0 {
-		levelq := []*TreeNode{}
+		levelq := []*ysoftmancommon.TreeNode{}
 		levelValues := []int{}
 		for i := 0; i < len(q); i++ {
 			f := q[i]

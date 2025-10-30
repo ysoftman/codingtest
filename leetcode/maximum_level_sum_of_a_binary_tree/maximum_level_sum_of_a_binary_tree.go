@@ -24,7 +24,11 @@ The number of nodes in the tree is in the range [1, 104].
 */
 package main
 
-import "fmt"
+import (
+	"fmt"
+
+	"github.com/ysoftman/ysoftmancommon"
+)
 
 /**
  * Definition for a binary tree node.
@@ -35,15 +39,15 @@ import "fmt"
  * }
  */
 // using BFS
-func maxLevelSum(root *TreeNode) int {
+func maxLevelSum(root *ysoftmancommon.TreeNode) int {
 	maxSum := (1<<31 - 1) * -1
 	maxLevel := 1
 	level := 1
-	levelNodes := []*TreeNode{}
+	levelNodes := []*ysoftmancommon.TreeNode{}
 	levelNodes = append(levelNodes, root)
 	for len(levelNodes) > 0 {
 		sum := 0
-		curLevelNodes := []*TreeNode{}
+		curLevelNodes := []*ysoftmancommon.TreeNode{}
 		for len(levelNodes) > 0 {
 			curNode := levelNodes[len(levelNodes)-1]
 			sum += curNode.Val

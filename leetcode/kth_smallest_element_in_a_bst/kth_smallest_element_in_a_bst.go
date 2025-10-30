@@ -21,7 +21,11 @@ Follow up: If the BST is modified often (i.e., we can do insert and delete opera
 */
 package main
 
-import "fmt"
+import (
+	"fmt"
+
+	"github.com/ysoftman/ysoftmancommon"
+)
 
 /**
  * Definition for a binary tree node.
@@ -33,9 +37,9 @@ import "fmt"
  */
 
 // inorder traversal by iteration
-func kthSmallest2(root *TreeNode, k int) int {
+func kthSmallest2(root *ysoftmancommon.TreeNode, k int) int {
 	cnt := 0
-	stack := []*TreeNode{}
+	stack := []*ysoftmancommon.TreeNode{}
 	stack = append(stack, root)
 	for len(stack) > 0 {
 		for root != nil {
@@ -58,7 +62,7 @@ func kthSmallest2(root *TreeNode, k int) int {
 }
 
 // inorder traversal by recursion
-func recursiveInorderTree(root *TreeNode, k int, cnt, r *int) {
+func recursiveInorderTree(root *ysoftmancommon.TreeNode, k int, cnt, r *int) {
 	if root == nil {
 		return
 	}
@@ -71,14 +75,15 @@ func recursiveInorderTree(root *TreeNode, k int, cnt, r *int) {
 	}
 	recursiveInorderTree(root.Right, k, cnt, r)
 }
-func kthSmallest(root *TreeNode, k int) int {
+
+func kthSmallest(root *ysoftmancommon.TreeNode, k int) int {
 	cnt := 0
 	r := 0
 	recursiveInorderTree(root, k, &cnt, &r)
 	return r
 }
-func main() {
 
+func main() {
 	root := ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"3", "1", "4", "null", "2"})
 	fmt.Println(kthSmallest(root, 1))
 	root = ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"5", "3", "6", "2", "4", "null", "null", "1"})

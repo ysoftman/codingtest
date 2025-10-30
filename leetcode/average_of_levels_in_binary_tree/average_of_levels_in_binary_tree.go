@@ -23,7 +23,11 @@ The number of nodes in the tree is in the range [1, 104].
 
 package main
 
-import "fmt"
+import (
+	"fmt"
+
+	"github.com/ysoftman/ysoftmancommon"
+)
 
 /**
  * Definition for a binary tree node.
@@ -34,7 +38,7 @@ import "fmt"
  * }
  */
 // dfs, time complexity : O(n)
-func recursiveAerageOfLevels(root *TreeNode, level int, mv, mcnt map[int]int) {
+func recursiveAerageOfLevels(root *ysoftmancommon.TreeNode, level int, mv, mcnt map[int]int) {
 	if root == nil {
 		return
 	}
@@ -43,7 +47,8 @@ func recursiveAerageOfLevels(root *TreeNode, level int, mv, mcnt map[int]int) {
 	recursiveAerageOfLevels(root.Left, level+1, mv, mcnt)
 	recursiveAerageOfLevels(root.Right, level+1, mv, mcnt)
 }
-func averageOfLevels(root *TreeNode) []float64 {
+
+func averageOfLevels(root *ysoftmancommon.TreeNode) []float64 {
 	mv := make(map[int]int)
 	mcnt := make(map[int]int)
 	recursiveAerageOfLevels(root, 0, mv, mcnt)

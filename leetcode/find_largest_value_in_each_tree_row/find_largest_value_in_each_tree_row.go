@@ -18,7 +18,11 @@ The number of nodes in the tree will be in the range [0, 104].
 */
 package main
 
-import "fmt"
+import (
+	"fmt"
+
+	"github.com/ysoftman/ysoftmancommon"
+)
 
 /**
  * Definition for a binary tree node.
@@ -30,14 +34,14 @@ import "fmt"
  */
 
 // using BFS
-func largestValues(root *TreeNode) []int {
+func largestValues(root *ysoftmancommon.TreeNode) []int {
 	if root == nil {
 		return []int{}
 	}
 	r := []int{root.Val}
-	q := []*TreeNode{root}
+	q := []*ysoftmancommon.TreeNode{root}
 	for len(q) > 0 {
-		levelQ := []*TreeNode{}
+		levelQ := []*ysoftmancommon.TreeNode{}
 		for len(q) > 0 {
 			front := q[0]
 			q = q[1:]

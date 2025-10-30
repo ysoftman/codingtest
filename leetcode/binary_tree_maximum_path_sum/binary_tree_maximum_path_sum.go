@@ -25,7 +25,11 @@ The number of nodes in the tree is in the range [1, 3 * 104].
 */
 package main
 
-import "fmt"
+import (
+	"fmt"
+
+	"github.com/ysoftman/ysoftmancommon"
+)
 
 /**
  * Definition for a binary tree node.
@@ -41,7 +45,8 @@ func max(a, b int) int {
 	}
 	return b
 }
-func pathSum(root *TreeNode, maxSum *int) int {
+
+func pathSum(root *ysoftmancommon.TreeNode, maxSum *int) int {
 	if root == nil {
 		return 0
 	}
@@ -62,7 +67,8 @@ func pathSum(root *TreeNode, maxSum *int) int {
 	*maxSum = max(*maxSum, max(curSum, root.Val+leftSum+rightSum))
 	return curSum
 }
-func maxPathSum(root *TreeNode) int {
+
+func maxPathSum(root *ysoftmancommon.TreeNode) int {
 	maxSum := -1 << 31
 	pathSum(root, &maxSum)
 	return maxSum

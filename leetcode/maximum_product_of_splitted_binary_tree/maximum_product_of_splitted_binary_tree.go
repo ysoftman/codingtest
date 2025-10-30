@@ -25,7 +25,11 @@ The number of nodes in the tree is in the range [2, 5 * 104].
 */
 package main
 
-import "fmt"
+import (
+	"fmt"
+
+	"github.com/ysoftman/ysoftmancommon"
+)
 
 /**
  * Definition for a binary tree node.
@@ -43,13 +47,15 @@ func max(a, b int) int {
 	}
 	return b
 }
-func getTotalSum(root *TreeNode) int {
+
+func getTotalSum(root *ysoftmancommon.TreeNode) int {
 	if root == nil {
 		return 0
 	}
 	return root.Val + getTotalSum(root.Left) + getTotalSum(root.Right)
 }
-func sumSubtree(root *TreeNode, totalSum int, r *int) int {
+
+func sumSubtree(root *ysoftmancommon.TreeNode, totalSum int, r *int) int {
 	if root == nil {
 		return 0
 	}
@@ -60,7 +66,8 @@ func sumSubtree(root *TreeNode, totalSum int, r *int) int {
 	// 현재노드 하위 트리의 전체 합을 리턴
 	return root.Val + leftSum + rightSum
 }
-func maxProduct(root *TreeNode) int {
+
+func maxProduct(root *ysoftmancommon.TreeNode) int {
 	// 노드 전체 합을 파악해둔다.
 	totalSum := getTotalSum(root)
 

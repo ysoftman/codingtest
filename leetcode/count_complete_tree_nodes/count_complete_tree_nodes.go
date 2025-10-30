@@ -27,7 +27,11 @@ The tree is guaranteed to be complete.
 */
 package main
 
-import "fmt"
+import (
+	"fmt"
+
+	"github.com/ysoftman/ysoftmancommon"
+)
 
 /**
  * Definition for a binary tree node.
@@ -38,7 +42,7 @@ import "fmt"
  * }
  */
 // DFS, time complexity: O(n)
-func countNodes2(root *TreeNode) int {
+func countNodes2(root *ysoftmancommon.TreeNode) int {
 	if root == nil {
 		return 0
 	}
@@ -48,7 +52,7 @@ func countNodes2(root *TreeNode) int {
 }
 
 // time complexity: O(logN)
-func getHeight(root *TreeNode) int {
+func getHeight(root *ysoftmancommon.TreeNode) int {
 	if root == nil {
 		// 마지막 leaf 노드가 꽉 찼는지 모르기 때문에 -1 로 꽉찬노드까지를 높이로 파악한다.
 		return -1
@@ -59,7 +63,7 @@ func getHeight(root *TreeNode) int {
 
 // DFS, time complexity: O(logN*logN)
 // BinarySearchTree(bst) 노드가 꽉차있는 경우 노드 개수는 2^h(트리높이)-1 이다.
-func countNodes(root *TreeNode) int {
+func countNodes(root *ysoftmancommon.TreeNode) int {
 	h := getHeight(root)
 	if h < 0 {
 		return 0

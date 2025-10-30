@@ -29,6 +29,8 @@ import (
 	"fmt"
 	"strconv"
 	"strings"
+
+	"github.com/ysoftman/ysoftmancommon"
 )
 
 /**
@@ -40,14 +42,13 @@ import (
  * }
  */
 
-type Codec struct {
-}
+type Codec struct{}
 
 func Constructor() Codec {
 	return Codec{}
 }
 
-func _to_string(root *TreeNode, r *[]int) {
+func _to_string(root *ysoftmancommon.TreeNode, r *[]int) {
 	if root == nil {
 		return
 	}
@@ -57,7 +58,7 @@ func _to_string(root *TreeNode, r *[]int) {
 }
 
 // Serializes a tree to a single string.
-func (this *Codec) serialize(root *TreeNode) string {
+func (this *Codec) serialize(root *ysoftmancommon.TreeNode) string {
 	nodeValues := []int{}
 	// preoder 노드 탐색
 	_to_string(root, &nodeValues)
@@ -70,7 +71,7 @@ func (this *Codec) serialize(root *TreeNode) string {
 	return strings.TrimSpace(r)
 }
 
-func _to_BinaryTreeNode(q *[]string, min, max int) *TreeNode {
+func _to_BinaryTreeNode(q *[]string, min, max int) *ysoftmancommon.TreeNode {
 	if len(*q) == 0 {
 		return nil
 	}
@@ -84,7 +85,7 @@ func _to_BinaryTreeNode(q *[]string, min, max int) *TreeNode {
 	// 큐 프론트 빼기
 	*q = (*q)[1:]
 	// 새 노드
-	newNode := &TreeNode{
+	newNode := &ysoftmancommon.TreeNode{
 		Val: frontIntVal,
 	}
 	newNode.Left = _to_BinaryTreeNode(q, min, frontIntVal)
@@ -93,7 +94,7 @@ func _to_BinaryTreeNode(q *[]string, min, max int) *TreeNode {
 }
 
 // Deserializes your encoded data to tree.
-func (this *Codec) deserialize(data string) *TreeNode {
+func (this *Codec) deserialize(data string) *ysoftmancommon.TreeNode {
 	if len(data) == 0 {
 		return nil
 	}
@@ -118,12 +119,12 @@ func (this *Codec) deserialize(data string) *TreeNode {
  */
 
 func main() {
-	root := &TreeNode{
+	root := &ysoftmancommon.TreeNode{
 		Val: 2,
-		Left: &TreeNode{
+		Left: &ysoftmancommon.TreeNode{
 			Val: 1,
 		},
-		Right: &TreeNode{
+		Right: &ysoftmancommon.TreeNode{
 			Val: 3,
 		},
 	}

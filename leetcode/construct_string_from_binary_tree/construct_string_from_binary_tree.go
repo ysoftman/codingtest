@@ -16,14 +16,17 @@ Input: root = [1,2,3,null,4]
 Output: "1(2()(4))(3)"
 Explanation: Almost the same as the first example, except we cannot omit the first parenthesis pair to break the one-to-one mapping relationship between the input and the output.
 
-
 Constraints:
 The number of nodes in the tree is in the range [1, 104].
 -1000 <= Node.val <= 1000
 */
 package main
 
-import "fmt"
+import (
+	"fmt"
+
+	"github.com/ysoftman/ysoftmancommon"
+)
 
 /**
  * Definition for a binary tree node.
@@ -33,7 +36,7 @@ import "fmt"
  *     Right *TreeNode
  * }
  */
-func tree2str(root *TreeNode) string {
+func tree2str(root *ysoftmancommon.TreeNode) string {
 	if root == nil {
 		return ""
 	}

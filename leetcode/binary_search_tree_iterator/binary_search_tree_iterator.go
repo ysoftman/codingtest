@@ -39,7 +39,11 @@ Could you implement next() and hasNext() to run in average O(1) time and use O(h
 */
 package main
 
-import "fmt"
+import (
+	"fmt"
+
+	"github.com/ysoftman/ysoftmancommon"
+)
 
 /**
  * Definition for a binary tree node.
@@ -54,12 +58,12 @@ type BSTIterator struct {
 	curIdx int
 }
 
-func Constructor(root *TreeNode) BSTIterator {
+func Constructor(root *ysoftmancommon.TreeNode) BSTIterator {
 	bst := BSTIterator{
 		list:   make([]int, 0),
 		curIdx: 0,
 	}
-	stack := make([]*TreeNode, 0)
+	stack := make([]*ysoftmancommon.TreeNode, 0)
 
 	// make inorder traversal result to bstiterator
 	stack = append(stack, root)

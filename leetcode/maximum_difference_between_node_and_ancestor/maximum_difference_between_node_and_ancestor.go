@@ -26,7 +26,11 @@ The number of nodes in the tree is in the range [2, 5000].
 */
 package main
 
-import "fmt"
+import (
+	"fmt"
+
+	"github.com/ysoftman/ysoftmancommon"
+)
 
 /**
  * Definition for a binary tree node.
@@ -42,6 +46,7 @@ func min(a, b int) int {
 	}
 	return b
 }
+
 func max(a, b int) int {
 	if a > b {
 		return a
@@ -50,7 +55,7 @@ func max(a, b int) int {
 }
 
 // 현재 노드까지 왔을때 최대, 최소 값을 기준으로 최대 차이를 계산
-func findMaxDiff(root *TreeNode, minValue, maxValue int) int {
+func findMaxDiff(root *ysoftmancommon.TreeNode, minValue, maxValue int) int {
 	if root == nil {
 		return maxValue - minValue
 	}
@@ -58,7 +63,8 @@ func findMaxDiff(root *TreeNode, minValue, maxValue int) int {
 	maxValue = max(maxValue, root.Val)
 	return max(findMaxDiff(root.Left, minValue, maxValue), findMaxDiff(root.Right, minValue, maxValue))
 }
-func maxAncestorDiff(root *TreeNode) int {
+
+func maxAncestorDiff(root *ysoftmancommon.TreeNode) int {
 	return findMaxDiff(root, root.Val, root.Val)
 }
 

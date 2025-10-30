@@ -20,7 +20,11 @@ Note: This question is the same as 783: https://leetcode.com/problems/minimum-di
 */
 package main
 
-import "fmt"
+import (
+	"fmt"
+
+	"github.com/ysoftman/ysoftmancommon"
+)
 
 /**
  * Definition for a binary tree node.
@@ -36,6 +40,7 @@ func abs(a, b int) int {
 	}
 	return b - a
 }
+
 func min(a, b int) int {
 	if a < b {
 		return a
@@ -58,9 +63,9 @@ BinarySearchTree(BST) 는 inorder 탐색 순서로 정렬되어 있다.
 701 노드에선 236(pre) 와 비교
 911 노드에선 701(pre) 와 비교 하면 된다.
 */
-var pre *TreeNode = nil
+var pre *ysoftmancommon.TreeNode = nil
 
-func inOrder(root *TreeNode, mindiff *int) {
+func inOrder(root *ysoftmancommon.TreeNode, mindiff *int) {
 	if root == nil {
 		return
 	}
@@ -72,7 +77,8 @@ func inOrder(root *TreeNode, mindiff *int) {
 	pre = root
 	inOrder(root.Right, mindiff)
 }
-func getMinimumDifference(root *TreeNode) int {
+
+func getMinimumDifference(root *ysoftmancommon.TreeNode) int {
 	r := 1<<31 - 1
 	pre = nil
 	inOrder(root, &r)

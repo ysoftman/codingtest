@@ -15,13 +15,14 @@ Input: nums = [1,3]
 Output: [3,1]
 Explanation: [1,null,3] and [3,1] are both height-balanced BSTs.
 
-
 Constraints:
 1 <= nums.length <= 104
 -104 <= nums[i] <= 104
 nums is sorted in a strictly increasing order.
 */
 package main
+
+import "github.com/ysoftman/ysoftmancommon"
 
 /**
  * Definition for a binary tree node.
@@ -31,17 +32,18 @@ package main
  *     Right *TreeNode
  * }
  */
-func addNumToBST(nums []int, left, right int) *TreeNode {
+func addNumToBST(nums []int, left, right int) *ysoftmancommon.TreeNode {
 	if left >= right {
 		return nil
 	}
 	mid := (right-left)/2 + left
-	root := &TreeNode{Val: nums[mid]}
+	root := &ysoftmancommon.TreeNode{Val: nums[mid]}
 	root.Left = addNumToBST(nums, left, mid)
 	root.Right = addNumToBST(nums, mid+1, right)
 	return root
 }
-func sortedArrayToBST(nums []int) *TreeNode {
+
+func sortedArrayToBST(nums []int) *ysoftmancommon.TreeNode {
 	left := 0
 	right := len(nums)
 	return addNumToBST(nums, left, right)

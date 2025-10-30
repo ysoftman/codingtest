@@ -50,6 +50,8 @@ Follow up: Could you write a solution that runs in O(m + n) time and use only O(
 */
 package main
 
+import "github.com/ysoftman/ysoftmancommon"
+
 /**
  * Definition for singly-linked list.
  * type ListNode struct {
@@ -59,10 +61,10 @@ package main
  */
 
 // time complexity: O(m+n), space complesxity: O(m)
-func getIntersectionNode2(headA, headB *ListNode) *ListNode {
+func getIntersectionNode2(headA, headB *ysoftmancommon.ListNode) *ysoftmancommon.ListNode {
 	a := headA
 	b := headB
-	m := make(map[*ListNode]bool)
+	m := make(map[*ysoftmancommon.ListNode]bool)
 	for a != nil {
 		m[a] = true
 		a = a.Next
@@ -77,7 +79,7 @@ func getIntersectionNode2(headA, headB *ListNode) *ListNode {
 }
 
 // time complexity: O(m+n), space complexity: O(1)
-func getIntersectionNode(headA, headB *ListNode) *ListNode {
+func getIntersectionNode(headA, headB *ysoftmancommon.ListNode) *ysoftmancommon.ListNode {
 	a := headA
 	b := headB
 	// a, b 전체 길이가 다르면 nil 이후에 a,b 를 크로스해서 intersection 전까지 길이를 맞춰지도록 한다.
@@ -97,9 +99,9 @@ func getIntersectionNode(headA, headB *ListNode) *ListNode {
 }
 
 func main() {
-	commonList := ([]int{8, 4, 5})
-	listHeadA := ([]int{4, 1})
-	listHeadB := ([]int{5, 6, 1})
+	commonList := ysoftmancommon.MakeLinkedList([]int{8, 4, 5})
+	listHeadA := ysoftmancommon.MakeLinkedList([]int{4, 1})
+	listHeadB := ysoftmancommon.MakeLinkedList([]int{5, 6, 1})
 	listA := listHeadA
 	for listA.Next != nil {
 		listA = listA.Next

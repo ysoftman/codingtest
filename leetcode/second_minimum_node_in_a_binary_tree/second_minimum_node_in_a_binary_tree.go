@@ -29,6 +29,8 @@ package main
 import (
 	"fmt"
 	"sort"
+
+	"github.com/ysoftman/ysoftmancommon"
 )
 
 /**
@@ -39,7 +41,7 @@ import (
  *     Right *TreeNode
  * }
  */
-func dfs(root *TreeNode, r *[]int) {
+func dfs(root *ysoftmancommon.TreeNode, r *[]int) {
 	if root == nil {
 		return
 	}
@@ -47,7 +49,8 @@ func dfs(root *TreeNode, r *[]int) {
 	dfs(root.Left, r)
 	dfs(root.Right, r)
 }
-func findSecondMinimumValue(root *TreeNode) int {
+
+func findSecondMinimumValue(root *ysoftmancommon.TreeNode) int {
 	r := []int{}
 	dfs(root, &r)
 	sort.Ints(r)
@@ -65,5 +68,4 @@ func main() {
 	fmt.Println(findSecondMinimumValue(ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"2", "2", "5", "null", "null", "5", "7"})))
 	fmt.Println(findSecondMinimumValue(ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"2", "2", "2"})))
 	fmt.Println(findSecondMinimumValue(ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"1", "1", "3", "1", "1", "3", "4", "3", "1", "1", "1", "3", "8", "4", "8", "3", "3", "1", "6", "2", "1"})))
-
 }

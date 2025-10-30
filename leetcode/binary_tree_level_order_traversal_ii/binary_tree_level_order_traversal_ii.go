@@ -24,6 +24,8 @@ package main
 
 import (
 	"fmt"
+
+	"github.com/ysoftman/ysoftmancommon"
 )
 
 /**
@@ -35,16 +37,16 @@ import (
  * }
  */
 // using BFS
-func levelOrderBottom(root *TreeNode) [][]int {
+func levelOrderBottom(root *ysoftmancommon.TreeNode) [][]int {
 	r := [][]int{}
 	if root == nil {
 		return r
 	}
 	temp := [][]int{}
-	q := make([]*TreeNode, 0)
+	q := make([]*ysoftmancommon.TreeNode, 0)
 	q = append(q, root)
 	for len(q) > 0 {
-		curQ := make([]*TreeNode, 0)
+		curQ := make([]*ysoftmancommon.TreeNode, 0)
 		t := []int{}
 		for len(q) > 0 {
 			node := q[0]

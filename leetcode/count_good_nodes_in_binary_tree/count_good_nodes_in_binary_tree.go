@@ -31,7 +31,11 @@ Each node's value is between [-10^4, 10^4].
 */
 package main
 
-import "fmt"
+import (
+	"fmt"
+
+	"github.com/ysoftman/ysoftmancommon"
+)
 
 /**
  * Definition for a binary tree node.
@@ -41,11 +45,11 @@ import "fmt"
  *     Right *TreeNode
  * }
  */
-func goodNodes(root *TreeNode) int {
+func goodNodes(root *ysoftmancommon.TreeNode) int {
 	return recursiveGoodNodes(root, root.Val)
 }
 
-func recursiveGoodNodes(root *TreeNode, preVal int) int {
+func recursiveGoodNodes(root *ysoftmancommon.TreeNode, preVal int) int {
 	if root == nil {
 		return 0
 	}

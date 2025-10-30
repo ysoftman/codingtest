@@ -21,7 +21,11 @@ The number of nodes in the tree is in the range [1, 104].
 */
 package main
 
-import "fmt"
+import (
+	"fmt"
+
+	"github.com/ysoftman/ysoftmancommon"
+)
 
 /**
  * Definition for a binary tree node.
@@ -31,10 +35,12 @@ import "fmt"
  *     Right *TreeNode
  * }
  */
-var m map[int]int
-var maxFrequency int
+var (
+	m            map[int]int
+	maxFrequency int
+)
 
-func findFrequentTreeSum(root *TreeNode) []int {
+func findFrequentTreeSum(root *ysoftmancommon.TreeNode) []int {
 	m = make(map[int]int, 0)
 	maxFrequency = 0
 	findTreeSum(root)
@@ -48,7 +54,7 @@ func findFrequentTreeSum(root *TreeNode) []int {
 }
 
 // postorder 탐색하며 각 노드 위치에서의 합을 구한다
-func findTreeSum(root *TreeNode) int {
+func findTreeSum(root *ysoftmancommon.TreeNode) int {
 	if root == nil {
 		return 0
 	}

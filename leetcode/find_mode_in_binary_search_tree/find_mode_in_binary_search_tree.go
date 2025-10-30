@@ -29,7 +29,11 @@ Follow up: Could you do that without using any extra space? (Assume that the imp
 */
 package main
 
-import "fmt"
+import (
+	"fmt"
+
+	"github.com/ysoftman/ysoftmancommon"
+)
 
 /**
  * Definition for a binary tree node.
@@ -41,7 +45,7 @@ import "fmt"
  */
 // time complexity: O(n)
 // space complexity: O(n)
-func preorder(root *TreeNode, m map[int]int) {
+func preorder(root *ysoftmancommon.TreeNode, m map[int]int) {
 	if root == nil {
 		return
 	}
@@ -49,7 +53,8 @@ func preorder(root *TreeNode, m map[int]int) {
 	preorder(root.Left, m)
 	preorder(root.Right, m)
 }
-func findMode(root *TreeNode) []int {
+
+func findMode(root *ysoftmancommon.TreeNode) []int {
 	m := make(map[int]int)
 	preorder(root, m)
 	max := 0
