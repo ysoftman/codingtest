@@ -25,7 +25,11 @@ Explanation: There is no cycle in the linked list.
 */
 package main
 
-import "fmt"
+import (
+	"fmt"
+
+	"github.com/ysoftman/ysoftmancommon"
+)
 
 /**
  * Definition for singly-linked list.
@@ -34,7 +38,7 @@ import "fmt"
  *     Next *ListNode
  * }
  */
-func hasCycle(head *ListNode) bool {
+func hasCycle(head *ysoftmancommon.ListNode) bool {
 	for head != nil {
 		if head.Val == 1<<31-1 {
 			return true
@@ -48,8 +52,7 @@ func hasCycle(head *ListNode) bool {
 
 func main() {
 	// CycleLinkedList 만들어서 확인
-	fmt.Println(hasCycle(makeCycleLinkedList([]int{3, 2, 0, -4}, 1)))
-	fmt.Println(hasCycle(makeCycleLinkedList([]int{1, 2}, 0)))
-	fmt.Println(hasCycle(makeCycleLinkedList([]int{1}, -1)))
-
+	fmt.Println(hasCycle(ysoftmancommon.MakeCycleLinkedList([]int{3, 2, 0, -4}, 1)))
+	fmt.Println(hasCycle(ysoftmancommon.MakeCycleLinkedList([]int{1, 2}, 0)))
+	fmt.Println(hasCycle(ysoftmancommon.MakeCycleLinkedList([]int{1}, -1)))
 }

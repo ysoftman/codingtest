@@ -37,6 +37,8 @@ Follow up: Could you solve it with time complexity O(height of tree)?
 */
 package main
 
+import "github.com/ysoftman/ysoftmancommon"
+
 /**
 * Definition for a binary tree node.
 * type TreeNode struct {
@@ -46,13 +48,14 @@ package main
 	* }
 */
 
-func findMinNode(root *TreeNode) *TreeNode {
+func findMinNode(root *ysoftmancommon.TreeNode) *ysoftmancommon.TreeNode {
 	for root.Left != nil {
 		root = root.Left
 	}
 	return root
 }
-func deleteNode(root *TreeNode, key int) *TreeNode {
+
+func deleteNode(root *ysoftmancommon.TreeNode, key int) *ysoftmancommon.TreeNode {
 	if root == nil {
 		return nil
 	}
@@ -78,16 +81,16 @@ func deleteNode(root *TreeNode, key int) *TreeNode {
 }
 
 func main() {
-	root := makeArrayToBinaryTreeNode([]string{"5", "3", "6", "2", "4", "null", "7"})
+	root := ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"5", "3", "6", "2", "4", "null", "7"})
 	key := 3
 	deleteNode(root, key)
-	printTreeNodeByBFS(root)
-	root = makeArrayToBinaryTreeNode([]string{"5", "3", "6", "2", "4", "null", "7"})
+	ysoftmancommon.PrintTreeNodeByBFS(root)
+	root = ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"5", "3", "6", "2", "4", "null", "7"})
 	key = 0
 	deleteNode(root, key)
-	printTreeNodeByBFS(root)
-	root = makeArrayToBinaryTreeNode([]string{})
+	ysoftmancommon.PrintTreeNodeByBFS(root)
+	root = ysoftmancommon.MakeArrayToBinaryTreeNode([]string{})
 	key = 0
 	deleteNode(root, key)
-	printTreeNodeByBFS(root)
+	ysoftmancommon.PrintTreeNodeByBFS(root)
 }

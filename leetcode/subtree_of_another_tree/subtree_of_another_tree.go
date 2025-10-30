@@ -22,7 +22,11 @@ The number of nodes in the subRoot tree is in the range [1, 1000].
 */
 package main
 
-import "fmt"
+import (
+	"fmt"
+
+	"github.com/ysoftman/ysoftmancommon"
+)
 
 /**
  * Definition for a binary tree node.
@@ -33,7 +37,7 @@ import "fmt"
  * }
  */
 // root 시작 위치도 preorder traversal 달리해서 체크
-func isSubtree(root *TreeNode, subRoot *TreeNode) bool {
+func isSubtree(root *ysoftmancommon.TreeNode, subRoot *ysoftmancommon.TreeNode) bool {
 	if root == nil {
 		return false
 	}
@@ -44,7 +48,7 @@ func isSubtree(root *TreeNode, subRoot *TreeNode) bool {
 }
 
 // preorder traversal 로 같은지 체크
-func isSame(root *TreeNode, subRoot *TreeNode) bool {
+func isSame(root *ysoftmancommon.TreeNode, subRoot *ysoftmancommon.TreeNode) bool {
 	if root == nil && subRoot == nil {
 		return true
 	}
@@ -58,13 +62,13 @@ func isSame(root *TreeNode, subRoot *TreeNode) bool {
 }
 
 func main() {
-	root := makeArrayToBinaryTreeNode([]string{"3", "4", "5", "1", "2"})
-	subRoot := makeArrayToBinaryTreeNode([]string{"4", "1", "2"})
+	root := ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"3", "4", "5", "1", "2"})
+	subRoot := ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"4", "1", "2"})
 	fmt.Println(isSubtree(root, subRoot))
-	root = makeArrayToBinaryTreeNode([]string{"3", "4", "5", "1", "2", "null", "null", "null", "null", "0"})
-	subRoot = makeArrayToBinaryTreeNode([]string{"4", "1", "2"})
+	root = ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"3", "4", "5", "1", "2", "null", "null", "null", "null", "0"})
+	subRoot = ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"4", "1", "2"})
 	fmt.Println(isSubtree(root, subRoot))
-	root = makeArrayToBinaryTreeNode([]string{"1", "null", "1", "null", "1", "null", "1", "null", "1", "null", "1", "null", "1", "null", "1", "null", "1", "null", "1", "null", "1", "2"})
-	subRoot = makeArrayToBinaryTreeNode([]string{"1", "null", "1", "null", "1", "null", "1", "null", "1", "null", "1", "2"})
+	root = ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"1", "null", "1", "null", "1", "null", "1", "null", "1", "null", "1", "null", "1", "null", "1", "null", "1", "null", "1", "null", "1", "2"})
+	subRoot = ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"1", "null", "1", "null", "1", "null", "1", "null", "1", "null", "1", "2"})
 	fmt.Println(isSubtree(root, subRoot))
 }

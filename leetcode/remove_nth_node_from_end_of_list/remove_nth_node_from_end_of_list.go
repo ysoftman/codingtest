@@ -109,19 +109,19 @@ func array2LinkNode(arr *[]int) *ListNode {
 }
 func main() {
 	head := array2LinkNode(&[]int{1, 2, 3, 4, 5})
-	printLinkedList(head)
-	printLinkedList(removeNthFromEnd(head, 2))
+	ysoftmancommon.PrintLinkedList(head)
+	ysoftmancommon.PrintLinkedList(removeNthFromEnd(head, 2))
 
 	head = array2LinkNode(&[]int{1})
-	printLinkedList(head)
-	printLinkedList(removeNthFromEnd(head, 1))
+	ysoftmancommon.PrintLinkedList(head)
+	ysoftmancommon.PrintLinkedList(removeNthFromEnd(head, 1))
 
 	head = array2LinkNode(&[]int{1, 2})
-	printLinkedList(head)
-	printLinkedList(removeNthFromEnd(head, 1))
+	ysoftmancommon.PrintLinkedList(head)
+	ysoftmancommon.PrintLinkedList(removeNthFromEnd(head, 1))
 
 	head = array2LinkNode(&[]int{1, 2})
-	printLinkedList(head)
-	printLinkedList(removeNthFromEnd(head, 2))
+	ysoftmancommon.PrintLinkedList(head)
+	ysoftmancommon.PrintLinkedList(removeNthFromEnd(head, 2))
 
 }

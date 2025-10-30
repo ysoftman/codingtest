@@ -24,7 +24,11 @@ The number of nodes in the tree is in the range [1, 104].
 */
 package main
 
-import "fmt"
+import (
+	"fmt"
+
+	"github.com/ysoftman/ysoftmancommon"
+)
 
 /**
  * Definition for a binary tree node.
@@ -36,7 +40,7 @@ import "fmt"
  */
 // dfs + dynamic programming
 // time complexity: O(n)
-func dfs_rob(root *TreeNode, dp map[*TreeNode]int) int {
+func dfs_rob(root *ysoftmancommon.TreeNode, dp map[*ysoftmancommon.TreeNode]int) int {
 	if root == nil {
 		return 0
 	}
@@ -66,19 +70,22 @@ func dfs_rob(root *TreeNode, dp map[*TreeNode]int) int {
 	dp[root] = max(case1money, case2money)
 	return dp[root]
 }
-func rob(root *TreeNode) int {
-	dp := make(map[*TreeNode]int)
+
+func rob(root *ysoftmancommon.TreeNode) int {
+	dp := make(map[*ysoftmancommon.TreeNode]int)
 	return dfs_rob(root, dp)
 }
+
 func max(a, b int) int {
 	if a > b {
 		return a
 	}
 	return b
 }
+
 func main() {
-	root := makeArrayToBinaryTreeNode([]string{"3", "2", "3", "null", "3", "null", "1"})
+	root := ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"3", "2", "3", "null", "3", "null", "1"})
 	fmt.Println(rob(root))
-	root = makeArrayToBinaryTreeNode([]string{"3", "4", "5", "1", "3", "null", "1"})
+	root = ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"3", "4", "5", "1", "3", "null", "1"})
 	fmt.Println(rob(root))
 }

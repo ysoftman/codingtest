@@ -75,9 +75,9 @@ func zigzagLevelOrder(root *TreeNode) [][]int {
 }
 
 func main() {
-	fmt.Println(zigzagLevelOrder(makeArrayToBinaryTreeNode([]string{"3", "9", "20", "null", "null", "15", "7"})))
-	fmt.Println(zigzagLevelOrder(makeArrayToBinaryTreeNode([]string{"3", "9", "20", "5", "3", "15", "7"})))
-	fmt.Println(zigzagLevelOrder(makeArrayToBinaryTreeNode([]string{"3"})))
-	fmt.Println(zigzagLevelOrder(makeArrayToBinaryTreeNode([]string{})))
-	fmt.Println(zigzagLevelOrder(makeArrayToBinaryTreeNode([]string{"0", "2", "4", "1", "null", "3", "-1", "5", "1", "null", "6", "null", "8"})))
+	fmt.Println(zigzagLevelOrder(ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"3", "9", "20", "null", "null", "15", "7"})))
+	fmt.Println(zigzagLevelOrder(ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"3", "9", "20", "5", "3", "15", "7"})))
+	fmt.Println(zigzagLevelOrder(ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"3"})))
+	fmt.Println(zigzagLevelOrder(ysoftmancommon.MakeArrayToBinaryTreeNode([]string{})))
+	fmt.Println(zigzagLevelOrder(ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"0", "2", "4", "1", "null", "3", "-1", "5", "1", "null", "6", "null", "8"})))
 }

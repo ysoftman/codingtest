@@ -106,7 +106,7 @@ func (this *BSTIterator) HasNext() bool {
  */
 
 func main() {
-	root := makeArrayToBinaryTreeNode([]string{"7", "3", "15", "null", "null", "9", "20"})
+	root := ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"7", "3", "15", "null", "null", "9", "20"})
 	obj := Constructor(root)
 	fmt.Println(obj.Next())    // return 3
 	fmt.Println(obj.Next())    // return 7

@@ -110,8 +110,8 @@ func main() {
 		listB = listB.Next
 	}
 	listB.Next = commonList
-	printLinkedList(listHeadA)
-	printLinkedList(listHeadB)
-	printLinkedList(getIntersectionNode2(listHeadA, listHeadB))
-	printLinkedList(getIntersectionNode(listHeadA, listHeadB))
+	ysoftmancommon.PrintLinkedList(listHeadA)
+	ysoftmancommon.PrintLinkedList(listHeadB)
+	ysoftmancommon.PrintLinkedList(getIntersectionNode2(listHeadA, listHeadB))
+	ysoftmancommon.PrintLinkedList(getIntersectionNode(listHeadA, listHeadB))
 }

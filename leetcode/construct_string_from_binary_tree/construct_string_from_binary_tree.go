@@ -52,6 +52,6 @@ func tree2str(root *TreeNode) string {
 }
 
 func main() {
-	fmt.Println(tree2str(makeArrayToBinaryTreeNode([]string{"1", "2", "3", "4"})))
-	fmt.Println(tree2str(makeArrayToBinaryTreeNode([]string{"1", "2", "3", "null", "4"})))
+	fmt.Println(tree2str(ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"1", "2", "3", "4"})))
+	fmt.Println(tree2str(ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"1", "2", "3", "null", "4"})))
 }

@@ -37,7 +37,11 @@ The number of nodes in the tree is in the range [0, 104].
 */
 package main
 
-import "fmt"
+import (
+	"fmt"
+
+	"github.com/ysoftman/ysoftmancommon"
+)
 
 /**
  * Definition for a binary tree node.
@@ -50,7 +54,7 @@ import "fmt"
 
 var totalSum int = 0
 
-func diffLR(root *TreeNode) int {
+func diffLR(root *ysoftmancommon.TreeNode) int {
 	if root == nil {
 		return 0
 	}
@@ -68,14 +72,14 @@ func diffLR(root *TreeNode) int {
 	return root.Val + leftSum + rightSum
 }
 
-func findTilt(root *TreeNode) int {
+func findTilt(root *ysoftmancommon.TreeNode) int {
 	totalSum = 0
 	diffLR(root)
 	return totalSum
 }
 
 func main() {
-	fmt.Println(findTilt(makeArrayToBinaryTreeNode([]string{"1", "2", "3"})))
-	fmt.Println(findTilt(makeArrayToBinaryTreeNode([]string{"4", "2", "9", "3", "5", "null", "7"})))
-	fmt.Println(findTilt(makeArrayToBinaryTreeNode([]string{"21", "7", "14", "1", "1", "2", "2", "3", "3"})))
+	fmt.Println(findTilt(ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"1", "2", "3"})))
+	fmt.Println(findTilt(ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"4", "2", "9", "3", "5", "null", "7"})))
+	fmt.Println(findTilt(ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"21", "7", "14", "1", "1", "2", "2", "3", "3"})))
 }

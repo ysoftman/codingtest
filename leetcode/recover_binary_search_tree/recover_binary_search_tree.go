@@ -22,7 +22,11 @@ Follow up: A solution using O(n) space is pretty straight-forward. Could you dev
 */
 package main
 
-import "fmt"
+import (
+	"fmt"
+
+	"github.com/ysoftman/ysoftmancommon"
+)
 
 /**
  * Definition for a binary tree node.
@@ -45,7 +49,7 @@ import "fmt"
  2
 1 3
 */
-func recursiveRecoverTree(root, minparent, maxparent *TreeNode) bool {
+func recursiveRecoverTree(root, minparent, maxparent *ysoftmancommon.TreeNode) bool {
 	if root == nil {
 		return false
 	}
@@ -60,26 +64,28 @@ func recursiveRecoverTree(root, minparent, maxparent *TreeNode) bool {
 	}
 	return recursiveRecoverTree(root.Left, minparent, root) || recursiveRecoverTree(root.Right, root, maxparent)
 }
-func recoverTree(root *TreeNode) {
+
+func recoverTree(root *ysoftmancommon.TreeNode) {
 	// if true(changed) then check again!
-	for recursiveRecoverTree(root, &TreeNode{-1<<31 - 1, nil, nil}, &TreeNode{1<<31 - 1, nil, nil}) {
+	for recursiveRecoverTree(root, &ysoftmancommon.TreeNode{-1<<31 - 1, nil, nil}, &ysoftmancommon.TreeNode{1<<31 - 1, nil, nil}) {
 	}
 	fmt.Println("-----")
 }
+
 func main() {
-	node := makeArrayToBinaryTreeNode([]string{"3", "null", "2", "null", "1"})
+	node := ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"3", "null", "2", "null", "1"})
 	recoverTree(node)
-	printTreeNodeByBFS(node)
-	node = makeArrayToBinaryTreeNode([]string{"2", "3", "1"})
+	ysoftmancommon.PrintTreeNodeByBFS(node)
+	node = ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"2", "3", "1"})
 	recoverTree(node)
-	printTreeNodeByBFS(node)
-	node = makeArrayToBinaryTreeNode([]string{"2", "null", "1"})
+	ysoftmancommon.PrintTreeNodeByBFS(node)
+	node = ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"2", "null", "1"})
 	recoverTree(node)
-	printTreeNodeByBFS(node)
-	node = makeArrayToBinaryTreeNode([]string{"1", "3", "null", "null", "2"})
+	ysoftmancommon.PrintTreeNodeByBFS(node)
+	node = ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"1", "3", "null", "null", "2"})
 	recoverTree(node)
-	printTreeNodeByBFS(node)
-	node = makeArrayToBinaryTreeNode([]string{"3", "1", "4", "null", "null", "2"})
+	ysoftmancommon.PrintTreeNodeByBFS(node)
+	node = ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"3", "1", "4", "null", "null", "2"})
 	recoverTree(node)
-	printTreeNodeByBFS(node)
+	ysoftmancommon.PrintTreeNodeByBFS(node)
 }

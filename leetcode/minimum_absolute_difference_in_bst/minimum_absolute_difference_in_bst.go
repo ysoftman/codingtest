@@ -80,10 +80,10 @@ func getMinimumDifference(root *TreeNode) int {
 }
 
 func main() {
-	root := makeArrayToBinaryTreeNode([]string{"4", "2", "6", "1", "3"})
+	root := ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"4", "2", "6", "1", "3"})
 	fmt.Println(getMinimumDifference(root))
-	root = makeArrayToBinaryTreeNode([]string{"1", "0", "48", "null", "null", "12", "49"})
+	root = ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"1", "0", "48", "null", "null", "12", "49"})
 	fmt.Println(getMinimumDifference(root))
-	root = makeArrayToBinaryTreeNode([]string{"236", "104", "701", "null", "227", "null", "911"})
+	root = ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"236", "104", "701", "null", "227", "null", "911"})
 	fmt.Println(getMinimumDifference(root))
 }

@@ -20,6 +20,8 @@ The list is guaranteed to be sorted in ascending order.
 
 package main
 
+import "github.com/ysoftman/ysoftmancommon"
+
 /**
  * Definition for singly-linked list.
  * type ListNode struct {
@@ -27,22 +29,22 @@ package main
  *     Next *ListNode
  * }
  */
-func deleteDuplicates2(head *ListNode) *ListNode {
-	var cur *ListNode = nil
-	var root *ListNode = nil
-	var pre *ListNode = nil
-	var next *ListNode = nil
+func deleteDuplicates2(head *ysoftmancommon.ListNode) *ysoftmancommon.ListNode {
+	var cur *ysoftmancommon.ListNode = nil
+	var root *ysoftmancommon.ListNode = nil
+	var pre *ysoftmancommon.ListNode = nil
+	var next *ysoftmancommon.ListNode = nil
 	for head != nil {
 		next = head.Next
 		// first node
 		if pre == nil {
 			if next == nil {
-				cur = &ListNode{
+				cur = &ysoftmancommon.ListNode{
 					Val: head.Val,
 				}
 				root = cur
 			} else if head.Val != next.Val {
-				cur = &ListNode{
+				cur = &ysoftmancommon.ListNode{
 					Val: head.Val,
 				}
 				root = cur
@@ -51,18 +53,18 @@ func deleteDuplicates2(head *ListNode) *ListNode {
 		// last node
 		if next == nil {
 			if pre == nil {
-				cur = &ListNode{
+				cur = &ysoftmancommon.ListNode{
 					Val: head.Val,
 				}
 				root = cur
 			} else if head.Val != pre.Val {
 				if cur == nil {
-					cur = &ListNode{
+					cur = &ysoftmancommon.ListNode{
 						Val: head.Val,
 					}
 					root = cur
 				} else {
-					cur.Next = &ListNode{
+					cur.Next = &ysoftmancommon.ListNode{
 						Val: head.Val,
 					}
 					cur = cur.Next
@@ -73,12 +75,12 @@ func deleteDuplicates2(head *ListNode) *ListNode {
 		if pre != nil && next != nil {
 			if pre.Val != head.Val && head.Val != next.Val {
 				if cur == nil {
-					cur = &ListNode{
+					cur = &ysoftmancommon.ListNode{
 						Val: head.Val,
 					}
 					root = cur
 				} else {
-					cur.Next = &ListNode{
+					cur.Next = &ysoftmancommon.ListNode{
 						Val: head.Val,
 					}
 					cur = cur.Next
@@ -92,9 +94,9 @@ func deleteDuplicates2(head *ListNode) *ListNode {
 	return root
 }
 
-func deleteDuplicates(head *ListNode) *ListNode {
+func deleteDuplicates(head *ysoftmancommon.ListNode) *ysoftmancommon.ListNode {
 	// head 이전에 빈값의 root 노드를 둔다.
-	root := &ListNode{
+	root := &ysoftmancommon.ListNode{
 		Val:  0,
 		Next: head,
 	}
@@ -116,11 +118,11 @@ func deleteDuplicates(head *ListNode) *ListNode {
 }
 
 func main() {
-	printLinkedList(deleteDuplicates(([]int{1, 2, 3, 3, 4, 4, 5})))
-	printLinkedList(deleteDuplicates(([]int{1, 1, 1, 2, 3})))
-	printLinkedList(deleteDuplicates(([]int{1})))
-	printLinkedList(deleteDuplicates(([]int{})))
-	printLinkedList(deleteDuplicates(([]int{1, 1, 1, 1, 1})))
-	printLinkedList(deleteDuplicates(([]int{1, 2, 2})))
-	printLinkedList(deleteDuplicates(([]int{1, 2, 3, 3})))
+	ysoftmancommon.PrintLinkedList(deleteDuplicates(ysoftmancommon.MakeLinkedList([]int{1, 2, 3, 3, 4, 4, 5})))
+	ysoftmancommon.PrintLinkedList(deleteDuplicates(ysoftmancommon.MakeLinkedList([]int{1, 1, 1, 2, 3})))
+	ysoftmancommon.PrintLinkedList(deleteDuplicates(ysoftmancommon.MakeLinkedList([]int{1})))
+	ysoftmancommon.PrintLinkedList(deleteDuplicates(ysoftmancommon.MakeLinkedList([]int{})))
+	ysoftmancommon.PrintLinkedList(deleteDuplicates(ysoftmancommon.MakeLinkedList([]int{1, 1, 1, 1, 1})))
+	ysoftmancommon.PrintLinkedList(deleteDuplicates(ysoftmancommon.MakeLinkedList([]int{1, 2, 2})))
+	ysoftmancommon.PrintLinkedList(deleteDuplicates(ysoftmancommon.MakeLinkedList([]int{1, 2, 3, 3})))
 }

@@ -20,7 +20,11 @@ The depth of the n-ary tree is less than or equal to 1000.
 */
 package main
 
-import "fmt"
+import (
+	"fmt"
+
+	"github.com/ysoftman/ysoftmancommon"
+)
 
 /**
  * Definition for a Node.
@@ -35,7 +39,8 @@ func max(a, b int) int {
 	}
 	return b
 }
-func traversal(root *Node) int {
+
+func traversal(root *ysoftmancommon.Node) int {
 	if root == nil {
 		return 0
 	}
@@ -46,7 +51,8 @@ func traversal(root *Node) int {
 	}
 	return depth
 }
-func maxDepth(root *Node) int {
+
+func maxDepth(root *ysoftmancommon.Node) int {
 	if root == nil {
 		return 0
 	}
@@ -54,6 +60,6 @@ func maxDepth(root *Node) int {
 }
 
 func main() {
-	fmt.Println(maxDepth(makeArrayToNode([]string{"1", "null", "3", "2", "4", "null", "5", "6"})))
-	fmt.Println(maxDepth(makeArrayToNode([]string{"1", "null", "2", "3", "4", "5", "null", "null", "6", "7", "null", "8", "null", "9", "10", "null", "null", "11", "null", "12", "null", "13", "null", "null", "14"})))
+	fmt.Println(maxDepth(ysoftmancommon.MakeArrayToNode([]string{"1", "null", "3", "2", "4", "null", "5", "6"})))
+	fmt.Println(maxDepth(ysoftmancommon.MakeArrayToNode([]string{"1", "null", "2", "3", "4", "5", "null", "null", "6", "7", "null", "8", "null", "9", "10", "null", "null", "11", "null", "12", "null", "13", "null", "null", "14"})))
 }

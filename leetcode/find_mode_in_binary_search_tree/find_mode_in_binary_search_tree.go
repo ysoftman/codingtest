@@ -68,7 +68,7 @@ func findMode(root *TreeNode) []int {
 }
 
 func main() {
-	fmt.Println(findMode(makeArrayToBinaryTreeNode([]string{"1", "null", "2", "2"})))
-	fmt.Println(findMode(makeArrayToBinaryTreeNode([]string{"0"})))
-	fmt.Println(findMode(makeArrayToBinaryTreeNode([]string{"1", "null", "2"})))
+	fmt.Println(findMode(ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"1", "null", "2", "2"})))
+	fmt.Println(findMode(ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"0"})))
+	fmt.Println(findMode(ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"1", "null", "2"})))
 }

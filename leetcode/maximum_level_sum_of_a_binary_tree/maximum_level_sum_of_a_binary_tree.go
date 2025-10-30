@@ -70,7 +70,7 @@ func maxLevelSum(root *TreeNode) int {
 }
 
 func main() {
-	fmt.Println(maxLevelSum(makeArrayToBinaryTreeNode([]string{"1", "7", "0", "7", "-8", "null", "null"})))
-	fmt.Println(maxLevelSum(makeArrayToBinaryTreeNode([]string{"989", "null", "10250", "98693", "-89388", "null", "null", "null", "-32127"})))
-	fmt.Println(maxLevelSum(makeArrayToBinaryTreeNode([]string{"-100", "-200", "-300", "-20", "-5", "-10", "null"})))
+	fmt.Println(maxLevelSum(ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"1", "7", "0", "7", "-8", "null", "null"})))
+	fmt.Println(maxLevelSum(ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"989", "null", "10250", "98693", "-89388", "null", "null", "null", "-32127"})))
+	fmt.Println(maxLevelSum(ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"-100", "-200", "-300", "-20", "-5", "-10", "null"})))
 }

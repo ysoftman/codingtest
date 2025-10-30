@@ -127,14 +127,14 @@ func main() {
 			Val: 3,
 		},
 	}
-	printTreeNodeByDFS(root)
+	ysoftmancommon.PrintTreeNodeByDFS(root)
 	fmt.Println()
 
 	ser := Constructor()
 	treeString := ser.serialize(root)
 	fmt.Println(treeString)
 	ans := ser.deserialize(treeString)
-	// printTreeNodeByBFS(ans)
-	printTreeNodeByDFS(ans)
+	// ysoftmancommon.PrintTreeNodeByBFS(ans)
+	ysoftmancommon.PrintTreeNodeByDFS(ans)
 	fmt.Println()
 }

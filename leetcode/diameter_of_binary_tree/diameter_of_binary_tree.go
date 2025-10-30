@@ -23,7 +23,11 @@ The number of nodes in the tree is in the range [1, 104].
 
 package main
 
-import "fmt"
+import (
+	"fmt"
+
+	"github.com/ysoftman/ysoftmancommon"
+)
 
 /**
  * Definition for a binary tree node.
@@ -33,7 +37,7 @@ import "fmt"
  *     Right *TreeNode
  * }
  */
-func diameterOfBinaryTree(root *TreeNode) int {
+func diameterOfBinaryTree(root *ysoftmancommon.TreeNode) int {
 	diameter := 0
 	maxDiameter(root, &diameter)
 	return diameter
@@ -45,7 +49,8 @@ func max(a, b int) int {
 	}
 	return b
 }
-func maxDiameter(root *TreeNode, diameter *int) int {
+
+func maxDiameter(root *ysoftmancommon.TreeNode, diameter *int) int {
 	if root == nil {
 		return 0
 	}
@@ -60,8 +65,8 @@ func maxDiameter(root *TreeNode, diameter *int) int {
 }
 
 func main() {
-	root := makeArrayToBinaryTreeNode([]string{"1", "2", "3", "4", "5"})
+	root := ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"1", "2", "3", "4", "5"})
 	fmt.Println(diameterOfBinaryTree(root))
-	root = makeArrayToBinaryTreeNode([]string{"1", "2"})
+	root = ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"1", "2"})
 	fmt.Println(diameterOfBinaryTree(root))
 }

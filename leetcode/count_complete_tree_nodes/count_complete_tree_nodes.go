@@ -71,8 +71,8 @@ func countNodes(root *TreeNode) int {
 }
 
 func main() {
-	fmt.Println(countNodes(makeArrayToBinaryTreeNode([]string{"1", "2", "3", "4", "5", "6"})))
-	fmt.Println(countNodes(makeArrayToBinaryTreeNode([]string{})))
-	fmt.Println(countNodes(makeArrayToBinaryTreeNode([]string{"1"})))
-	fmt.Println(countNodes(makeArrayToBinaryTreeNode([]string{"1", "2", "3", "4"})))
+	fmt.Println(countNodes(ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"1", "2", "3", "4", "5", "6"})))
+	fmt.Println(countNodes(ysoftmancommon.MakeArrayToBinaryTreeNode([]string{})))
+	fmt.Println(countNodes(ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"1"})))
+	fmt.Println(countNodes(ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"1", "2", "3", "4"})))
 }

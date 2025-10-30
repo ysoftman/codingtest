@@ -21,7 +21,11 @@ The number of nodes in the tree is in the range [1, 1000].
 */
 package main
 
-import "fmt"
+import (
+	"fmt"
+
+	"github.com/ysoftman/ysoftmancommon"
+)
 
 /**
  * Definition for a binary tree node.
@@ -31,11 +35,11 @@ import "fmt"
  *     Right *TreeNode
  * }
  */
-func sumOfLeftLeaves(root *TreeNode) int {
+func sumOfLeftLeaves(root *ysoftmancommon.TreeNode) int {
 	return dfs_SOLL(root, false)
 }
 
-func dfs_SOLL(root *TreeNode, leftchild bool) int {
+func dfs_SOLL(root *ysoftmancommon.TreeNode, leftchild bool) int {
 	if root == nil {
 		return 0
 	}
@@ -52,8 +56,8 @@ func dfs_SOLL(root *TreeNode, leftchild bool) int {
 }
 
 func main() {
-	root := makeArrayToBinaryTreeNode([]string{"3", "9", "20", "null", "null", "15", "7"})
+	root := ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"3", "9", "20", "null", "null", "15", "7"})
 	fmt.Println(sumOfLeftLeaves(root))
-	root = makeArrayToBinaryTreeNode([]string{"1"})
+	root = ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"1"})
 	fmt.Println(sumOfLeftLeaves(root))
 }

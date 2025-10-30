@@ -29,6 +29,8 @@ The depth of the tree is in the range [1, 104].
 */
 package main
 
+import "github.com/ysoftman/ysoftmancommon"
+
 /**
  * Definition for a binary tree node.
  * type TreeNode struct {
@@ -38,14 +40,14 @@ package main
  * }
  */
 // DFS, time complexity : O(n)
-func recursiveAddOneRow(root *TreeNode, val int, depth int, curDepth int) *TreeNode {
+func recursiveAddOneRow(root *ysoftmancommon.TreeNode, val int, depth int, curDepth int) *ysoftmancommon.TreeNode {
 	if root == nil || depth < curDepth {
 		return nil
 	}
 
 	// 1 depth 위치은 root 이전에 insert 해야 하는 예외 상황
 	if depth == 1 {
-		newNode := &TreeNode{
+		newNode := &ysoftmancommon.TreeNode{
 			Val:   val,
 			Left:  root,
 			Right: nil,
@@ -55,7 +57,7 @@ func recursiveAddOneRow(root *TreeNode, val int, depth int, curDepth int) *TreeN
 
 	// left 에 val(node) 추가
 	if curDepth+1 == depth {
-		newNode := &TreeNode{
+		newNode := &ysoftmancommon.TreeNode{
 			Val:   val,
 			Left:  root.Left,
 			Right: nil,
@@ -67,7 +69,7 @@ func recursiveAddOneRow(root *TreeNode, val int, depth int, curDepth int) *TreeN
 
 	//  right 에 val(node) 추가
 	if curDepth+1 == depth {
-		newNode := &TreeNode{
+		newNode := &ysoftmancommon.TreeNode{
 			Val:   val,
 			Left:  nil,
 			Right: root.Right,
@@ -78,12 +80,13 @@ func recursiveAddOneRow(root *TreeNode, val int, depth int, curDepth int) *TreeN
 	}
 	return root
 }
-func addOneRow(root *TreeNode, val int, depth int) *TreeNode {
+
+func addOneRow(root *ysoftmancommon.TreeNode, val int, depth int) *ysoftmancommon.TreeNode {
 	return recursiveAddOneRow(root, val, depth, 1)
 }
 
 func main() {
-	printTreeNodeByBFS(addOneRow(makeArrayToBinaryTreeNode([]string{"4", "2", "6", "3", "1", "5"}), 1, 2))
-	printTreeNodeByBFS(addOneRow(makeArrayToBinaryTreeNode([]string{"4", "2", "null", "3", "1"}), 1, 3))
-	printTreeNodeByBFS(addOneRow(makeArrayToBinaryTreeNode([]string{"4", "2", "6", "3", "1", "5"}), 1, 1))
+	ysoftmancommon.PrintTreeNodeByBFS(addOneRow(ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"4", "2", "6", "3", "1", "5"}), 1, 2))
+	ysoftmancommon.PrintTreeNodeByBFS(addOneRow(ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"4", "2", "null", "3", "1"}), 1, 3))
+	ysoftmancommon.PrintTreeNodeByBFS(addOneRow(ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"4", "2", "6", "3", "1", "5"}), 1, 1))
 }

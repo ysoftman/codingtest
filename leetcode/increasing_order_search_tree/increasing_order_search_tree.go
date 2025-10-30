@@ -47,8 +47,8 @@ func increasingBST(root *TreeNode) *TreeNode {
 	return newRoot.Right
 }
 func main() {
-	printTreeNodeByDFS(increasingBST(makeArrayToBinaryTreeNode([]string{"5", "3", "6", "2", "4", "null", "8", "1", "null", "null", "null", "7", "9"})))
+	ysoftmancommon.PrintTreeNodeByDFS(increasingBST(ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"5", "3", "6", "2", "4", "null", "8", "1", "null", "null", "null", "7", "9"})))
 	fmt.Println()
-	printTreeNodeByDFS(increasingBST(makeArrayToBinaryTreeNode([]string{"5", "1", "7"})))
+	ysoftmancommon.PrintTreeNodeByDFS(increasingBST(ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"5", "1", "7"})))
 	fmt.Println()
 }

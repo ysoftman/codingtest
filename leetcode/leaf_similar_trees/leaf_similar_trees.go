@@ -22,7 +22,11 @@ Both of the given trees will have values in the range [0, 200].
 */
 package main
 
-import "fmt"
+import (
+	"fmt"
+
+	"github.com/ysoftman/ysoftmancommon"
+)
 
 /**
  * Definition for a binary tree node.
@@ -33,7 +37,7 @@ import "fmt"
  * }
  */
 
-func findLeafNode(root *TreeNode, leafVal *[]int) {
+func findLeafNode(root *ysoftmancommon.TreeNode, leafVal *[]int) {
 	if root == nil {
 		return
 	}
@@ -49,7 +53,7 @@ func findLeafNode(root *TreeNode, leafVal *[]int) {
 	return
 }
 
-func leafSimilar(root1 *TreeNode, root2 *TreeNode) bool {
+func leafSimilar(root1 *ysoftmancommon.TreeNode, root2 *ysoftmancommon.TreeNode) bool {
 	r1 := []int{}
 	findLeafNode(root1, &r1)
 	r2 := []int{}
@@ -66,10 +70,10 @@ func leafSimilar(root1 *TreeNode, root2 *TreeNode) bool {
 }
 
 func main() {
-	root1 := makeArrayToBinaryTreeNode([]string{"3", "5", "1", "6", "2", "9", "8", "null", "null", "7", "4"})
-	root2 := makeArrayToBinaryTreeNode([]string{"3", "5", "1", "6", "7", "4", "2", "null", "null", "null", "null", "null", "null", "9", "8"})
+	root1 := ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"3", "5", "1", "6", "2", "9", "8", "null", "null", "7", "4"})
+	root2 := ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"3", "5", "1", "6", "7", "4", "2", "null", "null", "null", "null", "null", "null", "9", "8"})
 	fmt.Println(leafSimilar(root1, root2))
-	root1 = makeArrayToBinaryTreeNode([]string{"1", "2", "3"})
-	root2 = makeArrayToBinaryTreeNode([]string{"1", "3", "2"})
+	root1 = ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"1", "2", "3"})
+	root2 = ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"1", "3", "2"})
 	fmt.Println(leafSimilar(root1, root2))
 }

@@ -61,10 +61,10 @@ func findTreeSum(root *TreeNode) int {
 }
 
 func main() {
-	root := makeArrayToBinaryTreeNode([]string{"5", "2", "-3"})
+	root := ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"5", "2", "-3"})
 	fmt.Println(findFrequentTreeSum(root))
-	root = makeArrayToBinaryTreeNode([]string{"5", "2", "-5"})
+	root = ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"5", "2", "-5"})
 	fmt.Println(findFrequentTreeSum(root))
-	root = makeArrayToBinaryTreeNode([]string{"1"})
+	root = ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"1"})
 	fmt.Println(findFrequentTreeSum(root))
 }

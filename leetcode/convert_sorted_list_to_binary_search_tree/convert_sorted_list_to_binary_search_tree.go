@@ -6,7 +6,6 @@ Given the head of a singly linked list where elements are sorted in ascending or
 
 For this problem, a height-balanced binary tree is defined as a binary tree in which the depth of the two subtrees of every node never differ by more than 1.
 
-
 Example 1:
 Input: head = [-10,-3,0,5,9]
 Output: [0,-3,9,-10,null,5]
@@ -21,6 +20,8 @@ The number of nodes in head is in the range [0, 2 * 104].
 -105 <= Node.val <= 105
 */
 package main
+
+import "github.com/ysoftman/ysoftmancommon"
 
 /**
  * Definition for singly-linked list.
@@ -37,7 +38,7 @@ package main
  *     Right *TreeNode
  * }
  */
-func recursiveSortedListToBST(left, right *ListNode) *TreeNode {
+func recursiveSortedListToBST(left, right *ysoftmancommon.ListNode) *ysoftmancommon.TreeNode {
 	if left == right {
 		return nil
 	}
@@ -51,12 +52,13 @@ func recursiveSortedListToBST(left, right *ListNode) *TreeNode {
 		mid = mid.Next
 	}
 
-	root := &TreeNode{Val: mid.Val}
+	root := &ysoftmancommon.TreeNode{Val: mid.Val}
 	root.Left = recursiveSortedListToBST(left, mid)
 	root.Right = recursiveSortedListToBST(mid.Next, right)
 	return root
 }
-func sortedListToBST(head *ListNode) *TreeNode {
+
+func sortedListToBST(head *ysoftmancommon.ListNode) *ysoftmancommon.TreeNode {
 	if head == nil {
 		return nil
 	}
@@ -64,6 +66,6 @@ func sortedListToBST(head *ListNode) *TreeNode {
 }
 
 func main() {
-	printTreeNodeByBFS(sortedListToBST(([]int{-10, -3, 0, 5, 9})))
-	printTreeNodeByBFS(sortedListToBST(([]int{})))
+	ysoftmancommon.PrintTreeNodeByBFS(sortedListToBST(ysoftmancommon.MakeLinkedList([]int{-10, -3, 0, 5, 9})))
+	ysoftmancommon.PrintTreeNodeByBFS(sortedListToBST(ysoftmancommon.MakeLinkedList([]int{})))
 }

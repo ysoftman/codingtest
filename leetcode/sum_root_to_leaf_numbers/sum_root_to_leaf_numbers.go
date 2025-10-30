@@ -72,6 +72,6 @@ func sumNumbers(root *TreeNode) int {
 }
 
 func main() {
-	fmt.Println(sumNumbers(makeArrayToBinaryTreeNode([]string{"1", "2", "3"})))
-	fmt.Println(sumNumbers(makeArrayToBinaryTreeNode([]string{"4", "9", "0", "5", "1"})))
+	fmt.Println(sumNumbers(ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"1", "2", "3"})))
+	fmt.Println(sumNumbers(ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"4", "9", "0", "5", "1"})))
 }

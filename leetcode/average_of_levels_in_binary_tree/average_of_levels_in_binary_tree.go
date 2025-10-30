@@ -55,6 +55,6 @@ func averageOfLevels(root *TreeNode) []float64 {
 }
 
 func main() {
-	fmt.Println(averageOfLevels(makeArrayToBinaryTreeNode([]string{"3", "9", "20", "null", "null", "15", "7"})))
-	fmt.Println(averageOfLevels(makeArrayToBinaryTreeNode([]string{"3", "9", "20", "15", "7"})))
+	fmt.Println(averageOfLevels(ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"3", "9", "20", "null", "null", "15", "7"})))
+	fmt.Println(averageOfLevels(ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"3", "9", "20", "15", "7"})))
 }

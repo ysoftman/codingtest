@@ -14,14 +14,17 @@ Example 2:
 Input: root = [1,null,2,3,4,5,null,null,6,7,null,8,null,9,10,null,null,11,null,12,null,13,null,null,14]
 Output: [[1],[2,3,4,5],[6,7,8,9,10],[11,12,13],[14]]
 
-
 Constraints:
 The height of the n-ary tree is less than or equal to 1000
 The total number of nodes is between [0, 104]
 */
 package main
 
-import "fmt"
+import (
+	"fmt"
+
+	"github.com/ysoftman/ysoftmancommon"
+)
 
 /**
  * Definition for a Node.
@@ -32,18 +35,18 @@ import "fmt"
  */
 
 // bfs
-func levelOrder(root *Node) [][]int {
+func levelOrder(root *ysoftmancommon.Node) [][]int {
 	if root == nil {
 		return [][]int{}
 	}
 	r := [][]int{}
 	r = append(r, []int{root.Val})
 
-	q := []*Node{}
+	q := []*ysoftmancommon.Node{}
 	q = append(q, root)
 
 	for len(q) != 0 {
-		levelq := []*Node{}
+		levelq := []*ysoftmancommon.Node{}
 		curLevelValues := []int{}
 
 		for len(q) != 0 {
@@ -74,7 +77,7 @@ func levelOrder(root *Node) [][]int {
 
 func main() {
 	root := []string{"1", "null", "3", "2", "4", "null", "5", "6"}
-	fmt.Println(levelOrder(makeArrayToNode(root)))
+	fmt.Println(levelOrder(ysoftmancommon.MakeArrayToNode(root)))
 	root = []string{"1", "null", "2", "3", "4", "5", "null", "null", "6", "7", "null", "8", "null", "9", "10", "null", "null", "11", "null", "12", "null", "13", "null", "null", "14"}
-	fmt.Println(levelOrder(makeArrayToNode(root)))
+	fmt.Println(levelOrder(ysoftmancommon.MakeArrayToNode(root)))
 }

@@ -69,10 +69,10 @@ func maxPathSum(root *TreeNode) int {
 }
 
 func main() {
-	root := makeArrayToBinaryTreeNode([]string{"1", "2", "3"})
+	root := ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"1", "2", "3"})
 	fmt.Println(maxPathSum(root))
-	root = makeArrayToBinaryTreeNode([]string{"-10", "9", "20", "null", "null", "15", "7"})
+	root = ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"-10", "9", "20", "null", "null", "15", "7"})
 	fmt.Println(maxPathSum(root))
-	root = makeArrayToBinaryTreeNode([]string{"5", "4", "8", "11", "null", "13", "4", "7", "2", "null", "null", "null", "1"})
+	root = ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"5", "4", "8", "11", "null", "13", "4", "7", "2", "null", "null", "null", "1"})
 	fmt.Println(maxPathSum(root))
 }

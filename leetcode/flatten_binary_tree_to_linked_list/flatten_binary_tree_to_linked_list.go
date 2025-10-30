@@ -87,16 +87,16 @@ func flatten(root *TreeNode) {
 }
 
 func main() {
-	root := makeArrayToBinaryTreeNode([]string{"1", "2", "5", "3", "4", "null", "6"})
+	root := ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"1", "2", "5", "3", "4", "null", "6"})
 	flatten(root)
-	printTreeNodeByDFS(root)
+	ysoftmancommon.PrintTreeNodeByDFS(root)
 	fmt.Println()
-	root = makeArrayToBinaryTreeNode([]string{})
+	root = ysoftmancommon.MakeArrayToBinaryTreeNode([]string{})
 	flatten(root)
-	printTreeNodeByDFS(root)
+	ysoftmancommon.PrintTreeNodeByDFS(root)
 	fmt.Println()
-	root = makeArrayToBinaryTreeNode([]string{"0"})
+	root = ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"0"})
 	flatten(root)
-	printTreeNodeByDFS(root)
+	ysoftmancommon.PrintTreeNodeByDFS(root)
 	fmt.Println()
 }

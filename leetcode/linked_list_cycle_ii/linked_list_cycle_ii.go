@@ -32,7 +32,11 @@ Follow up: Can you solve it using O(1) (i.e. constant) memory?
 */
 package main
 
-import "fmt"
+import (
+	"fmt"
+
+	"github.com/ysoftman/ysoftmancommon"
+)
 
 /**
  * Definition for singly-linked list.
@@ -44,8 +48,8 @@ import "fmt"
 // using hashmap
 // time complexity: O(n)
 // space complexity: O(n)
-func detectCycle2(head *ListNode) *ListNode {
-	m := make(map[*ListNode]bool)
+func detectCycle2(head *ysoftmancommon.ListNode) *ysoftmancommon.ListNode {
+	m := make(map[*ysoftmancommon.ListNode]bool)
 	for head != nil {
 		if _, exist := m[head.Next]; exist {
 			return head.Next
@@ -62,7 +66,7 @@ func detectCycle2(head *ListNode) *ListNode {
 // 3. 둘이 만나면, tortoise 만 head 보내고, 둘아 한번에 1칸씩 움직여서 만나는 곳이 순환 노드의 시작점이다.
 // time complexity: O(n)
 // space complexity: O(1)
-func detectCycle(head *ListNode) *ListNode {
+func detectCycle(head *ysoftmancommon.ListNode) *ysoftmancommon.ListNode {
 	tortoise := head
 	rabbit := head
 	isCycle := false
@@ -92,7 +96,7 @@ func detectCycle(head *ListNode) *ListNode {
 
 func main() {
 	// CycleLinkedList 만들어서 확인
-	fmt.Println(detectCycle(makeCycleLinkedList([]int{3, 2, 0, -4}, 1)))
-	fmt.Println(detectCycle(makeCycleLinkedList([]int{1, 2}, 0)))
-	fmt.Println(detectCycle(makeCycleLinkedList([]int{1}, -1)))
+	fmt.Println(detectCycle(ysoftmancommon.MakeCycleLinkedList([]int{3, 2, 0, -4}, 1)))
+	fmt.Println(detectCycle(ysoftmancommon.MakeCycleLinkedList([]int{1, 2}, 0)))
+	fmt.Println(detectCycle(ysoftmancommon.MakeCycleLinkedList([]int{1}, -1)))
 }

@@ -62,7 +62,7 @@ func recursiveGoodNodes(root *TreeNode, preVal int) int {
 }
 
 func main() {
-	fmt.Println(goodNodes(makeArrayToBinaryTreeNode([]string{"3", "1", "4", "3", "null", "1", "5"})))
-	fmt.Println(goodNodes(makeArrayToBinaryTreeNode([]string{"3", "3", "null", "4", "2"})))
-	fmt.Println(goodNodes(makeArrayToBinaryTreeNode([]string{"1"})))
+	fmt.Println(goodNodes(ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"3", "1", "4", "3", "null", "1", "5"})))
+	fmt.Println(goodNodes(ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"3", "3", "null", "4", "2"})))
+	fmt.Println(goodNodes(ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"1"})))
 }

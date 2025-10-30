@@ -70,8 +70,8 @@ func maxProduct(root *TreeNode) int {
 }
 
 func main() {
-	root := makeArrayToBinaryTreeNode([]string{"1", "2", "3", "4", "5", "6"})
+	root := ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"1", "2", "3", "4", "5", "6"})
 	fmt.Println(maxProduct(root))
-	root = makeArrayToBinaryTreeNode([]string{"1", "null", "2", "3", "4", "null", "null", "5", "6"})
+	root = ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"1", "null", "2", "3", "4", "null", "null", "5", "6"})
 	fmt.Println(maxProduct(root))
 }

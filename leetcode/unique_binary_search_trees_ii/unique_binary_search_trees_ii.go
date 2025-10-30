@@ -12,13 +12,16 @@ Example 2:
 Input: n = 1
 Output: [[1]]
 
-
 Constraints:
 1 <= n <= 8
 */
 package main
 
-import "fmt"
+import (
+	"fmt"
+
+	"github.com/ysoftman/ysoftmancommon"
+)
 
 /**
  * Definition for a binary tree node.
@@ -28,11 +31,11 @@ import "fmt"
  *     Right *TreeNode
  * }
  */
-func recursiveGenerateTrees(left, right int) []*TreeNode {
+func recursiveGenerateTrees(left, right int) []*ysoftmancommon.TreeNode {
 	if left > right {
-		return []*TreeNode{nil}
+		return []*ysoftmancommon.TreeNode{nil}
 	}
-	r := []*TreeNode{}
+	r := []*ysoftmancommon.TreeNode{}
 
 	for i := left; i <= right; i++ {
 		leftNode := recursiveGenerateTrees(left, i-1)
@@ -40,44 +43,46 @@ func recursiveGenerateTrees(left, right int) []*TreeNode {
 		// fmt.Println(i, leftNode, rightNode)
 		for _, ln := range leftNode {
 			for _, rn := range rightNode {
-				r = append(r, &TreeNode{i, ln, rn})
+				r = append(r, &ysoftmancommon.TreeNode{i, ln, rn})
 			}
 		}
 	}
 	return r
 }
-func generateTrees(n int) []*TreeNode {
+
+func generateTrees(n int) []*ysoftmancommon.TreeNode {
 	return recursiveGenerateTrees(1, n)
 }
+
 func main() {
 	root := generateTrees(1)
 	fmt.Println("-----")
 	for _, n := range root {
-		printTreeNodeByDFS(n)
+		ysoftmancommon.PrintTreeNodeByDFS(n)
 		fmt.Println()
 	}
 	root = generateTrees(2)
 	fmt.Println("-----")
 	for _, n := range root {
-		printTreeNodeByDFS(n)
+		ysoftmancommon.PrintTreeNodeByDFS(n)
 		fmt.Println()
 	}
 	root = generateTrees(3)
 	fmt.Println("-----")
 	for _, n := range root {
-		printTreeNodeByDFS(n)
+		ysoftmancommon.PrintTreeNodeByDFS(n)
 		fmt.Println()
 	}
 	root = generateTrees(4)
 	fmt.Println("-----")
 	for _, n := range root {
-		printTreeNodeByDFS(n)
+		ysoftmancommon.PrintTreeNodeByDFS(n)
 		fmt.Println()
 	}
 	root = generateTrees(5)
 	fmt.Println("-----")
 	for _, n := range root {
-		printTreeNodeByDFS(n)
+		ysoftmancommon.PrintTreeNodeByDFS(n)
 		fmt.Println()
 	}
 }

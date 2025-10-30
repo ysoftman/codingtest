@@ -23,7 +23,11 @@ All Node.val are unique.
 */
 package main
 
-import "fmt"
+import (
+	"fmt"
+
+	"github.com/ysoftman/ysoftmancommon"
+)
 
 /**
  * Definition for a binary tree node.
@@ -34,7 +38,7 @@ import "fmt"
  * }
  */
 // search all nodes
-func rangeSumBST2(root *TreeNode, low int, high int) int {
+func rangeSumBST2(root *ysoftmancommon.TreeNode, low int, high int) int {
 	if root == nil {
 		return 0
 	}
@@ -45,7 +49,7 @@ func rangeSumBST2(root *TreeNode, low int, high int) int {
 	return sum + rangeSumBST(root.Left, low, high) + rangeSumBST(root.Right, low, high)
 }
 
-func rangeSumBST(root *TreeNode, low int, high int) int {
+func rangeSumBST(root *ysoftmancommon.TreeNode, low int, high int) int {
 	if root == nil {
 		return 0
 	}
@@ -61,11 +65,11 @@ func rangeSumBST(root *TreeNode, low int, high int) int {
 }
 
 func main() {
-	root := makeArrayToBinaryTreeNode([]string{"10", "5", "15", "3", "7", "null", "18"})
+	root := ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"10", "5", "15", "3", "7", "null", "18"})
 	low := 7
 	high := 15
 	fmt.Println(rangeSumBST(root, low, high))
-	root = makeArrayToBinaryTreeNode([]string{"10", "5", "15", "3", "7", "13", "18", "1", "null", "6"})
+	root = ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"10", "5", "15", "3", "7", "13", "18", "1", "null", "6"})
 	low = 6
 	high = 10
 	fmt.Println(rangeSumBST(root, low, high))

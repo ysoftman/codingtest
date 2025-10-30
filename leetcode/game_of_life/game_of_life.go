@@ -33,12 +33,15 @@ In this question, we represent the board using a 2D array. In principle, the boa
 */
 package main
 
+import "github.com/ysoftman/ysoftmancommon"
+
 func min(a, b int) int {
 	if a < b {
 		return a
 	}
 	return b
 }
+
 func max(a, b int) int {
 	if a > b {
 		return a
@@ -82,5 +85,5 @@ func gameOfLife(board [][]int) {
 func main() {
 	board := [][]int{{0, 1, 0}, {0, 0, 1}, {1, 1, 1}, {0, 0, 0}}
 	gameOfLife(board)
-	printMatrix(board)
+	ysoftmancommon.PrintMatrix(board)
 }

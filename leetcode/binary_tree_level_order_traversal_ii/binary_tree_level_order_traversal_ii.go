@@ -68,7 +68,7 @@ func levelOrderBottom(root *TreeNode) [][]int {
 }
 
 func main() {
-	fmt.Println(levelOrderBottom(makeArrayToBinaryTreeNode([]string{"3", "9", "20", "null", "null", "15", "7"})))
-	fmt.Println(levelOrderBottom(makeArrayToBinaryTreeNode([]string{"1"})))
-	fmt.Println(levelOrderBottom(makeArrayToBinaryTreeNode([]string{})))
+	fmt.Println(levelOrderBottom(ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"3", "9", "20", "null", "null", "15", "7"})))
+	fmt.Println(levelOrderBottom(ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"1"})))
+	fmt.Println(levelOrderBottom(ysoftmancommon.MakeArrayToBinaryTreeNode([]string{})))
 }

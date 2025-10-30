@@ -25,6 +25,8 @@ n == matrix[0].length
 
 package main
 
+import "github.com/ysoftman/ysoftmancommon"
+
 // O(mn) time complexity
 // O(m+n) space complexity
 func setZeroes2(matrix [][]int) {
@@ -94,11 +96,11 @@ func setZeroes(matrix [][]int) {
 func main() {
 	matrix := [][]int{{1, 1, 1}, {1, 0, 1}, {1, 1, 1}}
 	setZeroes(matrix)
-	printMatrix(matrix)
+	ysoftmancommon.PrintMatrix(matrix)
 	matrix = [][]int{{0, 1, 2, 0}, {3, 4, 5, 2}, {1, 3, 1, 5}}
 	setZeroes(matrix)
-	printMatrix(matrix)
+	ysoftmancommon.PrintMatrix(matrix)
 	matrix = [][]int{{0, 1, 0, 3, 0}, {3, 7, 4, 5, 2}, {0, 3, 1, 9, 5}, {0, 12, 6, 2, 1}}
 	setZeroes(matrix)
-	printMatrix(matrix)
+	ysoftmancommon.PrintMatrix(matrix)
 }

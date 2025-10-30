@@ -19,7 +19,11 @@ The number of nodes in the tree is in the range [1, 104].
 */
 package main
 
-import "fmt"
+import (
+	"fmt"
+
+	"github.com/ysoftman/ysoftmancommon"
+)
 
 /**
  * Definition for a binary tree node.
@@ -30,11 +34,11 @@ import "fmt"
  * }
  */
 // BFS
-func findBottomLeftValue2(root *TreeNode) int {
+func findBottomLeftValue2(root *ysoftmancommon.TreeNode) int {
 	r := root.Val
-	q := []*TreeNode{root}
+	q := []*ysoftmancommon.TreeNode{root}
 	for len(q) > 0 {
-		levelq := []*TreeNode{}
+		levelq := []*ysoftmancommon.TreeNode{}
 		for len(q) > 0 {
 			front := q[0]
 			q = q[1:]
@@ -57,14 +61,14 @@ func findBottomLeftValue2(root *TreeNode) int {
 }
 
 // DFS
-func findBottomLeftValue(root *TreeNode) int {
+func findBottomLeftValue(root *ysoftmancommon.TreeNode) int {
 	maxdepth := 0
 	r := 0
 	dfs(root, 1, &maxdepth, &r)
 	return r
 }
 
-func dfs(root *TreeNode, depth int, maxdepth *int, r *int) {
+func dfs(root *ysoftmancommon.TreeNode, depth int, maxdepth *int, r *int) {
 	if root == nil {
 		return
 	}
@@ -79,10 +83,10 @@ func dfs(root *TreeNode, depth int, maxdepth *int, r *int) {
 }
 
 func main() {
-	root := makeArrayToBinaryTreeNode([]string{"2", "1", "3"})
+	root := ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"2", "1", "3"})
 	fmt.Println(findBottomLeftValue(root))
-	root = makeArrayToBinaryTreeNode([]string{"1", "2", "3", "4", "null", "5", "6", "null", "null", "7"})
+	root = ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"1", "2", "3", "4", "null", "5", "6", "null", "null", "7"})
 	fmt.Println(findBottomLeftValue(root))
-	root = makeArrayToBinaryTreeNode([]string{"1"})
+	root = ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"1"})
 	fmt.Println(findBottomLeftValue(root))
 }

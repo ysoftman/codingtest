@@ -28,7 +28,11 @@ The number of nodes in the tree is in the range [0, 5000].
 */
 package main
 
-import "fmt"
+import (
+	"fmt"
+
+	"github.com/ysoftman/ysoftmancommon"
+)
 
 /**
  * Definition for a binary tree node.
@@ -38,7 +42,7 @@ import "fmt"
  *     Right *TreeNode
  * }
  */
-func recursiveFindPath(root *TreeNode, target int, values []int, result *[][]int) {
+func recursiveFindPath(root *ysoftmancommon.TreeNode, target int, values []int, result *[][]int) {
 	if root == nil {
 		return
 	}
@@ -54,16 +58,17 @@ func recursiveFindPath(root *TreeNode, target int, values []int, result *[][]int
 	recursiveFindPath(root.Left, target-root.Val, values, result)
 	recursiveFindPath(root.Right, target-root.Val, values, result)
 }
-func pathSum(root *TreeNode, targetSum int) [][]int {
+
+func pathSum(root *ysoftmancommon.TreeNode, targetSum int) [][]int {
 	result := [][]int{}
 	recursiveFindPath(root, targetSum, []int{}, &result)
 	return result
 }
 
 func main() {
-	fmt.Println(pathSum(makeArrayToBinaryTreeNode([]string{"5", "4", "8", "11", "null", "13", "4", "7", "2", "null", "null", "5", "1"}), 22))
-	fmt.Println(pathSum(makeArrayToBinaryTreeNode([]string{"1", "2", "3"}), 5))
-	fmt.Println(pathSum(makeArrayToBinaryTreeNode([]string{"1", "2"}), 0))
-	fmt.Println(pathSum(makeArrayToBinaryTreeNode([]string{"1", "2"}), 1))
-	fmt.Println(pathSum(makeArrayToBinaryTreeNode([]string{"-2", "null", "-3"}), -5))
+	fmt.Println(pathSum(ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"5", "4", "8", "11", "null", "13", "4", "7", "2", "null", "null", "5", "1"}), 22))
+	fmt.Println(pathSum(ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"1", "2", "3"}), 5))
+	fmt.Println(pathSum(ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"1", "2"}), 0))
+	fmt.Println(pathSum(ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"1", "2"}), 1))
+	fmt.Println(pathSum(ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"-2", "null", "-3"}), -5))
 }

@@ -64,12 +64,12 @@ func largestValues(root *TreeNode) []int {
 }
 
 func main() {
-	root := makeArrayToBinaryTreeNode([]string{"1", "3", "2", "5", "3", "null", "9"})
+	root := ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"1", "3", "2", "5", "3", "null", "9"})
 	fmt.Println(largestValues(root))
-	root = makeArrayToBinaryTreeNode([]string{"1", "2", "3"})
+	root = ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"1", "2", "3"})
 	fmt.Println(largestValues(root))
-	root = makeArrayToBinaryTreeNode([]string{"1", "2", "-3"})
+	root = ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"1", "2", "-3"})
 	fmt.Println(largestValues(root))
-	root = makeArrayToBinaryTreeNode([]string{"1"})
+	root = ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"1"})
 	fmt.Println(largestValues(root))
 }

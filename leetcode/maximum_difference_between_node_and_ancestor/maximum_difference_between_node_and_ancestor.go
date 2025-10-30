@@ -63,8 +63,8 @@ func maxAncestorDiff(root *TreeNode) int {
 }
 
 func main() {
-	root := makeArrayToBinaryTreeNode([]string{"8", "3", "10", "1", "6", "null", "14", "null", "null", "4", "7", "13"})
+	root := ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"8", "3", "10", "1", "6", "null", "14", "null", "null", "4", "7", "13"})
 	fmt.Println(maxAncestorDiff(root))
-	root = makeArrayToBinaryTreeNode([]string{"1", "null", "2", "null", "0", "3"})
+	root = ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"1", "null", "2", "null", "0", "3"})
 	fmt.Println(maxAncestorDiff(root))
 }

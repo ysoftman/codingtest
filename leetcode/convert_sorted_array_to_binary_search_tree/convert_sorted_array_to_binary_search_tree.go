@@ -48,7 +48,7 @@ func sortedArrayToBST(nums []int) *TreeNode {
 }
 
 func main() {
-	printTreeNodeByBFS(sortedArrayToBST([]int{-10, -3, 0, 5, 9}))
-	printTreeNodeByBFS(sortedArrayToBST([]int{1, 3}))
-	printTreeNodeByBFS(sortedArrayToBST([]int{-10, -5, -4, -3, 0, 5, 9}))
+	ysoftmancommon.PrintTreeNodeByBFS(sortedArrayToBST([]int{-10, -3, 0, 5, 9}))
+	ysoftmancommon.PrintTreeNodeByBFS(sortedArrayToBST([]int{1, 3}))
+	ysoftmancommon.PrintTreeNodeByBFS(sortedArrayToBST([]int{-10, -5, -4, -3, 0, 5, 9}))
 }

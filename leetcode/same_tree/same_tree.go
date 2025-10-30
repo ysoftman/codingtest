@@ -16,11 +16,14 @@ Output: false
 Example 3:
 Input: p = [1,2,1], q = [1,1,2]
 Output: false
-
 */
 package main
 
-import "fmt"
+import (
+	"fmt"
+
+	"github.com/ysoftman/ysoftmancommon"
+)
 
 /**
  * Definition for a binary tree node.
@@ -30,9 +33,9 @@ import "fmt"
  *     Right *TreeNode
  * }
  */
-func isSameTree2(p *TreeNode, q *TreeNode) bool {
-	pNodes := []TreeNode{}
-	qNodes := []TreeNode{}
+func isSameTree2(p *ysoftmancommon.TreeNode, q *ysoftmancommon.TreeNode) bool {
+	pNodes := []ysoftmancommon.TreeNode{}
+	qNodes := []ysoftmancommon.TreeNode{}
 	if p != nil {
 		pNodes = append(pNodes, *p)
 	}
@@ -86,7 +89,7 @@ func isSameTree2(p *TreeNode, q *TreeNode) bool {
 	return true
 }
 
-func isSameTree(p *TreeNode, q *TreeNode) bool {
+func isSameTree(p *ysoftmancommon.TreeNode, q *ysoftmancommon.TreeNode) bool {
 	if p == nil && q == nil {
 		return true
 	}
@@ -109,15 +112,15 @@ func isSameTree(p *TreeNode, q *TreeNode) bool {
 }
 
 func main() {
-	left := makeArrayToBinaryTreeNode([]string{"1", "2", "3"})
-	right := makeArrayToBinaryTreeNode([]string{"1", "2", "3"})
+	left := ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"1", "2", "3"})
+	right := ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"1", "2", "3"})
 	fmt.Println(isSameTree(left, right))
 
-	left = makeArrayToBinaryTreeNode([]string{"1", "2"})
-	right = makeArrayToBinaryTreeNode([]string{"1", "null", "2"})
+	left = ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"1", "2"})
+	right = ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"1", "null", "2"})
 	fmt.Println(isSameTree(left, right))
 
-	left = makeArrayToBinaryTreeNode([]string{"1", "2", "1"})
-	right = makeArrayToBinaryTreeNode([]string{"1", "1", "2"})
+	left = ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"1", "2", "1"})
+	right = ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"1", "1", "2"})
 	fmt.Println(isSameTree(left, right))
 }

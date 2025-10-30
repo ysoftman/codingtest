@@ -23,7 +23,11 @@ Follow up: Recursive solution is trivial, could you do it iteratively?
 */
 package main
 
-import "fmt"
+import (
+	"fmt"
+
+	"github.com/ysoftman/ysoftmancommon"
+)
 
 /**
  * Definition for a Node.
@@ -32,7 +36,7 @@ import "fmt"
  *     Children []*Node
  * }
  */
-func recursive(root *Node, r *[]int) {
+func recursive(root *ysoftmancommon.Node, r *[]int) {
 	if root == nil {
 		return
 	}
@@ -43,19 +47,19 @@ func recursive(root *Node, r *[]int) {
 }
 
 // recursive iteration
-func postorder2(root *Node) []int {
+func postorder2(root *ysoftmancommon.Node) []int {
 	r := []int{}
 	recursive(root, &r)
 	return r
 }
 
 // using stack
-func postorder(root *Node) []int {
+func postorder(root *ysoftmancommon.Node) []int {
 	r := []int{}
 	if root == nil {
 		return nil
 	}
-	s := []*Node{root}
+	s := []*ysoftmancommon.Node{root}
 	for len(s) > 0 {
 		top := s[len(s)-1]
 		// pop
@@ -74,6 +78,6 @@ func postorder(root *Node) []int {
 }
 
 func main() {
-	node := makeArrayToNode([]string{"1", "null", "3", "2", "4", "null", "5", "6"})
+	node := ysoftmancommon.MakeArrayToNode([]string{"1", "null", "3", "2", "4", "null", "5", "6"})
 	fmt.Println(postorder(node))
 }

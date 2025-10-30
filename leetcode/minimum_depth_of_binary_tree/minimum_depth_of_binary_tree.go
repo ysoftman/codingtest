@@ -70,12 +70,12 @@ func minDepth(root *TreeNode) int {
 	return min(left, right) + 1
 }
 func main() {
-	node := makeArrayToBinaryTreeNode([]string{"3", "9", "20", "null", "null", "15", "7"})
+	node := ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"3", "9", "20", "null", "null", "15", "7"})
 	fmt.Println(minDepth(node))
-	node = makeArrayToBinaryTreeNode([]string{"2", "null", "3", "null", "4", "null", "5", "null", "6"})
+	node = ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"2", "null", "3", "null", "4", "null", "5", "null", "6"})
 	fmt.Println(minDepth(node))
-	node = makeArrayToBinaryTreeNode([]string{"2", "2", "3", "null", "4", "null", "5", "null", "6"})
+	node = ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"2", "2", "3", "null", "4", "null", "5", "null", "6"})
 	fmt.Println(minDepth(node))
-	node = makeArrayToBinaryTreeNode([]string{})
+	node = ysoftmancommon.MakeArrayToBinaryTreeNode([]string{})
 	fmt.Println(minDepth(node))
 }

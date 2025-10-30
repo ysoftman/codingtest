@@ -22,7 +22,11 @@ The number of nodes in the tree is in the range [0, 100].
 */
 package main
 
-import "fmt"
+import (
+	"fmt"
+
+	"github.com/ysoftman/ysoftmancommon"
+)
 
 /**
  * Definition for a binary tree node.
@@ -48,7 +52,7 @@ next(child) level 이 아직 남아 있을 수 도 있어
 */
 
 // dfs(pre-order) 방법
-func recursiveRightNode(root *TreeNode, level int, r *[]int) {
+func recursiveRightNode(root *ysoftmancommon.TreeNode, level int, r *[]int) {
 	if root == nil {
 		return
 	}
@@ -59,27 +63,27 @@ func recursiveRightNode(root *TreeNode, level int, r *[]int) {
 	// 오른쪽 부터 탐색
 	recursiveRightNode(root.Right, level+1, r)
 	recursiveRightNode(root.Left, level+1, r)
-
 }
-func rightSideView(root *TreeNode) []int {
+
+func rightSideView(root *ysoftmancommon.TreeNode) []int {
 	result := []int{}
 	recursiveRightNode(root, 1, &result)
 	return result
 }
 
 // bfs 방법
-func rightSideView2(root *TreeNode) []int {
+func rightSideView2(root *ysoftmancommon.TreeNode) []int {
 	result := []int{}
 	if root == nil {
 		return result
 	}
-	q := []*TreeNode{root}
+	q := []*ysoftmancommon.TreeNode{root}
 	for len(q) > 0 {
 		// 현재 큐의 가장 오른쪽
 		right := q[len(q)-1]
 		result = append(result, right.Val)
 
-		tempq := []*TreeNode{}
+		tempq := []*ysoftmancommon.TreeNode{}
 		for len(q) > 0 {
 			top := q[0]
 			q = q[1:]
@@ -95,13 +99,14 @@ func rightSideView2(root *TreeNode) []int {
 	}
 	return result
 }
+
 func main() {
-	root := makeArrayToBinaryTreeNode([]string{"1", "2", "3", "null", "5", "null", "4"})
+	root := ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"1", "2", "3", "null", "5", "null", "4"})
 	fmt.Println(rightSideView(root))
-	root = makeArrayToBinaryTreeNode([]string{"1", "null", "3"})
+	root = ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"1", "null", "3"})
 	fmt.Println(rightSideView(root))
-	root = makeArrayToBinaryTreeNode([]string{})
+	root = ysoftmancommon.MakeArrayToBinaryTreeNode([]string{})
 	fmt.Println(rightSideView(root))
-	root = makeArrayToBinaryTreeNode([]string{"1", "2", "3", "4", "null", "null", "null", "5", "6"})
+	root = ysoftmancommon.MakeArrayToBinaryTreeNode([]string{"1", "2", "3", "4", "null", "null", "null", "5", "6"})
 	fmt.Println(rightSideView(root))
 }

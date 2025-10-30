@@ -36,7 +36,11 @@ At most 104 calls will be made to sumRegion.
 
 package main
 
-import "fmt"
+import (
+	"fmt"
+
+	"github.com/ysoftman/ysoftmancommon"
+)
 
 type NumMatrix struct {
 	mat [][]int
@@ -94,9 +98,10 @@ func main() {
 		{5, 6, 3, 2, 1},
 		{1, 2, 0, 1, 5},
 		{4, 1, 0, 1, 7},
-		{1, 0, 3, 0, 5}}
+		{1, 0, 3, 0, 5},
+	}
 	obj := Constructor(mat)
-	printMatrix(obj.mat)
+	ysoftmancommon.PrintMatrix(obj.mat)
 	fmt.Println(obj.SumRegion(2, 1, 4, 3))
 	fmt.Println(obj.SumRegion(1, 1, 2, 2))
 	fmt.Println(obj.SumRegion(1, 2, 2, 4))
@@ -104,22 +109,11 @@ func main() {
 	// ["NumMatrix","sumRegion","sumRegion","sumRegion"]
 	// [[[[-4,-5]]],[0,0,0,0],[0,0,0,1],[0,1,0,1]]
 	mat = [][]int{
-		{-4, -5}}
+		{-4, -5},
+	}
 	obj = Constructor(mat)
-	printMatrix(obj.mat)
+	ysoftmancommon.PrintMatrix(obj.mat)
 	fmt.Println(obj.SumRegion(0, 0, 0, 0))
 	fmt.Println(obj.SumRegion(0, 0, 0, 1))
 	fmt.Println(obj.SumRegion(0, 1, 0, 1))
-
-}
-
-func printMatrix(mat [][]int) {
-	rows := len(mat)
-	cols := len(mat[0])
-	for i := 0; i < rows; i++ {
-		for j := 0; j < cols; j++ {
-			fmt.Printf("%2v ", mat[i][j])
-		}
-		fmt.Println()
-	}
 }
