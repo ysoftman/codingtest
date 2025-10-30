@@ -32,13 +32,13 @@ The above figure represents the given linked list.
 For n = 2, node 1 with value 1 is the middle node, which is marked in red.
 Node 0 with value 2 is the only node remaining after removing node 1.
 
-
 Constraints:
-
 The number of nodes in the list is in the range [1, 105].
 1 <= Node.val <= 105
 */
 package main
+
+import "github.com/ysoftman/ysoftmancommon"
 
 /**
  * Definition for singly-linked list.
@@ -47,7 +47,7 @@ package main
  *     Next *ListNode
  * }
  */
-func deleteMiddle2(head *ListNode) *ListNode {
+func deleteMiddle2(head *ysoftmancommon.ListNode) *ysoftmancommon.ListNode {
 	// edge case: node 가 1개일땐느 nil 리턴
 	if head.Next == nil {
 		return nil
@@ -70,7 +70,7 @@ func deleteMiddle2(head *ListNode) *ListNode {
 }
 
 // slow, fast 2개의 포인터를 사용하는  방법
-func deleteMiddle(head *ListNode) *ListNode {
+func deleteMiddle(head *ysoftmancommon.ListNode) *ysoftmancommon.ListNode {
 	if head.Next == nil {
 		return nil
 	}
@@ -92,16 +92,16 @@ func deleteMiddle(head *ListNode) *ListNode {
 }
 
 func main() {
-	head := ([]int{1, 3, 4, 7, 1, 2, 6})
+	head := ysoftmancommon.MakeLinkedList([]int{1, 3, 4, 7, 1, 2, 6})
 	head = deleteMiddle(head)
 	ysoftmancommon.PrintLinkedList(head)
-	head = ([]int{1, 2, 3, 4})
+	head = ysoftmancommon.MakeLinkedList([]int{1, 2, 3, 4})
 	head = deleteMiddle(head)
 	ysoftmancommon.PrintLinkedList(head)
-	head = ([]int{2, 1})
+	head = ysoftmancommon.MakeLinkedList([]int{2, 1})
 	head = deleteMiddle(head)
 	ysoftmancommon.PrintLinkedList(head)
-	head = ([]int{1})
+	head = ysoftmancommon.MakeLinkedList([]int{1})
 	head = deleteMiddle(head)
 	ysoftmancommon.PrintLinkedList(head)
 }

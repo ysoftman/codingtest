@@ -20,7 +20,11 @@ Follow up: Could you do it in O(n) time and O(1) space?
 */
 package main
 
-import "fmt"
+import (
+	"fmt"
+
+	"github.com/ysoftman/ysoftmancommon"
+)
 
 /**
  * Definition for singly-linked list.
@@ -30,7 +34,7 @@ import "fmt"
  * }
  */
 // Palindrome, 똑바로 읽으나 뒤에서부터 읽으나 같은 문자열
-func isPalindrome2(head *ListNode) bool {
+func isPalindrome2(head *ysoftmancommon.ListNode) bool {
 	if head == nil {
 		return false
 	}
@@ -49,8 +53,8 @@ func isPalindrome2(head *ListNode) bool {
 	return true
 }
 
-func reverseList(head *ListNode) *ListNode {
-	pre := (*ListNode)(nil)
+func reverseList(head *ysoftmancommon.ListNode) *ysoftmancommon.ListNode {
+	pre := (*ysoftmancommon.ListNode)(nil)
 	for head != nil {
 		next := head.Next
 		head.Next = pre
@@ -61,8 +65,7 @@ func reverseList(head *ListNode) *ListNode {
 }
 
 // time complexity: O(N)
-func isPalindrome(head *ListNode) bool {
-
+func isPalindrome(head *ysoftmancommon.ListNode) bool {
 	// 중간 노드 찾기
 	fast := head
 	slow := head
@@ -98,10 +101,10 @@ func isPalindrome(head *ListNode) bool {
 }
 
 func main() {
-	fmt.Println(isPalindrome(([]int{1, 2, 2, 1})))
-	fmt.Println(isPalindrome(([]int{1, 2})))
-	fmt.Println(isPalindrome(([]int{1})))
-	fmt.Println(isPalindrome(([]int{1, 2, 3, 5, 5, 3})))
-	fmt.Println(isPalindrome(([]int{1, 2, 3, 2, 1})))
-	fmt.Println(isPalindrome(([]int{1, 2, 3, 4, 5, 5, 4, 3, 2, 1})))
+	fmt.Println(isPalindrome(ysoftmancommon.MakeLinkedList([]int{1, 2, 2, 1})))
+	fmt.Println(isPalindrome(ysoftmancommon.MakeLinkedList([]int{1, 2})))
+	fmt.Println(isPalindrome(ysoftmancommon.MakeLinkedList([]int{1})))
+	fmt.Println(isPalindrome(ysoftmancommon.MakeLinkedList([]int{1, 2, 3, 5, 5, 3})))
+	fmt.Println(isPalindrome(ysoftmancommon.MakeLinkedList([]int{1, 2, 3, 2, 1})))
+	fmt.Println(isPalindrome(ysoftmancommon.MakeLinkedList([]int{1, 2, 3, 4, 5, 5, 4, 3, 2, 1})))
 }

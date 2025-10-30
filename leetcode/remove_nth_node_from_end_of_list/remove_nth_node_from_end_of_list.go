@@ -20,6 +20,8 @@ Output: [1]
 
 package main
 
+import "github.com/ysoftman/ysoftmancommon"
+
 /**
  * Definition for singly-linked list.
  * type ListNode struct {
@@ -27,9 +29,9 @@ package main
  *     Next *ListNode
  * }
  */
-func removeNthFromEnd2(head *ListNode, n int) *ListNode {
+func removeNthFromEnd2(head *ysoftmancommon.ListNode, n int) *ysoftmancommon.ListNode {
 	node := head
-	arr := []*ListNode{}
+	arr := []*ysoftmancommon.ListNode{}
 	for node != nil {
 		arr = append(arr, node)
 		node = node.Next
@@ -54,7 +56,7 @@ func removeNthFromEnd2(head *ListNode, n int) *ListNode {
 	return head
 }
 
-func removeNthFromEnd(head *ListNode, n int) *ListNode {
+func removeNthFromEnd(head *ysoftmancommon.ListNode, n int) *ysoftmancommon.ListNode {
 	root := head
 	length := 0
 	// find length of LinkedList
@@ -72,8 +74,8 @@ func removeNthFromEnd(head *ListNode, n int) *ListNode {
 	n = length - (n - 1)
 
 	cnt := 1
-	var previous *ListNode = nil
-	var next *ListNode = nil
+	var previous *ysoftmancommon.ListNode = nil
+	var next *ysoftmancommon.ListNode = nil
 	for head != nil {
 		if cnt == n-1 {
 			previous = head
@@ -92,14 +94,14 @@ func removeNthFromEnd(head *ListNode, n int) *ListNode {
 	return root
 }
 
-func array2LinkNode(arr *[]int) *ListNode {
-	node := &ListNode{}
+func array2LinkNode(arr *[]int) *ysoftmancommon.ListNode {
+	node := &ysoftmancommon.ListNode{}
 	head := node
 	if len(*arr) > 0 {
 		node.Val = (*arr)[0]
 	}
 	for i := 1; i < len(*arr); i++ {
-		node.Next = &ListNode{
+		node.Next = &ysoftmancommon.ListNode{
 			Val: (*arr)[i],
 		}
 		node = node.Next
@@ -107,6 +109,7 @@ func array2LinkNode(arr *[]int) *ListNode {
 
 	return head
 }
+
 func main() {
 	head := array2LinkNode(&[]int{1, 2, 3, 4, 5})
 	ysoftmancommon.PrintLinkedList(head)
@@ -123,5 +126,4 @@ func main() {
 	head = array2LinkNode(&[]int{1, 2})
 	ysoftmancommon.PrintLinkedList(head)
 	ysoftmancommon.PrintLinkedList(removeNthFromEnd(head, 2))
-
 }
