@@ -53,6 +53,8 @@ check-file = false
 extend-exclude = [
   "go.sum",
   "maximum_length_of_a_concatenated_string_with_unique_characters.go",
+  "partitioning_into_minimum_number_of_deci_binary_numbers.go",
+  "longest_word_in_dictionary.go",
   "edit_distance.go",
 ]
 
