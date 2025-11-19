@@ -1,6 +1,6 @@
 import os
 import subprocess
-from multiprocessing import Pool
+from multiprocessing import Pool, cpu_count
 
 
 def go_run(dirpath):
@@ -27,5 +27,7 @@ if __name__ == "__main__":
         if any(f.endswith(".go") for f in filenames)
     ]
 
-    with Pool(processes=20) as pool:  # 동시에 20개 실행
+    # CPU 코어 수보다 많은 프로세스를 돌리면 오히려 병목 + 스위칭 비용 증가 때문에 처리 속도가 느려진다.
+    print(f"cput_count={cpu_count()}")
+    with Pool(processes=cpu_count()) as pool:
         pool.map(go_run, dirs)
